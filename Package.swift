@@ -17,5 +17,9 @@ let package = Package(
         .target(
             name: "TossPayments",
             dependencies: []),
+        .target(
+            name: "TossPayments-Examples",
+            dependencies: ["TossPayments"],
+            path: "Examples")
     ]
 )

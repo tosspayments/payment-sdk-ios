@@ -62,7 +62,18 @@ public struct TossPaymentsView: View {
 @available(iOS 14.0, *)
 struct View_Previews: PreviewProvider {
     static var previews: some View {
-        fatalError()
+        TossPaymentsView(
+            clientKey: "TEST",
+            결제수단: .custom(method: "TEST"),
+            결제정보: .init(
+                amount: 100,
+                orderId: "TEST",
+                orderName: "TESTER",
+                successUrl: "tosspayments://",
+                failUrl: "tosspayments://"
+            ),
+            isPresented: false
+        )
     }
 }
 

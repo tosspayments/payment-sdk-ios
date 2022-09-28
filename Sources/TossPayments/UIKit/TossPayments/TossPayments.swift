@@ -36,6 +36,43 @@ public class TossPayments {
         
         rootViewController.present(navigationController, animated: true)
     }
+    
+    public func requestCardPayment(
+        _ 카드결제정보: 카드결제정보,
+        on rootViewController: UIViewController
+    ) {
+        requestPayment(.카드, 카드결제정보, on: rootViewController)
+    }
+    
+    public func requestTransferPayment(
+        _ 계좌이체결제정보: 계좌이체결제정보,
+        on rootViewController: UIViewController
+    ) {
+        requestPayment(.계좌이체, 계좌이체결제정보, on: rootViewController)
+    }
+    
+    public func requestVirtualAccountPayment(
+        _ 가상계좌결제정보: 가상계좌결제정보,
+        on rootViewController: UIViewController
+    ) {
+        requestPayment(.가상계좌, 가상계좌결제정보, on: rootViewController)
+    }
+
+    public func requestMobilePhonePayment(
+        _ 휴대폰결제정보: 휴대폰결제정보,
+        on rootViewController: UIViewController
+    ) {
+        requestPayment(.휴대폰, 휴대폰결제정보, on: rootViewController)
+    }
+
+    public func requestCertificateCardPayment(
+        _ 상품권결제수단: 상품권결제수단,
+        _ 상품권결제정보: 상품권결제정보,
+        on rootViewController: UIViewController
+    ) {
+        let 결제수단 = 상품권결제수단.결제수단
+        requestPayment(결제수단, 상품권결제정보, on: rootViewController)
+    }
 }
 
 private extension TossPayments {

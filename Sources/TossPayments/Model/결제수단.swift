@@ -8,8 +8,6 @@
 import Foundation
 
 public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
-    public typealias RawValue = String
-    
     case 카드
     case 계좌
     case 토스페이

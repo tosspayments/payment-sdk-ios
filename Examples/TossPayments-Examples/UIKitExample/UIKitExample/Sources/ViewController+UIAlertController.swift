@@ -5,7 +5,9 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
+#if canImport(UIKit)
 import UIKit
+import TossPayments
 
 extension ViewController {
     func showAlertForInputCustomMethod() {
@@ -17,7 +19,7 @@ extension ViewController {
         alertController.addTextField()
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
             if let title = alertController.textFields?.first?.text {
-                self.입력한결제수단 = .custom(method: title)
+                self.입력한결제수단 = 결제수단(rawValue: title)
             }
         }))
         
@@ -34,3 +36,5 @@ extension ViewController {
         present(alertController, animated: true)
     }
 }
+
+#endif

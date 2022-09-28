@@ -5,6 +5,7 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
+#if canImport(UIKit)
 import UIKit
 
 extension ViewController {
@@ -69,3 +70,5 @@ extension ViewController {
         }
     }
 }
+
+#endif

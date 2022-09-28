@@ -16,10 +16,8 @@ let package = Package(
     targets: [
         .target(
             name: "TossPayments",
-            dependencies: []),
-        .target(
-            name: "TossPayments-Examples",
-            dependencies: ["TossPayments"],
-            path: "Examples")
-    ]
+            dependencies: []
+        )
+    ],
+    swiftLanguageVersions: [.v5]
 )

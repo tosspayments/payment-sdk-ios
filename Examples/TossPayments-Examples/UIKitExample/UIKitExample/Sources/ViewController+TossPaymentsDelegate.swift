@@ -5,6 +5,7 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
+#if canImport(UIKit)
 import Foundation
 import TossPayments
 
@@ -21,3 +22,5 @@ extension ViewController: TossPaymentsDelegate {
         print("didFailRequestPayments (orderId): \(orderId)")
     }
 }
+
+#endif

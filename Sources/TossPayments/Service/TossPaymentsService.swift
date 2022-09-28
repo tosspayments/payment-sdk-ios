@@ -5,7 +5,8 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
-import Foundation
+#if canImport(UIKit)
+import UIKit
 import WebKit
 
 class TossPaymentsService: NSObject {
@@ -121,3 +122,5 @@ extension TossPaymentsService {
         return true
     }
 }
+
+#endif

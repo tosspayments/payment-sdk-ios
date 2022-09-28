@@ -5,6 +5,8 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
+#if canImport(UIKit)
+
 import UIKit
 import WebKit
 
@@ -51,3 +53,5 @@ final class TossPaymentsViewController: UIViewController {
         }
     }
 }
+
+#endif

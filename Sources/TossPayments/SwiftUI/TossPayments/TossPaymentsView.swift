@@ -5,7 +5,7 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
-#if canImport(SwiftUI)
+#if canImport(SwiftUI) && canImport(UIKit)
 import SwiftUI
 
 @available(iOS 14.0, *)
@@ -72,7 +72,7 @@ struct View_Previews: PreviewProvider {
                 successUrl: "tosspayments://",
                 failUrl: "tosspayments://"
             ),
-            isPresented: false
+            isPresented: .constant(false)
         )
     }
 }

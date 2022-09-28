@@ -8,6 +8,8 @@
 import Foundation
 
 public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
+    public typealias RawValue = String
+    
     case 카드
     case 계좌
     case 토스페이
@@ -17,7 +19,7 @@ public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
     case 문화상품권
     case 도서문화상품권
     case 게임문화상품권
-    
+
     case CARD
     case TOSSPAY
     case VIRTUAL_ACCOUNT
@@ -26,7 +28,7 @@ public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
     case CULTURE_GIFT_CERTIFICATE
     case BOOK_GIFT_CERTIFICATE
     case GAME_GIFT_CERTIFICATE
-    
+
     case custom(method: String)
 
     public init?(rawValue: String) {
@@ -51,7 +53,7 @@ public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
         default: self = .custom(method: rawValue)
         }
     }
-    
+
     public var rawValue: String {
         switch self {
         case .카드: return "카드"
@@ -75,9 +77,7 @@ public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
             return method
         }
     }
-    
-    public typealias RawValue = String
-    
+
     public static var allCases: [결제수단] {
         return [
             .카드, .계좌, .토스페이, .가상계좌, .계좌이체, .휴대폰, .문화상품권, .도서문화상품권,

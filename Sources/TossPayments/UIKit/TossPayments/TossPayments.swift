@@ -1,3 +1,5 @@
+#if canImport(UIKit)
+
 import UIKit
 
 public class TossPayments {
@@ -8,7 +10,6 @@ public class TossPayments {
     ) {
         self.clientKey = clientKey
     }
-
     public func requestPayment(
         _ 결제수단: 결제수단,
         _ 결제정보: 결제정보,
@@ -54,3 +55,5 @@ private extension TossPayments {
         delegate?.didFailRequestPayments(erroCode: errorCode, errorMessage: errorMessage, orderId: orderId)
     }
 }
+
+#endif

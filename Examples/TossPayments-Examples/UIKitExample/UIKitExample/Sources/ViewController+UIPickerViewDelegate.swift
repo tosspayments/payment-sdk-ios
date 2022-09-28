@@ -5,6 +5,7 @@
 //  Created by 김진규 on 2022/09/27.
 //
 
+#if canImport(UIKit)
 import UIKit
 import TossPayments
 
@@ -37,3 +38,5 @@ extension ViewController: UIPickerViewDataSource {
         return 결제수단.allCases.count + 1
     }
 }
+
+#endif

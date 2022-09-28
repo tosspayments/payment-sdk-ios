@@ -3,103 +3,164 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A82854A28E32B8300CD6C9D /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 6A82854928E32B8300CD6C9D /* TossPayments */; };
-		6A82854C28E32CDD00CD6C9D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A82854B28E32CDD00CD6C9D /* Constants.swift */; };
-		6AC3F35E28E328F50087C224 /* SwiftUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3F35D28E328F50087C224 /* SwiftUIExampleApp.swift */; };
-		6AC3F36028E328F50087C224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AC3F35F28E328F50087C224 /* ContentView.swift */; };
-		6AC3F36228E328F60087C224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3F36128E328F60087C224 /* Assets.xcassets */; };
-		6AC3F36528E328F60087C224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AC3F36428E328F60087C224 /* Preview Assets.xcassets */; };
+		160DA60E3D38CB5BCC193831 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 746EB852002775CFCD35DC05 /* Preview Assets.xcassets */; };
+		54C0B01A5C996F444816DA6D /* TuistBundle+SwiftUIExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = E95116F33656CFE52514662C /* TuistBundle+SwiftUIExample.swift */; };
+		716016B8B40E9190271BD366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 876FE87B98611FE9BC312DBF /* Assets.xcassets */; };
+		8EFBB77CBD1AA56C5CA9BA76 /* TuistAssets+SwiftUIExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3C7929066819F74243D32D8 /* TuistAssets+SwiftUIExample.swift */; };
+		AF8DE9A59820BFD747883292 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A36C7ABA81EF32ED82A007C /* ContentView.swift */; };
+		B7FC8757D7077B659054EAE3 /* SwiftUIExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C3F06186CFA8BB4CFD6F76D /* SwiftUIExampleApp.swift */; };
+		E596D9BE85063139B5D39571 /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = F409194822063A2E5CE624A5 /* TossPayments */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		9DFA68E2ACAEA419839A5E65 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		6A25285728E3296D0002E569 /* payment-sdk-ios */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = "payment-sdk-ios"; path = ../../..; sourceTree = "<group>"; };
-		6A82854B28E32CDD00CD6C9D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		6AC3F35A28E328F50087C224 /* SwiftUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftUIExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		6AC3F35D28E328F50087C224 /* SwiftUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExampleApp.swift; sourceTree = "<group>"; };
-		6AC3F35F28E328F50087C224 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		6AC3F36128E328F60087C224 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		6AC3F36428E328F60087C224 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		42221DF982FD1BC0F6F304A1 /* SwiftUIExample-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "SwiftUIExample-Info.plist"; sourceTree = "<group>"; };
+		5C3F06186CFA8BB4CFD6F76D /* SwiftUIExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIExampleApp.swift; sourceTree = "<group>"; };
+		746EB852002775CFCD35DC05 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		876FE87B98611FE9BC312DBF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		88FA8434120EB88AEE8DD06C /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
+		9A36C7ABA81EF32ED82A007C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		9D389CF6EA8D15B911CECD3C /* TossPayments SwiftUIExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TossPayments SwiftUIExample.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B2946A4CFBF3649D6642B3F3 /* payment-sdk-ios */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "payment-sdk-ios"; path = ../../..; sourceTree = "<group>"; };
+		E95116F33656CFE52514662C /* TuistBundle+SwiftUIExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistBundle+SwiftUIExample.swift"; sourceTree = "<group>"; };
+		F3C7929066819F74243D32D8 /* TuistAssets+SwiftUIExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TuistAssets+SwiftUIExample.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		6AC3F35728E328F50087C224 /* Frameworks */ = {
+		86247E53049DF0B9B44BC7E2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A82854A28E32B8300CD6C9D /* TossPayments in Frameworks */,
+				E596D9BE85063139B5D39571 /* TossPayments in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6A25285628E3296D0002E569 /* Packages */ = {
+		0F842D108EA61D0BFF412A71 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				6A25285728E3296D0002E569 /* payment-sdk-ios */,
+				746EB852002775CFCD35DC05 /* Preview Assets.xcassets */,
 			);
-			name = Packages;
+			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		6A82854828E32B8300CD6C9D /* Frameworks */ = {
+		1D92D5CCC858F58172248957 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9A36C7ABA81EF32ED82A007C /* ContentView.swift */,
+				5C3F06186CFA8BB4CFD6F76D /* SwiftUIExampleApp.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		67BC910E160023109DA4870F /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				F3C7929066819F74243D32D8 /* TuistAssets+SwiftUIExample.swift */,
+				E95116F33656CFE52514662C /* TuistBundle+SwiftUIExample.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7942BE694006222111A69DF2 /* InfoPlists */ = {
+			isa = PBXGroup;
+			children = (
+				42221DF982FD1BC0F6F304A1 /* SwiftUIExample-Info.plist */,
+			);
+			path = InfoPlists;
+			sourceTree = "<group>";
+		};
+		B26C454AC768ACEDA3C28A4E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9D389CF6EA8D15B911CECD3C /* TossPayments SwiftUIExample.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B500C53AB789FD86A731CE97 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6AC3F35128E328F50087C224 = {
+		B9638FDB4CCE9078075763B3 = {
 			isa = PBXGroup;
 			children = (
-				6A25285628E3296D0002E569 /* Packages */,
-				6AC3F35C28E328F50087C224 /* SwiftUIExample */,
-				6AC3F35B28E328F50087C224 /* Products */,
-				6A82854828E32B8300CD6C9D /* Frameworks */,
+				F9D3B1D22E12A524F096B3FF /* Project */,
+				B500C53AB789FD86A731CE97 /* Frameworks */,
+				B26C454AC768ACEDA3C28A4E /* Products */,
+				B2946A4CFBF3649D6642B3F3 /* payment-sdk-ios */,
 			);
 			sourceTree = "<group>";
 		};
-		6AC3F35B28E328F50087C224 /* Products */ = {
+		BB18C38113EF4B25037E5766 /* Derived */ = {
 			isa = PBXGroup;
 			children = (
-				6AC3F35A28E328F50087C224 /* SwiftUIExample.app */,
+				7942BE694006222111A69DF2 /* InfoPlists */,
+				67BC910E160023109DA4870F /* Sources */,
 			);
-			name = Products;
+			path = Derived;
 			sourceTree = "<group>";
 		};
-		6AC3F35C28E328F50087C224 /* SwiftUIExample */ = {
+		E5F77E3B43C7B8D3D785BF6B /* SwiftUIExample */ = {
 			isa = PBXGroup;
 			children = (
-				6AC3F35D28E328F50087C224 /* SwiftUIExampleApp.swift */,
-				6AC3F35F28E328F50087C224 /* ContentView.swift */,
-				6AC3F36128E328F60087C224 /* Assets.xcassets */,
-				6AC3F36328E328F60087C224 /* Preview Content */,
-				6A82854B28E32CDD00CD6C9D /* Constants.swift */,
+				F271894554CED325055A2583 /* Resources */,
+				1D92D5CCC858F58172248957 /* Sources */,
 			);
 			path = SwiftUIExample;
 			sourceTree = "<group>";
 		};
-		6AC3F36328E328F60087C224 /* Preview Content */ = {
+		F271894554CED325055A2583 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6AC3F36428E328F60087C224 /* Preview Assets.xcassets */,
+				0F842D108EA61D0BFF412A71 /* Preview Content */,
+				876FE87B98611FE9BC312DBF /* Assets.xcassets */,
 			);
-			path = "Preview Content";
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F9D3B1D22E12A524F096B3FF /* Project */ = {
+			isa = PBXGroup;
+			children = (
+				BB18C38113EF4B25037E5766 /* Derived */,
+				E5F77E3B43C7B8D3D785BF6B /* SwiftUIExample */,
+				88FA8434120EB88AEE8DD06C /* Project.swift */,
+			);
+			name = Project;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		6AC3F35928E328F50087C224 /* SwiftUIExample */ = {
+		B246CF60B1838184DB3DB021 /* SwiftUIExample */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 6AC3F36828E328F60087C224 /* Build configuration list for PBXNativeTarget "SwiftUIExample" */;
+			buildConfigurationList = 6F0889EA56FE25E6CC82247C /* Build configuration list for PBXNativeTarget "SwiftUIExample" */;
 			buildPhases = (
-				6AC3F35628E328F50087C224 /* Sources */,
-				6AC3F35728E328F50087C224 /* Frameworks */,
-				6AC3F35828E328F50087C224 /* Resources */,
+				D3AA75F89C5544719DEE79A0 /* Sources */,
+				3051F30A1A839D7B6807540D /* Resources */,
+				9DFA68E2ACAEA419839A5E65 /* Embed Frameworks */,
+				86247E53049DF0B9B44BC7E2 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -107,78 +168,123 @@
 			);
 			name = SwiftUIExample;
 			packageProductDependencies = (
-				6A82854928E32B8300CD6C9D /* TossPayments */,
+				F409194822063A2E5CE624A5 /* TossPayments */,
 			);
-			productName = SwiftUIExample;
-			productReference = 6AC3F35A28E328F50087C224 /* SwiftUIExample.app */;
+			productName = "TossPayments SwiftUIExample";
+			productReference = 9D389CF6EA8D15B911CECD3C /* TossPayments SwiftUIExample.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		6AC3F35228E328F50087C224 /* Project object */ = {
+		67A04F35BD752B4018F989BB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				ORGANIZATIONNAME = "TossPayments, Inc";
 				TargetAttributes = {
-					6AC3F35928E328F50087C224 = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
 				};
 			};
-			buildConfigurationList = 6AC3F35528E328F50087C224 /* Build configuration list for PBXProject "SwiftUIExample" */;
+			buildConfigurationList = 7BD9D13120D140C8BD7821A1 /* Build configuration list for PBXProject "SwiftUIExample" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				en,
 			);
-			mainGroup = 6AC3F35128E328F50087C224;
-			productRefGroup = 6AC3F35B28E328F50087C224 /* Products */;
+			mainGroup = B9638FDB4CCE9078075763B3;
+			productRefGroup = B26C454AC768ACEDA3C28A4E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6AC3F35928E328F50087C224 /* SwiftUIExample */,
+				B246CF60B1838184DB3DB021 /* SwiftUIExample */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		6AC3F35828E328F50087C224 /* Resources */ = {
+		3051F30A1A839D7B6807540D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AC3F36528E328F60087C224 /* Preview Assets.xcassets in Resources */,
-				6AC3F36228E328F60087C224 /* Assets.xcassets in Resources */,
+				716016B8B40E9190271BD366 /* Assets.xcassets in Resources */,
+				160DA60E3D38CB5BCC193831 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		6AC3F35628E328F50087C224 /* Sources */ = {
+		D3AA75F89C5544719DEE79A0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AC3F36028E328F50087C224 /* ContentView.swift in Sources */,
-				6AC3F35E28E328F50087C224 /* SwiftUIExampleApp.swift in Sources */,
-				6A82854C28E32CDD00CD6C9D /* Constants.swift in Sources */,
+				8EFBB77CBD1AA56C5CA9BA76 /* TuistAssets+SwiftUIExample.swift in Sources */,
+				54C0B01A5C996F444816DA6D /* TuistBundle+SwiftUIExample.swift in Sources */,
+				AF8DE9A59820BFD747883292 /* ContentView.swift in Sources */,
+				B7FC8757D7077B659054EAE3 /* SwiftUIExampleApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		6AC3F36628E328F60087C224 /* Debug */ = {
+		0C945E507433DA9C314F5E83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/SwiftUIExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.swiftui;
+				PRODUCT_NAME = "TossPayments SwiftUIExample";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		1F5B8B066CF3049220668832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "Derived/InfoPlists/SwiftUIExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.swiftui;
+				PRODUCT_NAME = "TossPayments SwiftUIExample";
+				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_COMPILATION_MODE = singlefile;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C20CBAB056AC7A70EE6973B5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -205,6 +311,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -222,23 +329,21 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
+				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		6AC3F36728E328F60087C224 /* Release */ = {
+		F711238AAEF3327873B582BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -265,6 +370,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -276,93 +382,29 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		6AC3F36928E328F60087C224 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIExample/Preview Content\"";
-				DEVELOPMENT_TEAM = NXA4356DUW;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.SwiftUIExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		6AC3F36A28E328F60087C224 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SwiftUIExample/Preview Content\"";
-				DEVELOPMENT_TEAM = NXA4356DUW;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.SwiftUIExample;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		6AC3F35528E328F50087C224 /* Build configuration list for PBXProject "SwiftUIExample" */ = {
+		6F0889EA56FE25E6CC82247C /* Build configuration list for PBXNativeTarget "SwiftUIExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AC3F36628E328F60087C224 /* Debug */,
-				6AC3F36728E328F60087C224 /* Release */,
+				1F5B8B066CF3049220668832 /* Debug */,
+				0C945E507433DA9C314F5E83 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		6AC3F36828E328F60087C224 /* Build configuration list for PBXNativeTarget "SwiftUIExample" */ = {
+		7BD9D13120D140C8BD7821A1 /* Build configuration list for PBXProject "SwiftUIExample" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6AC3F36928E328F60087C224 /* Debug */,
-				6AC3F36A28E328F60087C224 /* Release */,
+				C20CBAB056AC7A70EE6973B5 /* Debug */,
+				F711238AAEF3327873B582BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -370,11 +412,11 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		6A82854928E32B8300CD6C9D /* TossPayments */ = {
+		F409194822063A2E5CE624A5 /* TossPayments */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = TossPayments;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = 6AC3F35228E328F50087C224 /* Project object */;
+	rootObject = 67A04F35BD752B4018F989BB /* Project object */;
 }

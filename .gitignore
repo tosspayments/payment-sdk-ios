@@ -13,3 +13,6 @@ DerivedData/
 /Examples/TossPayments-Examples/SwiftUIExample/SwiftUIExample.xcodeproj
 /Examples/TossPayments-Examples/UIKitExample/UIKitExample.xcodeproj
 TossPayments-Examples.xcworkspace
+GoogleService-Info.plist
+/Examples/TossPayments-Examples/SwiftUIExample/Derived
+/Examples/TossPayments-Examples/UIKitExample/Derived

@@ -26,4 +26,33 @@ public struct 계좌이체결제정보: 결제정보 {
     public let taxFreeAmount: Int64
     public let cultureExpense: Bool
     
+    public init(
+        amount: Int64,
+        orderId: String,
+        orderName: String,
+        successUrl: String,
+        failUrl: String,
+        windowTarget: String,
+        cashReceipt: CashReceipt,
+        useEscrow: Bool,
+        escrowProducts: EscrowProducts,
+        customerName: String?,
+        customerEmail: String?,
+        taxFreeAmount: Int64,
+        cultureExpense: Bool
+    ) {
+        self.amount = amount
+        self.orderId = orderId
+        self.orderName = orderName
+        self.successUrl = successUrl
+        self.failUrl = failUrl
+        self.windowTarget = windowTarget
+        self.cashReceipt = cashReceipt
+        self.useEscrow = useEscrow
+        self.escrowProducts = escrowProducts
+        self.customerName = customerName
+        self.customerEmail = customerEmail
+        self.taxFreeAmount = taxFreeAmount
+        self.cultureExpense = cultureExpense
+    }
 }

@@ -36,6 +36,57 @@ public struct 카드결제정보: 결제정보 {
     public struct Plan: Codable {
         public let company: String
         public let months: [Int]
-
+        
+        public init(
+            company: String,
+            months: [Int]
+        ) {
+            self.company = company
+            self.months = months
+        }
+    }
+    
+    public init(
+        amount: Int64,
+        orderId: String,
+        orderName: String,
+        successUrl: String,
+        failUrl: String,
+        windowTarget: String,
+        cardCompany: String,
+        cardInstallmentPlan: Int64,
+        maxCardInstallmentPlan: Int64,
+        freeInstallmentPlans: [Plan],
+        useCardPoint: Bool,
+        useAppCardOnly: Bool,
+        useInternationalCardOnly: Bool,
+        flowMode: String,
+        easyPay: String,
+        discountCode: String,
+        appScheme: String,
+        customerName: String?,
+        customerEmail: String?,
+        taxFreeAmount: Int64
+    ) {
+        self.amount = amount
+        self.orderId = orderId
+        self.orderName = orderName
+        self.successUrl = successUrl
+        self.failUrl = failUrl
+        self.windowTarget = windowTarget
+        self.cardCompany = cardCompany
+        self.cardInstallmentPlan = cardInstallmentPlan
+        self.maxCardInstallmentPlan = maxCardInstallmentPlan
+        self.freeInstallmentPlans = freeInstallmentPlans
+        self.useCardPoint = useCardPoint
+        self.useAppCardOnly = useAppCardOnly
+        self.useInternationalCardOnly = useInternationalCardOnly
+        self.flowMode = flowMode
+        self.easyPay = easyPay
+        self.discountCode = discountCode
+        self.appScheme = appScheme
+        self.customerName = customerName
+        self.customerEmail = customerEmail
+        self.taxFreeAmount = taxFreeAmount
     }
 }

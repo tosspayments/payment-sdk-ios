@@ -31,4 +31,46 @@ public struct 가상계좌결제정보: 결제정보 {
     public let customerEmail: String?
     public let taxFreeAmount: Int64
     public let cultureExpense: Bool
+    
+    public init(
+        amount: Int64,
+        orderId: String,
+        orderName: String,
+        successUrl: String,
+        failUrl: String,
+        windowTarget: String,
+        validHours: Int64,
+        dueDate: String,
+        virtualAccountCallbackUrl: String,
+        customerMobilePhone: String,
+        showCustomerMobilePhone: Bool,
+        cashReceipt: CashReceipt,
+        useEscrow: Bool,
+        escrowProducts: EscrowProducts,
+        currency: String,
+        customerName: String?,
+        customerEmail: String?,
+        taxFreeAmount: Int64,
+        cultureExpense: Bool
+    ) {
+        self.amount = amount
+        self.orderId = orderId
+        self.orderName = orderName
+        self.successUrl = successUrl
+        self.failUrl = failUrl
+        self.windowTarget = windowTarget
+        self.validHours = validHours
+        self.dueDate = dueDate
+        self.virtualAccountCallbackUrl = virtualAccountCallbackUrl
+        self.customerMobilePhone = customerMobilePhone
+        self.showCustomerMobilePhone = showCustomerMobilePhone
+        self.cashReceipt = cashReceipt
+        self.useEscrow = useEscrow
+        self.escrowProducts = escrowProducts
+        self.currency = currency
+        self.customerName = customerName
+        self.customerEmail = customerEmail
+        self.taxFreeAmount = taxFreeAmount
+        self.cultureExpense = cultureExpense
+    }
 }

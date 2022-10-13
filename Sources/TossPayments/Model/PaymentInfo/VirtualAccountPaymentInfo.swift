@@ -1,5 +1,5 @@
 //
-//  가상계좌결제정보.swift
+//  VirtualAccountPaymentInfo.swift
 //  
 //
 //  Created by 김진규 on 2022/09/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct 가상계좌결제정보: 결제정보 {
+public struct VirtualAccountPaymentInfo: 결제정보 {
     public let amount: Int64
     public let orderId: String
     public let orderName: String

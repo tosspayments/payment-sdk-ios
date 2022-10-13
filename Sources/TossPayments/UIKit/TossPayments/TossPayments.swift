@@ -52,10 +52,10 @@ public class TossPayments {
     }
     
     public func requestVirtualAccountPayment(
-        _ 가상계좌결제정보: 가상계좌결제정보,
+        _ paymentInfo: VirtualAccountPaymentInfo,
         on rootViewController: UIViewController
     ) {
-        requestPayment(.가상계좌, 가상계좌결제정보, on: rootViewController)
+        requestPayment(.가상계좌, paymentInfo, on: rootViewController)
     }
 
     public func requestMobilePhonePayment(

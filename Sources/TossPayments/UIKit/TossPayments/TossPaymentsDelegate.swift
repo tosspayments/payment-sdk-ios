@@ -9,5 +9,5 @@ import Foundation
 
 public protocol TossPaymentsDelegate {
     func didSucceedRequestPayments(paymentKey: String, orderId: String, amount: Int64)
-    func didFailRequestPayments(erroCode: String, errorMessage: String, orderId: String)
+    func didFailRequestPayments(errorCode: String, errorMessage: String, orderId: String)
 }

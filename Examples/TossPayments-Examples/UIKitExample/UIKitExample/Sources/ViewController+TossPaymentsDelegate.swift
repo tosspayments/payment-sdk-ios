@@ -16,8 +16,8 @@ extension ViewController: TossPaymentsDelegate {
         print("didSucceedRequestPayments (amount): \(amount)")
     }
     
-    func didFailRequestPayments(erroCode: String, errorMessage: String, orderId: String) {
-        print("didFailRequestPayments (erroCode): \(erroCode)")
+    func didFailRequestPayments(errorCode: String, errorMessage: String, orderId: String) {
+        print("didFailRequestPayments (errorCode): \(errorCode)")
         print("didFailRequestPayments (errorMessage): \(errorMessage)")
         print("didFailRequestPayments (orderId): \(orderId)")
     }

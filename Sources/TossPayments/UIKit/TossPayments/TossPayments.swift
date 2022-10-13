@@ -89,7 +89,7 @@ private extension TossPayments {
         let errorCode = components.query(for: "code")
         let errorMessage = components.query(for: "message")
         let orderId = components.query(for: "orderId")
-        delegate?.didFailRequestPayments(erroCode: errorCode, errorMessage: errorMessage, orderId: orderId)
+        delegate?.didFailRequestPayments(errorCode: errorCode, errorMessage: errorMessage, orderId: orderId)
     }
 }
 

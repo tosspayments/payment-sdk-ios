@@ -46,7 +46,7 @@ public struct TossPaymentsView: View {
         return self
     }
     
-    public func onFail(_ failureHandler: @escaping (_ erroCode: String, _ errorMessage: String, _ orderId: String) -> Void) -> Self {
+    public func onFail(_ failureHandler: @escaping (_ errorCode: String, _ errorMessage: String, _ orderId: String) -> Void) -> Self {
         service.failURLHandler = { url in
             self.isPresented = false
             guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }

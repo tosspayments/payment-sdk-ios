@@ -1,4 +1,5 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "SwiftUIExample",
@@ -13,19 +14,24 @@ let project = Project(
             platform: .iOS,
             product: .app,
             productName: "TossPayments SwiftUIExample",
-            bundleId: "com.tosspayments.paymentsdk.examples.swiftui",
+            bundleId: BundleIdentifier.swiftUIExample,
             deploymentTarget: .iOS(targetVersion: "14.0", devices: [.ipad, .iphone]),
             infoPlist: .extendingDefault(with: [
                 "UIMainStoryboardFile": "",
                 "UILaunchStoryboardName": "LaunchScreen",
                 "LSSupportsOpeningDocumentsInPlace": true,
-                "UIFileSharingEnabled": true
+                "UIFileSharingEnabled": true,
+                "CFBundleShortVersionString": "$(MARKETING_VERSION)"
             ]),
             sources: ["SwiftUIExample/Sources/**"],
             resources: ["SwiftUIExample/Resources/**"],
             dependencies: [
                 .package(product: "TossPayments")
-            ]
+            ],
+            settings: .settings(base: [
+                "MARKETING_VERSION": Version.current,
+                "DEVELOPMENT_TEAM": TeamIdentifier.tossPayments
+            ])
         )
     ],
     schemes: [
@@ -34,7 +40,7 @@ let project = Project(
              buildAction: .buildAction(targets: ["SwiftUIExample"]),
             testAction: nil,
             runAction: .runAction(),
-            archiveAction: nil,
+            archiveAction: .archiveAction(configuration: .release),
             profileAction: nil,
             analyzeAction: nil
         )

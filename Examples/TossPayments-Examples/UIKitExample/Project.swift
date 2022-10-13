@@ -1,4 +1,5 @@
 import ProjectDescription
+import ProjectDescriptionHelpers
 
 let project = Project(
     name: "UIKitExample",
@@ -13,19 +14,24 @@ let project = Project(
             platform: .iOS,
             product: .app,
             productName: "TossPayments UIKitExample",
-            bundleId: "com.tosspayments.paymentsdk.examples.uikit",
+            bundleId: BundleIdentifier.uiKitExample,
             deploymentTarget: .iOS(targetVersion: "11.0", devices: [.ipad, .iphone]),
             infoPlist: .extendingDefault(with: [
                 "UIMainStoryboardFile": "",
                 "UILaunchStoryboardName": "LaunchScreen",
                 "LSSupportsOpeningDocumentsInPlace": true,
-                "UIFileSharingEnabled": true
+                "UIFileSharingEnabled": true,
+                "CFBundleShortVersionString": "$(MARKETING_VERSION)"
             ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],
             dependencies: [
                 .package(product: "TossPayments")
-            ]
+            ],
+            settings: .settings(base: [
+                "MARKETING_VERSION": Version.current,
+                "DEVELOPMENT_TEAM": TeamIdentifier.tossPayments
+            ])
         )
     ],
     schemes: [
@@ -34,7 +40,7 @@ let project = Project(
             buildAction: .buildAction(targets: ["UIKitExample"]),
             testAction: nil,
             runAction: .runAction(),
-            archiveAction: nil,
+            archiveAction: .archiveAction(configuration: .release),
             profileAction: nil,
             analyzeAction: nil
         )

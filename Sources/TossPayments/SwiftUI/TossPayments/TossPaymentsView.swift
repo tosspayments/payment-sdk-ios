@@ -65,7 +65,7 @@ struct View_Previews: PreviewProvider {
         TossPaymentsView(
             clientKey: "TEST",
             paymentMethod: .custom(method: "TEST"),
-            결제정보: 기본결제정보(
+            결제정보: DefaultPaymentInfo(
                 amount: 100,
                 orderId: "TEST",
                 orderName: "TESTER",

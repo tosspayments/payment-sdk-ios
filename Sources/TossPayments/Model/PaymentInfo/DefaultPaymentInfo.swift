@@ -1,5 +1,5 @@
 //
-//  기본결제정보.swift
+//  DefaultPaymentInfo.swift
 //  
 //
 //  Created by 김진규 on 2022/09/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct 기본결제정보: 결제정보 {
+public struct DefaultPaymentInfo: 결제정보 {
     
     // 필수
     public let amount: Int64

@@ -11,7 +11,7 @@ import TossPayments
 
 private enum Constants {
     static let clientKey: String = "test_ck_P24xLea5zVAqkMGkoG7VQAMYNwW6"
-    static let 테스트결제정보: 결제정보 = 기본결제정보(
+    static let 테스트결제정보: 결제정보 = DefaultPaymentInfo(
         amount: 1000,
         orderId: "9lD0azJWxjBY0KOIumGzH",
         orderName: "토스 티셔츠 외 2건",

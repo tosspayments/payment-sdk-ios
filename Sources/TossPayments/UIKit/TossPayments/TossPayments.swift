@@ -38,10 +38,10 @@ public class TossPayments {
     }
     
     public func requestCardPayment(
-        _ 카드결제정보: 카드결제정보,
+        _ paymentInfo: CardPaymentInfo,
         on rootViewController: UIViewController
     ) {
-        requestPayment(.카드, 카드결제정보, on: rootViewController)
+        requestPayment(.카드, paymentInfo, on: rootViewController)
     }
     
     public func requestTransferPayment(

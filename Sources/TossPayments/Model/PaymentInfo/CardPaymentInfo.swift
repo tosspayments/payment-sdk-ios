@@ -1,5 +1,5 @@
 //
-//  카드결제정보.swift
+//  CardPaymentInfo.swift
 //  
 //
 //  Created by 김진규 on 2022/09/28.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct 카드결제정보: 결제정보 {
+public struct CardPaymentInfo: 결제정보 {
     public let amount: Int64
     public let orderId: String
     public let orderName: String

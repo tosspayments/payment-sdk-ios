@@ -15,6 +15,12 @@ let project = Project(
             productName: "TossPayments SwiftUIExample",
             bundleId: "com.tosspayments.paymentsdk.examples.swiftui",
             deploymentTarget: .iOS(targetVersion: "14.0", devices: [.ipad, .iphone]),
+            infoPlist: .extendingDefault(with: [
+                "UIMainStoryboardFile": "",
+                "UILaunchStoryboardName": "LaunchScreen",
+                "LSSupportsOpeningDocumentsInPlace": true,
+                "UIFileSharingEnabled": true
+            ]),
             sources: ["SwiftUIExample/Sources/**"],
             resources: ["SwiftUIExample/Resources/**"],
             dependencies: [
@@ -25,7 +31,7 @@ let project = Project(
     schemes: [
         Scheme(
             name: "SwiftUIExample",
-            buildAction: .buildAction(targets: ["SwiftUIExample"]),
+             buildAction: .buildAction(targets: ["SwiftUIExample"]),
             testAction: nil,
             runAction: .runAction(),
             archiveAction: nil,

@@ -15,6 +15,12 @@ let project = Project(
             productName: "TossPayments UIKitExample",
             bundleId: "com.tosspayments.paymentsdk.examples.uikit",
             deploymentTarget: .iOS(targetVersion: "11.0", devices: [.ipad, .iphone]),
+            infoPlist: .extendingDefault(with: [
+                "UIMainStoryboardFile": "",
+                "UILaunchStoryboardName": "LaunchScreen",
+                "LSSupportsOpeningDocumentsInPlace": true,
+                "UIFileSharingEnabled": true
+            ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],
             dependencies: [

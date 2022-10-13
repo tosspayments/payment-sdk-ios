@@ -7,3 +7,9 @@ DerivedData/
 .swiftpm/config/registries.json
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
+
+# tuist
+.tuist-bin/
+/Examples/TossPayments-Examples/SwiftUIExample/SwiftUIExample.xcodeproj
+/Examples/TossPayments-Examples/UIKitExample/UIKitExample.xcodeproj
+TossPayments-Examples.xcworkspace

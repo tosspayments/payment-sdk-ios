@@ -65,7 +65,7 @@ public class TossPayments {
         requestPayment(.휴대폰, 휴대폰결제정보, on: rootViewController)
     }
 
-    public func requestCertificateCardPayment(
+    public func requestGiftCertificatePayment(
         _ 상품권결제수단: 상품권결제수단,
         _ 상품권결제정보: 상품권결제정보,
         on rootViewController: UIViewController

@@ -21,7 +21,7 @@ public protocol 결제정보: Codable {
     var windowTarget: String { get }
     var customerName: String? { get }
     var customerEmail: String? { get }
-    var taxFreeAmount: Int64 { get }
+    var taxFreeAmount: Int64? { get }
 }
 
 public extension 결제정보 {

@@ -1,5 +1,5 @@
 //
-//  휴대폰결제정보.swift
+//  상품권결제정보.swift
 //  
 //
 //  Created by 김진규 on 2022/09/28.
@@ -7,21 +7,18 @@
 
 import Foundation
 
-public struct 휴대폰결제정보: 결제정보 {
+public struct 상품권결제정보: 결제정보 {
     public let amount: Int64
     public let orderId: String
     public let orderName: String
     
     public let successUrl: String
     public let failUrl: String
-    
-    public let windowTarget: String
-    
-    public let mobileCarrier: [CarrierCode]
 
+    public let windowTarget: String
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64
+    public let taxFreeAmount: Int64?
     
     public init(
         amount: Int64,
@@ -30,10 +27,9 @@ public struct 휴대폰결제정보: 결제정보 {
         successUrl: String,
         failUrl: String,
         windowTarget: String,
-        mobileCarrier: [CarrierCode],
         customerName: String?,
         customerEmail: String?,
-        taxFreeAmount: Int64
+        taxFreeAmount: Int64?
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -41,25 +37,8 @@ public struct 휴대폰결제정보: 결제정보 {
         self.successUrl = successUrl
         self.failUrl = failUrl
         self.windowTarget = windowTarget
-        self.mobileCarrier = mobileCarrier
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

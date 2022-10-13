@@ -8,5 +8,10 @@
 import Foundation
 
 public struct CashReceipt: Codable {
-    let type: String
+    public let type: String
+    public init(
+        type: String
+    ) {
+        self.type = type
+    }
 }

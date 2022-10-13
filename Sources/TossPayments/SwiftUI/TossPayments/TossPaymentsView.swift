@@ -15,13 +15,13 @@ public struct TossPaymentsView: View {
     @Binding public var isPresented: Bool
     public init(
         clientKey: String,
-        결제수단: 결제수단,
+        paymentMethod: PaymentMethod,
         결제정보: 결제정보,
         isPresented: Binding<Bool>
     ) {
         self.service = TossPaymentsService(
             clientKey: clientKey,
-            결제수단: 결제수단,
+            paymentMethod: paymentMethod,
             결제정보: 결제정보
         )
         _isPresented = isPresented
@@ -64,7 +64,7 @@ struct View_Previews: PreviewProvider {
     static var previews: some View {
         TossPaymentsView(
             clientKey: "TEST",
-            결제수단: .custom(method: "TEST"),
+            paymentMethod: .custom(method: "TEST"),
             결제정보: 기본결제정보(
                 amount: 100,
                 orderId: "TEST",

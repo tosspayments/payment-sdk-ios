@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
+public enum PaymentMethod: Hashable, Codable, CaseIterable, RawRepresentable {
     case 카드
     case 계좌
     case 토스페이
@@ -76,7 +76,7 @@ public enum 결제수단: Hashable, Codable, CaseIterable, RawRepresentable {
         }
     }
 
-    public static var allCases: [결제수단] {
+    public static var allCases: [PaymentMethod] {
         return [
             .카드, .계좌, .토스페이, .가상계좌, .계좌이체, .휴대폰, .문화상품권, .도서문화상품권,
             .게임문화상품권, .CARD, .TOSSPAY, .VIRTUAL_ACCOUNT, .TRANSFER, .MOBILE_PHONE,

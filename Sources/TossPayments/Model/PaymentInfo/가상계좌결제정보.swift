@@ -29,7 +29,7 @@ public struct 가상계좌결제정보: 결제정보 {
     public let currency: String
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64
+    public let taxFreeAmount: Int64?
     public let cultureExpense: Bool
     
     public init(

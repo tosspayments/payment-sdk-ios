@@ -11,13 +11,13 @@ public class TossPayments {
         self.clientKey = clientKey
     }
     public func requestPayment(
-        _ 결제수단: 결제수단,
+        _ paymentMethod: PaymentMethod,
         _ 결제정보: 결제정보,
         on rootViewController: UIViewController
     ) {
         let service = TossPaymentsService(
             clientKey: clientKey,
-            결제수단: 결제수단,
+            paymentMethod: paymentMethod,
             결제정보: 결제정보
         )
         let viewController = TossPaymentsViewController(service: service)
@@ -70,7 +70,7 @@ public class TossPayments {
         _ 상품권결제정보: 상품권결제정보,
         on rootViewController: UIViewController
     ) {
-        let 결제수단 = 상품권결제수단.결제수단
+        let 결제수단 = 상품권결제수단.paymentMethod
         requestPayment(결제수단, 상품권결제정보, on: rootViewController)
     }
 }

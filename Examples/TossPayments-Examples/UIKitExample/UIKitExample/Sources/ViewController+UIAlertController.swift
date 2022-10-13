@@ -19,7 +19,7 @@ extension ViewController {
         alertController.addTextField()
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
             if let title = alertController.textFields?.first?.text {
-                self.입력한결제수단 = 결제수단(rawValue: title)
+                self.입력한결제수단 = PaymentMethod(rawValue: title)
             }
         }))
         

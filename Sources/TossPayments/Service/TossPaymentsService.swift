@@ -11,15 +11,15 @@ import WebKit
 
 class TossPaymentsService: NSObject {
     private let clientKey: String
-    private let 결제수단: 결제수단
+    private let paymentMethod: PaymentMethod
     private let 결제정보: 결제정보
     init(
         clientKey: String,
-        결제수단: 결제수단,
+        paymentMethod: PaymentMethod,
         결제정보: 결제정보
     ) {
         self.clientKey = clientKey
-        self.결제수단 = 결제수단
+        self.paymentMethod = paymentMethod
         self.결제정보 = 결제정보
     }
     
@@ -53,7 +53,7 @@ extension TossPaymentsService {
     var requestPaymentsJavascript: String {
         return """
         var tossPayments = TossPayments('\(clientKey)');
-        tossPayments.requestPayment('\(결제수단.rawValue)', \(결제정보.jsonString ?? ""));
+        tossPayments.requestPayment('\(paymentMethod.rawValue)', \(결제정보.jsonString ?? ""));
         """
     }
     

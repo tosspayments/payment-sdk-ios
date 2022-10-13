@@ -23,7 +23,7 @@ private enum Constants {
 
 struct ContentView: View {
     @State private var showingTossPayments: Bool = false
-    @State private var 입력한결제수단: 결제수단 = .카드
+    @State private var 입력한결제수단: PaymentMethod = .카드
     @State private var 입력한결제정보: 결제정보 = Constants.테스트결제정보
     
     var 입력한결제정보레이블텍스트: String {
@@ -39,7 +39,7 @@ struct ContentView: View {
         Text(입력한결제정보레이블텍스트)
             .padding()
         Picker("결제수단 입력", selection: $입력한결제수단) {
-            ForEach(결제수단.allCases, id: \.self) {
+            ForEach(PaymentMethod.allCases, id: \.self) {
                 Text($0.rawValue)
             }
             Text("새로운 결제수단")
@@ -51,7 +51,7 @@ struct ContentView: View {
         .popover(isPresented: $showingTossPayments, content: {
             TossPaymentsView(
                 clientKey: Constants.clientKey,
-                결제수단: 입력한결제수단,
+                paymentMethod: 입력한결제수단,
                 결제정보: 입력한결제정보,
                 isPresented: $showingTossPayments
             )

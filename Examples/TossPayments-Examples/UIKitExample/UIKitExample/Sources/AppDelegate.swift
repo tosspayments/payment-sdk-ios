@@ -7,6 +7,7 @@
 
 #if canImport(UIKit)
 import UIKit
+import TossPayments
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = UINavigationController(rootViewController: ViewController())
         window.makeKeyAndVisible()
         self.window = window
+        
         return true
     }
 }

@@ -22,7 +22,7 @@ private enum Constants {
 }
 
 class ViewController: UIViewController {
-    var 입력한결제수단: 결제수단? {
+    var 입력한결제수단: PaymentMethod? {
         didSet {
             guard let 입력한결제수단 = 입력한결제수단 else { return}
             let 입력한결제수단레이블텍스트: String = "입력한 결제수단: \(입력한결제수단.rawValue)"
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         
         viewHolder.button.addTarget(self, action: #selector(didTabActionButton(_:)), for: .touchUpInside)
         
-        입력한결제수단 = 결제수단.allCases.first
+        입력한결제수단 = PaymentMethod.allCases.first
         입력한결제정보 = Constants.테스트결제정보
     }
 

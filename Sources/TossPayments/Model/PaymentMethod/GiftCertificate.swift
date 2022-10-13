@@ -15,7 +15,7 @@ public enum 상품권결제수단: String {
     case BOOK_GIFT_CERTIFICATE
     case GAME_GIFT_CERTIFICATE
     
-    var 결제수단: 결제수단 {
+    var paymentMethod: PaymentMethod {
         return .init(rawValue: rawValue) ?? .문화상품권
     }
 }

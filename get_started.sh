@@ -1,6 +1,6 @@
 WORKSPACE_FILE_NAME="TossPayments-Examples.xcworkspace"
 
-bundle install
+bundle check || bundle install
 
 sh ./script/tuist_install.sh
 sh ./script/tuist_generate.sh

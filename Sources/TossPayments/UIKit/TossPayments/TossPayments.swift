@@ -45,10 +45,10 @@ public class TossPayments {
     }
     
     public func requestTransferPayment(
-        _ 계좌이체결제정보: 계좌이체결제정보,
+        _ paymentInfo: TransferPaymentInfo,
         on rootViewController: UIViewController
     ) {
-        requestPayment(.계좌이체, 계좌이체결제정보, on: rootViewController)
+        requestPayment(.계좌이체, paymentInfo, on: rootViewController)
     }
     
     public func requestVirtualAccountPayment(

@@ -59,10 +59,10 @@ public class TossPayments {
     }
 
     public func requestMobilePhonePayment(
-        _ 휴대폰결제정보: 휴대폰결제정보,
+        _ paymentInfo: MobilePhonePaymentInfo,
         on rootViewController: UIViewController
     ) {
-        requestPayment(.휴대폰, 휴대폰결제정보, on: rootViewController)
+        requestPayment(.휴대폰, paymentInfo, on: rootViewController)
     }
 
     public func requestGiftCertificatePayment(

@@ -16,3 +16,4 @@ TossPayments-Examples.xcworkspace
 GoogleService-Info.plist
 /Examples/TossPayments-Examples/SwiftUIExample/Derived
 /Examples/TossPayments-Examples/UIKitExample/Derived
+/build

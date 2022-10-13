@@ -12,13 +12,13 @@ public class TossPayments {
     }
     public func requestPayment(
         _ paymentMethod: PaymentMethod,
-        _ 결제정보: 결제정보,
+        _ paymentInfo: PaymentInfo,
         on rootViewController: UIViewController
     ) {
         let service = TossPaymentsService(
             clientKey: clientKey,
             paymentMethod: paymentMethod,
-            결제정보: 결제정보
+            paymentInfo: paymentInfo
         )
         let viewController = TossPaymentsViewController(service: service)
         let navigationController = UINavigationController(rootViewController: viewController)

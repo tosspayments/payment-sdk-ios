@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DefaultPaymentInfo: 결제정보 {
+public struct DefaultPaymentInfo: PaymentInfo {
     
     // 필수
     public let amount: Int64

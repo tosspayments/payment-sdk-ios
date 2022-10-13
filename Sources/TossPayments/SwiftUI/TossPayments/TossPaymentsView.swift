@@ -16,13 +16,13 @@ public struct TossPaymentsView: View {
     public init(
         clientKey: String,
         paymentMethod: PaymentMethod,
-        결제정보: 결제정보,
+        paymentInfo: PaymentInfo,
         isPresented: Binding<Bool>
     ) {
         self.service = TossPaymentsService(
             clientKey: clientKey,
             paymentMethod: paymentMethod,
-            결제정보: 결제정보
+            paymentInfo: paymentInfo
         )
         _isPresented = isPresented
     }
@@ -65,7 +65,7 @@ struct View_Previews: PreviewProvider {
         TossPaymentsView(
             clientKey: "TEST",
             paymentMethod: .custom(method: "TEST"),
-            결제정보: DefaultPaymentInfo(
+            paymentInfo: DefaultPaymentInfo(
                 amount: 100,
                 orderId: "TEST",
                 orderName: "TESTER",

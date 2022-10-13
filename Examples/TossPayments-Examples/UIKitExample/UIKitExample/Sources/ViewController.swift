@@ -11,7 +11,7 @@ import TossPayments
 
 private enum Constants {
     static let clientKey: String = "test_ck_P24xLea5zVAqkMGkoG7VQAMYNwW6"
-    static let 테스트결제정보: 결제정보 = DefaultPaymentInfo(
+    static let 테스트결제정보: PaymentInfo = DefaultPaymentInfo(
         amount: 1000,
         orderId: "9lD0azJWxjBY0KOIumGzH",
         orderName: "토스 티셔츠 외 2건",
@@ -29,7 +29,7 @@ class ViewController: UIViewController {
             viewHolder.입력한결제수단레이블.text = 입력한결제수단레이블텍스트
         }
     }
-    var 입력한결제정보: 결제정보? {
+    var 입력한결제정보: PaymentInfo? {
         didSet {
             guard let 입력한결제정보 = 입력한결제정보 else { return }
             let 입력한결제정보레이블텍스트: String = """

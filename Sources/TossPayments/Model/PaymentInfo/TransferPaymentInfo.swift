@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct TransferPaymentInfo: 결제정보 {
+public struct TransferPaymentInfo: PaymentInfo {
     public let amount: Int64
     public let orderId: String
     public let orderName: String

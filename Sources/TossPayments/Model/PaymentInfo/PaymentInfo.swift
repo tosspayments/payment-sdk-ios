@@ -1,5 +1,5 @@
 //
-//  결제정보.swift
+//  PaymentInfo.swift
 //  
 //
 //  Created by 김진규 on 2022/09/27.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol 결제정보: Codable {
+public protocol PaymentInfo: Codable {
     // 필수
     var amount: Int64 { get }
     var orderId: String { get }
@@ -24,7 +24,7 @@ public protocol 결제정보: Codable {
     var taxFreeAmount: Int64? { get }
 }
 
-public extension 결제정보 {
+public extension PaymentInfo {
     var jsonString: String? {
         guard let jsonObject = jsonObject,
               let data = try? JSONSerialization.data(withJSONObject: jsonObject) else { return nil }
@@ -55,7 +55,7 @@ public extension 결제정보 {
     }
 }
 
-private extension 결제정보 {
+private extension PaymentInfo {
     var jsonObject: [String: Any]? {
         return try? JSONSerialization.jsonObject(with: try! JSONEncoder().encode(self)) as? [String: Any]
     }

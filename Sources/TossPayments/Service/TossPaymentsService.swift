@@ -12,15 +12,15 @@ import WebKit
 class TossPaymentsService: NSObject {
     private let clientKey: String
     private let paymentMethod: PaymentMethod
-    private let 결제정보: 결제정보
+    private let paymentInfo: PaymentInfo
     init(
         clientKey: String,
         paymentMethod: PaymentMethod,
-        결제정보: 결제정보
+        paymentInfo: PaymentInfo
     ) {
         self.clientKey = clientKey
         self.paymentMethod = paymentMethod
-        self.결제정보 = 결제정보
+        self.paymentInfo = paymentInfo
     }
     
     var failURLHandler: ((URL) -> Void)?
@@ -53,7 +53,7 @@ extension TossPaymentsService {
     var requestPaymentsJavascript: String {
         return """
         var tossPayments = TossPayments('\(clientKey)');
-        tossPayments.requestPayment('\(paymentMethod.rawValue)', \(결제정보.jsonString ?? ""));
+        tossPayments.requestPayment('\(paymentMethod.rawValue)', \(paymentInfo.jsonString ?? ""));
         """
     }
     
@@ -103,10 +103,10 @@ extension TossPaymentsService {
         guard let url = navigationAction.request.url else { return false }
         let urlString = url.absoluteString
         
-        if urlString.hasPrefix(결제정보.failUrl) {
+        if urlString.hasPrefix(paymentInfo.failUrl) {
             failURLHandler?(url)
             return true
-        } else if urlString.hasPrefix(결제정보.successUrl) {
+        } else if urlString.hasPrefix(paymentInfo.successUrl) {
             successURLHandler?(url)
             return true
         }

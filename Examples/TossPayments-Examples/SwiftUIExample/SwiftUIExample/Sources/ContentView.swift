@@ -11,7 +11,7 @@ import TossPayments
 
 private enum Constants {
     static let clientKey: String = "test_ck_P24xLea5zVAqkMGkoG7VQAMYNwW6"
-    static let 테스트결제정보: 결제정보 = DefaultPaymentInfo(
+    static let 테스트결제정보: PaymentInfo = DefaultPaymentInfo(
         amount: 1000,
         orderId: "9lD0azJWxjBY0KOIumGzH",
         orderName: "토스 티셔츠 외 2건",
@@ -24,7 +24,7 @@ private enum Constants {
 struct ContentView: View {
     @State private var showingTossPayments: Bool = false
     @State private var 입력한결제수단: PaymentMethod = .카드
-    @State private var 입력한결제정보: 결제정보 = Constants.테스트결제정보
+    @State private var 입력한결제정보: PaymentInfo = Constants.테스트결제정보
     
     var 입력한결제정보레이블텍스트: String {
         """
@@ -52,7 +52,7 @@ struct ContentView: View {
             TossPaymentsView(
                 clientKey: Constants.clientKey,
                 paymentMethod: 입력한결제수단,
-                결제정보: 입력한결제정보,
+                paymentInfo: 입력한결제정보,
                 isPresented: $showingTossPayments
             )
             .onSuccess { (paymentKey: String, orderId: String, amount: Int64) in

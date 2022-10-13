@@ -67,11 +67,11 @@ public class TossPayments {
 
     public func requestGiftCertificatePayment(
         _ 상품권결제수단: 상품권결제수단,
-        _ 상품권결제정보: 상품권결제정보,
+        _ paymentInfo: GiftCertificatePaymentInfo,
         on rootViewController: UIViewController
     ) {
         let 결제수단 = 상품권결제수단.paymentMethod
-        requestPayment(결제수단, 상품권결제정보, on: rootViewController)
+        requestPayment(결제수단, paymentInfo, on: rootViewController)
     }
 }
 

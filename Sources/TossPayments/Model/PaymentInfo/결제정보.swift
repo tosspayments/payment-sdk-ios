@@ -48,7 +48,7 @@ public extension 결제정보 {
         windowTarget: \(windowTarget)
         customerName: \(customerName ?? "없음")
         customerEmail: \(customerEmail ?? "없음")
-        taxFreeAmount: \(taxFreeAmount)
+        taxFreeAmount: \(taxFreeAmount ?? 0)
         successUrl: \(successUrl)
         failUrl: \(failUrl)\n
         """ + unorderedInfoString

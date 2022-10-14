@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum 상품권결제수단: String {
+public enum GiftCertificatePaymentMethod: String {
     case 문화상품권
     case 도서문화상품권
     case 게임문화상품권

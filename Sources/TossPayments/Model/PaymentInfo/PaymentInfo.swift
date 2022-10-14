@@ -53,7 +53,6 @@ extension PaymentInfo {
     
     var requestJSONString: String? {
         let result = requestJSONObject?.jsonString
-        print(result)
         return result
     }
 }

@@ -55,7 +55,6 @@ extension TossPaymentsService {
         var tossPayments = TossPayments('\(clientKey)');
         tossPayments.requestPayment('\(paymentMethod.rawValue)', \(paymentInfo.requestJSONString ?? ""));
         """
-        print(javascriptString)
         return javascriptString
     }
     

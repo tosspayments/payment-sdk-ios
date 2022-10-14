@@ -10,5 +10,5 @@ import Foundation
 enum WebConstants {
     static var successURL: String { "tosspayments://success" }
     static var failURL: String { "tosspayments://fail" }
-    static var windowTarget: String { "iframe" }
+    static var windowTarget: String { "self" }
 }

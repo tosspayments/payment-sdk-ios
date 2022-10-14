@@ -12,11 +12,6 @@ public struct CardPaymentInfo: PaymentInfo {
     public let orderId: String
     public let orderName: String
     
-    public let successUrl: String
-    public let failUrl: String
-    
-    public let windowTarget: String
-    
     public let cardCompany: String?
     public let cardInstallmentPlan: Int64?
     public let maxCardInstallmentPlan: Int64?
@@ -50,9 +45,6 @@ public struct CardPaymentInfo: PaymentInfo {
         amount: Int64,
         orderId: String,
         orderName: String,
-        successUrl: String,
-        failUrl: String,
-        windowTarget: String = "iframe",
         cardCompany: String? = nil,
         cardInstallmentPlan: Int64? = nil,
         maxCardInstallmentPlan: Int64? = nil,
@@ -71,9 +63,6 @@ public struct CardPaymentInfo: PaymentInfo {
         self.amount = amount
         self.orderId = orderId
         self.orderName = orderName
-        self.successUrl = successUrl
-        self.failUrl = failUrl
-        self.windowTarget = windowTarget
         self.cardCompany = cardCompany
         self.cardInstallmentPlan = cardInstallmentPlan
         self.maxCardInstallmentPlan = maxCardInstallmentPlan

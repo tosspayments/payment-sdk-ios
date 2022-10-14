@@ -15,14 +15,16 @@ private enum Constants {
         amount: 1000,
         orderId: "9lD0azJWxjBY0KOIumGzH",
         orderName: "토스 티셔츠 외 2건",
-        successUrl: "http://localhost:8080/success",
-        failUrl: "http://localhost:8080/fail",
         customerName: "박토스"
     )
 }
 
 struct ContentView: View {
     @State private var showingTossPayments: Bool = false
+    
+    @State private var showingResultAlert: Bool = false
+    @State private var resultInfo: (title: String, message: String)? = nil
+    
     @State private var 입력한결제수단: PaymentMethod = .카드
     @State private var 입력한결제정보: PaymentInfo = Constants.테스트결제정보
     
@@ -59,11 +61,44 @@ struct ContentView: View {
                 print("onSuccess paymentKey \(paymentKey)")
                 print("onSuccess orderId \(orderId)")
                 print("onSuccess amount \(amount)")
+                let title = "TossPayments 요청에 성공하였습니다."
+                let message = """
+                    onSuccess
+                    paymentKey: \(paymentKey)
+                    orderId: \(orderId)
+                    amount: \(amount)
+                    """
+                resultInfo = (title, message)
+                showingResultAlert = true
             }
             .onFail { (errorCode: String, errorMessage: String, orderId: String) in
                 print("onFail errorCode \(errorCode)")
                 print("onFail errorMessage \(errorMessage)")
                 print("onFail orderId \(orderId)")
+                let title = "TossPayments 요청에 실패하였습니다."
+                let message = """
+                onFail
+                errorCode: \(errorCode)
+                errorMessage: \(errorMessage)
+                orderId: \(orderId)
+                """
+                resultInfo = (title, message)
+                showingResultAlert = true
+            }
+            .alert(isPresented: $showingResultAlert) {
+                guard let title = resultInfo?.title,
+                      let message = resultInfo?.message else { return }
+                Alert(
+                    title: title,
+                    message: message,
+                    primaryButton: .default("확인", action: {{
+                        resultInfo = nil
+                    }}),
+                    secondaryButton: .destructive("클립보드에 복사하기", action: {
+                        UIPasteboard.general.string = message
+                        resultInfo = nil
+                    })
+                )
             }
         })
     }

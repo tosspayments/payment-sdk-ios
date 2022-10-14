@@ -68,9 +68,7 @@ struct View_Previews: PreviewProvider {
             paymentInfo: DefaultPaymentInfo(
                 amount: 100,
                 orderId: "TEST",
-                orderName: "TESTER",
-                successUrl: "tosspayments://",
-                failUrl: "tosspayments://"
+                orderName: "TESTER"
             ),
             isPresented: .constant(false)
         )

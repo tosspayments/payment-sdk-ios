@@ -8,18 +8,47 @@
 #if canImport(UIKit)
 import Foundation
 import TossPayments
+import UIKit
 
 extension ViewController: TossPaymentsDelegate {
     func didSucceedRequestPayments(paymentKey: String, orderId: String, amount: Int64) {
-        print("didSucceedRequestPayments (paymentKey): \(paymentKey)")
-        print("didSucceedRequestPayments (orderId): \(orderId)")
-        print("didSucceedRequestPayments (amount): \(amount)")
+        let title = "TossPayments 요청에 성공하였습니다."
+        let message = """
+        didSucceedRequestPayments
+        paymentKey: \(paymentKey)
+        orderId: \(orderId)
+        amount: \(amount)
+        """
+        showAlert(title: title, message: message)
     }
     
     func didFailRequestPayments(errorCode: String, errorMessage: String, orderId: String) {
-        print("didFailRequestPayments (errorCode): \(errorCode)")
-        print("didFailRequestPayments (errorMessage): \(errorMessage)")
-        print("didFailRequestPayments (orderId): \(orderId)")
+        let title = "TossPayments 요청에 실패하였습니다."
+        let message = """
+        didFailRequestPayments
+        errorCode: \(errorCode)
+        errorMessage: \(errorMessage)
+        orderId: \(orderId)
+        """
+        showAlert(title: title, message: message)
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        alertController.addAction(
+            UIAlertAction(
+                title: "클립보드에 복사하기",
+                style: .destructive,
+                handler: { action in
+                    UIPasteboard.general.string = message
+                }
+            )
+        )
+        alertController.addAction(UIAlertAction(title: "확인", style: .default))
+        present(alertController, animated: true)
     }
 }
 

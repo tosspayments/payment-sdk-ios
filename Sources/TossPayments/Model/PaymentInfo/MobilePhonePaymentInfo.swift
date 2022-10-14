@@ -12,11 +12,6 @@ public struct MobilePhonePaymentInfo: PaymentInfo {
     public let orderId: String
     public let orderName: String
     
-    public let successUrl: String
-    public let failUrl: String
-    
-    public let windowTarget: String
-    
     public let mobileCarrier: [CarrierCode]
 
     public let customerName: String?
@@ -27,9 +22,6 @@ public struct MobilePhonePaymentInfo: PaymentInfo {
         amount: Int64,
         orderId: String,
         orderName: String,
-        successUrl: String,
-        failUrl: String,
-        windowTarget: String,
         mobileCarrier: [CarrierCode],
         customerName: String?,
         customerEmail: String?,
@@ -38,9 +30,6 @@ public struct MobilePhonePaymentInfo: PaymentInfo {
         self.amount = amount
         self.orderId = orderId
         self.orderName = orderName
-        self.successUrl = successUrl
-        self.failUrl = failUrl
-        self.windowTarget = windowTarget
         self.mobileCarrier = mobileCarrier
         self.customerName = customerName
         self.customerEmail = customerEmail

@@ -51,10 +51,12 @@ extension TossPaymentsService {
     }
     
     var requestPaymentsJavascript: String {
-        return """
+        let javascriptString = """
         var tossPayments = TossPayments('\(clientKey)');
-        tossPayments.requestPayment('\(paymentMethod.rawValue)', \(paymentInfo.jsonString ?? ""));
+        tossPayments.requestPayment('\(paymentMethod.rawValue)', \(paymentInfo.requestJSONString ?? ""));
         """
+        print(javascriptString)
+        return javascriptString
     }
     
     private func evaluateRequestPaymentsJavascript(with webView: WKWebView) {
@@ -103,10 +105,10 @@ extension TossPaymentsService {
         guard let url = navigationAction.request.url else { return false }
         let urlString = url.absoluteString
         
-        if urlString.hasPrefix(paymentInfo.failUrl) {
+        if urlString.hasPrefix(WebConstants.failURL) {
             failURLHandler?(url)
             return true
-        } else if urlString.hasPrefix(paymentInfo.successUrl) {
+        } else if urlString.hasPrefix(WebConstants.successURL) {
             successURLHandler?(url)
             return true
         }

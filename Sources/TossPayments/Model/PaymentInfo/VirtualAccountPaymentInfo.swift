@@ -11,11 +11,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
     public let amount: Int64
     public let orderId: String
     public let orderName: String
-    
-    public let successUrl: String
-    public let failUrl: String
-    
-    public let windowTarget: String
 
     public let validHours: Int64
     public let dueDate: String
@@ -36,9 +31,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         amount: Int64,
         orderId: String,
         orderName: String,
-        successUrl: String,
-        failUrl: String,
-        windowTarget: String,
         validHours: Int64,
         dueDate: String,
         virtualAccountCallbackUrl: String,
@@ -56,9 +48,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         self.amount = amount
         self.orderId = orderId
         self.orderName = orderName
-        self.successUrl = successUrl
-        self.failUrl = failUrl
-        self.windowTarget = windowTarget
         self.validHours = validHours
         self.dueDate = dueDate
         self.virtualAccountCallbackUrl = virtualAccountCallbackUrl

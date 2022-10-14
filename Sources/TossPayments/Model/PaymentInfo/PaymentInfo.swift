@@ -13,31 +13,20 @@ public protocol PaymentInfo: Codable {
     var orderId: String { get }
     var orderName: String { get }
     
-    // 필수
-    var successUrl: String { get }
-    var failUrl: String { get }
-
     // 선택
-    var windowTarget: String { get }
     var customerName: String? { get }
     var customerEmail: String? { get }
     var taxFreeAmount: Int64? { get }
 }
 
 public extension PaymentInfo {
-    var jsonString: String? {
-        guard let jsonObject = jsonObject,
-              let data = try? JSONSerialization.data(withJSONObject: jsonObject) else { return nil }
-        return String(data: data, encoding: .utf8)
-    }
-    
     var orderedInfo: String {
         let orderdInfoKey = Set<String>([
             "amount", "orderId", "orderName", "windowTarget",
             "customerName", "customerEmail", "taxFreeAmount",
             "successUrl", "failUrl"
         ])
-        let unorderedJsonObject = jsonObject?.filter({ !orderdInfoKey.contains($0.0) })
+        let unorderedJsonObject = self.jsonObject?.filter({ !orderdInfoKey.contains($0.0) })
         let unorderedInfoString: String = unorderedJsonObject?.compactMap({ (key, value) in
             "\(key): \(value)"
         }).joined(separator: "\n") ?? ""
@@ -45,18 +34,45 @@ public extension PaymentInfo {
         amount: \(amount)
         orderId: \(orderId)
         orderName: \(orderName)
-        windowTarget: \(windowTarget)
         customerName: \(customerName ?? "없음")
         customerEmail: \(customerEmail ?? "없음")
-        taxFreeAmount: \(taxFreeAmount ?? 0)
-        successUrl: \(successUrl)
-        failUrl: \(failUrl)\n
+        taxFreeAmount: \(taxFreeAmount ?? 0)\n
         """ + unorderedInfoString
     }
 }
 
-private extension PaymentInfo {
+extension PaymentInfo {
+    // 필수 값을 넣어준다.
+    private var requestJSONObject: [String: Any]? {
+        var requestJSONObject = self.jsonObject
+        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["failUrl"] = WebConstants.failURL
+        requestJSONObject?["windowTarget"] = WebConstants.windowTarget
+        return requestJSONObject
+    }
+    
+    var requestJSONString: String? {
+        let result = requestJSONObject?.jsonString
+        print(result)
+        return result
+    }
+}
+
+private extension Encodable {
     var jsonObject: [String: Any]? {
         return try? JSONSerialization.jsonObject(with: try! JSONEncoder().encode(self)) as? [String: Any]
+    }
+    
+    var jsonString: String? {
+        guard let jsonObject = jsonObject,
+              let jsonString = jsonObject.jsonString else { return nil }
+        return jsonString
+    }
+}
+
+private extension Dictionary where Key == String, Value == Any {
+    var jsonString: String? {
+        guard let data = try? JSONSerialization.data(withJSONObject: self) else { return nil }
+        return String(data: data, encoding: .utf8)
     }
 }

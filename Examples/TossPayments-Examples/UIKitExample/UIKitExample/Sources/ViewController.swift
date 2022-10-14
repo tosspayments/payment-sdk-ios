@@ -15,8 +15,6 @@ private enum Constants {
         amount: 1000,
         orderId: "9lD0azJWxjBY0KOIumGzH",
         orderName: "토스 티셔츠 외 2건",
-        successUrl: "http://localhost:8080/success",
-        failUrl: "http://localhost:8080/fail",
         customerName: "박토스"
     )
 }

@@ -22,9 +22,8 @@ public protocol PaymentInfo: Codable {
 public extension PaymentInfo {
     var orderedInfo: String {
         let orderdInfoKey = Set<String>([
-            "amount", "orderId", "orderName", "windowTarget",
-            "customerName", "customerEmail", "taxFreeAmount",
-            "successUrl", "failUrl"
+            "amount", "orderId", "orderName",
+            "customerName", "customerEmail", "taxFreeAmount"
         ])
         let unorderedJsonObject = self.jsonObject?.filter({ !orderdInfoKey.contains($0.0) })
         let unorderedInfoString: String = unorderedJsonObject?.compactMap({ (key, value) in
@@ -47,7 +46,6 @@ extension PaymentInfo {
         var requestJSONObject = self.jsonObject
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL
-        requestJSONObject?["windowTarget"] = WebConstants.windowTarget
         return requestJSONObject
     }
     

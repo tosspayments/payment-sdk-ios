@@ -35,20 +35,4 @@ public struct MobilePhonePaymentInfo: PaymentInfo {
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

@@ -14,7 +14,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
 
     public let validHours: Int64
     public let dueDate: String
-    public let virtualAccountCallbackUrl: String
     public let customerMobilePhone: String
     public let showCustomerMobilePhone: Bool
     public let cashReceipt: CashReceipt
@@ -33,7 +32,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         orderName: String,
         validHours: Int64,
         dueDate: String,
-        virtualAccountCallbackUrl: String,
         customerMobilePhone: String,
         showCustomerMobilePhone: Bool,
         cashReceipt: CashReceipt,
@@ -50,7 +48,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         self.orderName = orderName
         self.validHours = validHours
         self.dueDate = dueDate
-        self.virtualAccountCallbackUrl = virtualAccountCallbackUrl
         self.customerMobilePhone = customerMobilePhone
         self.showCustomerMobilePhone = showCustomerMobilePhone
         self.cashReceipt = cashReceipt

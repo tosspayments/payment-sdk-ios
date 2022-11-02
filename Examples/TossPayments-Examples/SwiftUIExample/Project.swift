@@ -29,8 +29,7 @@ let project = Project(
                 .package(product: "TossPayments")
             ],
             settings: .settings(base: [
-                "MARKETING_VERSION": Version.current,
-                "DEVELOPMENT_TEAM": TeamIdentifier.tossPayments
+                "MARKETING_VERSION": Version.current
             ])
         )
     ],

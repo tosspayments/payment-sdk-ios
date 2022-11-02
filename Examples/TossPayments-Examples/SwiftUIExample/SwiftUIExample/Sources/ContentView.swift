@@ -86,16 +86,14 @@ struct ContentView: View {
                 showingResultAlert = true
             }
             .alert(isPresented: $showingResultAlert) {
-                guard let title = resultInfo?.title,
-                      let message = resultInfo?.message else { return }
                 Alert(
-                    title: title,
-                    message: message,
-                    primaryButton: .default("확인", action: {{
+                    title: Text("\(resultInfo?.title ?? "")"),
+                    message: Text("\(resultInfo?.message ?? "")"),
+                    primaryButton: .default(Text("확인"), action: {
                         resultInfo = nil
-                    }}),
-                    secondaryButton: .destructive("클립보드에 복사하기", action: {
-                        UIPasteboard.general.string = message
+                    }),
+                    secondaryButton: .destructive(Text("클립보드에 복사하기"), action: {
+                        UIPasteboard.general.string = resultInfo?.message
                         resultInfo = nil
                     })
                 )

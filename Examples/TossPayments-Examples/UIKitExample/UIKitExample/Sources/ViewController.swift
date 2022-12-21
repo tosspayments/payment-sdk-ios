@@ -57,7 +57,6 @@ class ViewController: UIViewController {
     }
 
     @objc func didTabActionButton(_ sender: Any) {
-        let widget = PaymentWidget(clientKey: Constants.clientKey)
         let viewController = PaymentWidgetViewController()
         present(viewController, animated: true)
 //        requestTossPayments()

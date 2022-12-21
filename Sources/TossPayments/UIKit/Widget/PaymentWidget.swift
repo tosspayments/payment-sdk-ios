@@ -8,6 +8,11 @@
 import Foundation
 import WebKit
 
+enum ScriptName: String {
+    case requestPayments
+    case updateHeight
+}
+
 public final class PaymentWidget: WKWebView {
     public var amount: Int64 {
         didSet {
@@ -16,8 +21,18 @@ public final class PaymentWidget: WKWebView {
     }
     let clientKey: String
     let customerKey: String
+    
+    weak var rootViewController: UIViewController?
+    var info: PaymentInfo?
+    
+    var updatedHeight: CGFloat = 400 {
+        didSet {
+            invalidateIntrinsicContentSize()
+        }
+    }
+    
     public init(
-        amount: Int64 = 0,
+        amount: Int64,
         clientKey: String,
         customerKey: String = "ANONYMOUS"
     ) {
@@ -27,11 +42,17 @@ public final class PaymentWidget: WKWebView {
         let configuration = WKWebViewConfiguration()
         super.init(frame: .zero, configuration: configuration)
         configuration.userContentController.addUserScript(initializeWidgetScript)
-//        configuration.userContentController.add(<#T##scriptMessageHandler: WKScriptMessageHandler##WKScriptMessageHandler#>, name: <#T##String#>)
-        
+        configuration.userContentController.add(RequestPaymentsMessageHandler(), name: ScriptName.requestPayments.rawValue)
+        configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
+
         loadHTMLString(htmlString, baseURL: URL(string: "https://tosspayments.com/"))
     }
     
+    public override var intrinsicContentSize: CGSize {
+        var size = UIScreen.main.bounds.size
+        size.height = self.updatedHeight
+        return size
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -47,14 +68,24 @@ public final class PaymentWidget: WKWebView {
     )
     
     public func requestPayments(
-        info: PaymentInfo
+        info: PaymentInfo,
+        on rootViewController: UIViewController
     ) {
-        let infoString = info.requestJSONString ?? ""
+        self.info = info
+        self.rootViewController = rootViewController
+        let jsonString = info.requestJSONString ?? ""
+        print(jsonString)
+        let javascriptString = """
+        widget.requestPaymentForNativeSDK(\(jsonString));
+        """
+        guard let encodedScript = javascriptString.urlEncoded.data(using: .utf8)?.base64EncodedString() else { return }
         evaluateJavaScript(
             """
-            widget.requestPaymentsForNativeSDK(\(infoString))
+            var script = decodeURIComponent(window.atob('\(encodedScript)'));
+            console.log(script);
+            eval(script);
             """) { (_, error) in
-                
+                    
             }
     }
     
@@ -75,5 +106,20 @@ public final class PaymentWidget: WKWebView {
     }
 }
 
+final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard let htmlString = message.body as? String else { return }
 
+        print(htmlString)
+        let service = WidgetService(htmlString: htmlString)
+        let viewController = TossPaymentsViewController(service: service)
+        UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)
+    }
+}
 
+final class UpdateHeightMessageHandler: NSObject, WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard let updatedHeight = message.body as? CGFloat else { return }
+        (message.webView as? PaymentWidget)?.updatedHeight = updatedHeight
+    }
+}

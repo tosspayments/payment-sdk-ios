@@ -18,13 +18,14 @@ final class TossPaymentsViewController: UIViewController {
         return webView
     }()
     
-    private let service: TossPaymentsService
-    init(service: TossPaymentsService) {
+    private let service: PaymentServiceProtocol
+    private var htmlString: String?
+    
+    init(service: PaymentServiceProtocol) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
         webView.navigationDelegate = service
     }
-    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -48,6 +49,7 @@ final class TossPaymentsViewController: UIViewController {
     }
     
     private func loadTossPaymentsJavscript() {
+        print(self.service.htmlString)
         DispatchQueue.main.async {
             self.webView.loadHTMLString(self.service.htmlString, baseURL: URL(string: "https://tosspayments.com/"))
         }

@@ -42,7 +42,7 @@ public extension PaymentInfo {
 
 extension PaymentInfo {
     // 필수 값을 넣어준다.
-    private var requestJSONObject: [String: Any]? {
+    var requestJSONObject: [String: Any]? {
         var requestJSONObject = self.jsonObject
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL

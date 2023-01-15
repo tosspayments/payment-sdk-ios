@@ -9,7 +9,14 @@
 import UIKit
 import WebKit
 
-class TossPaymentsService: NSObject {
+protocol PaymentServiceProtocol: WKNavigationDelegate {
+    var htmlString: String { get }
+    var failURLHandler: ((URL) -> Void)? { get set }
+    var successURLHandler: ((URL) -> Void)? { get set }
+
+}
+
+class TossPaymentsService: NSObject, PaymentServiceProtocol {
     private let clientKey: String
     private let paymentMethod: PaymentMethod
     private let paymentInfo: PaymentInfo

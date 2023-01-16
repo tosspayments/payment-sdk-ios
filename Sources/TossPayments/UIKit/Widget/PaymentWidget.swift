@@ -13,7 +13,7 @@ enum ScriptName: String {
     case updateHeight
 }
 
-public final class PaymentWidget: WKWebView {
+public final class PaymentWidget: WKWebView, HandleURLResult {
     public var amount: Int64 {
         didSet {
             
@@ -25,8 +25,13 @@ public final class PaymentWidget: WKWebView {
     weak var rootViewController: UIViewController?
     var info: PaymentInfo?
     
+    public weak var delegate: TossPaymentsDelegate?
+    public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
+    
     var updatedHeight: CGFloat = 400 {
         didSet {
+            guard oldValue != updatedHeight else { return }
+            widgetUIDelegate?.didUpdateHeight(self, height: updatedHeight)
             invalidateIntrinsicContentSize()
         }
     }
@@ -42,7 +47,7 @@ public final class PaymentWidget: WKWebView {
         let configuration = WKWebViewConfiguration()
         super.init(frame: .zero, configuration: configuration)
         configuration.userContentController.addUserScript(initializeWidgetScript)
-        configuration.userContentController.add(RequestPaymentsMessageHandler(), name: ScriptName.requestPayments.rawValue)
+        configuration.userContentController.add(RequestPaymentsMessageHandler(self), name: ScriptName.requestPayments.rawValue)
         configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
 
         loadHTMLString(htmlString, baseURL: URL(string: "https://tosspayments.com/"))
@@ -74,7 +79,6 @@ public final class PaymentWidget: WKWebView {
         self.info = info
         self.rootViewController = rootViewController
         let jsonString = info.requestJSONString ?? ""
-        print(jsonString)
         let javascriptString = """
         widget.requestPaymentForNativeSDK(\(jsonString));
         """
@@ -95,10 +99,10 @@ public final class PaymentWidget: WKWebView {
         <html>
         <head>
           <title>결제하기</title>
-          <script src="https://js.tosspayments.com/beta/payment-widget"></script>
+          <script src="https://js.tosspayments.com/v1/payment-widget"></script>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         </head>
-        <body>
+        <body style="margin:0;padding:0;overflow:hidden;">
             <div id="payment-method"></div>
         </body>
         </html>
@@ -107,12 +111,25 @@ public final class PaymentWidget: WKWebView {
 }
 
 final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
+    private weak var widget: PaymentWidget?
+    init(_ widget: PaymentWidget) {
+        self.widget = widget
+    }
+    
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let htmlString = message.body as? String else { return }
-
-        print(htmlString)
         let service = WidgetService(htmlString: htmlString)
         let viewController = TossPaymentsViewController(service: service)
+        service.successURLHandler = { url in
+            viewController.dismiss(animated: true) {
+                self.widget?.handleSuccessURL(url)
+            }
+        }
+        service.failURLHandler = { url in
+            viewController.dismiss(animated: true) {
+                self.widget?.handleFailURL(url)
+            }
+        }
         UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)
     }
 }

@@ -49,7 +49,6 @@ final class TossPaymentsViewController: UIViewController {
     }
     
     private func loadTossPaymentsJavscript() {
-        print(self.service.htmlString)
         DispatchQueue.main.async {
             self.webView.loadHTMLString(self.service.htmlString, baseURL: URL(string: "https://tosspayments.com/"))
         }

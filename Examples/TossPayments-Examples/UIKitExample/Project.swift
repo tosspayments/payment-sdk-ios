@@ -21,7 +21,8 @@ let project = Project(
                 "UILaunchStoryboardName": "LaunchScreen",
                 "LSSupportsOpeningDocumentsInPlace": true,
                 "UIFileSharingEnabled": true,
-                "CFBundleShortVersionString": "$(MARKETING_VERSION)"
+                "CFBundleShortVersionString": "$(MARKETING_VERSION)",
+                "Appearance": "Light"
             ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],

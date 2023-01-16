@@ -18,7 +18,6 @@ extension ViewController {
         func installViews(at view: UIView) {
             let 입력한결제수단레이블 = UILabel()
             입력한결제수단레이블.translatesAutoresizingMaskIntoConstraints = false
-            입력한결제수단레이블.textColor = .cyan
             view.addSubview(입력한결제수단레이블)
             NSLayoutConstraint.activate([
                 입력한결제수단레이블.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 24),
@@ -30,7 +29,6 @@ extension ViewController {
             
             let 입력한결제정보레이블 = UILabel()
             입력한결제정보레이블.translatesAutoresizingMaskIntoConstraints = false
-            입력한결제정보레이블.textColor = .magenta
             입력한결제정보레이블.numberOfLines = 0
             view.addSubview(입력한결제정보레이블)
             NSLayoutConstraint.activate([
@@ -50,11 +48,10 @@ extension ViewController {
             ])
             self.pickerView = pickerView
             
-            let button = UIButton(type: .system)
-            button.backgroundColor = .blue
+            let button = UIButton()
+            button.backgroundColor = .systemBlue
             button.setTitle("시작", for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-            button.titleLabel?.textColor = .white
             button.layer.cornerRadius = 16
             
             view.addSubview(button)

@@ -43,6 +43,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         title = "TossPayments 테스트 페이지"
         viewHolder.installViews(at: view)
         

@@ -8,7 +8,11 @@
 import Foundation
 
 final class Environment {
-    static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey") ?? "test_ck_OyL0qZ4G1VODAxdNWDkroWb2MQYg" {
+    enum Constant {
+        static let defaultKey = "test_ck_OyL0qZ4G1VODAxdNWDkroWb2MQYg"
+    }
+    
+    static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey") ?? Constant.defaultKey {
         didSet {
             UserDefaults.standard.set(clientKey, forKey: "TossPayments.ClientKey")
         }

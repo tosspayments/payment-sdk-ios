@@ -16,7 +16,10 @@ enum ScriptName: String {
 public final class PaymentWidget: WKWebView, HandleURLResult {
     public var amount: Int64 {
         didSet {
-            
+            guard amount != oldValue else { return }
+            evaluateJavaScript("""
+            updateAmount(\(amount))
+            """)
         }
     }
     let clientKey: String

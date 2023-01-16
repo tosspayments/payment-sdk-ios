@@ -12,7 +12,10 @@ import WebKit
 import TossPayments
 
 public final class PaymentWidgetViewController: UIViewController {
-    private lazy var widget: PaymentWidget = PaymentWidget(amount: 1000, clientKey: Environment.clientKey)
+    enum Constant {
+        static let defaultAmount: Int64 = 1000
+    }
+    
     public init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -21,9 +24,14 @@ public final class PaymentWidgetViewController: UIViewController {
     
     private lazy var scrollView = UIScrollView()
     private lazy var stackView = UIStackView()
-    private lazy var button = UIButton()
     
+    private lazy var 결제금액라벨 = UILabel()
+    private lazy var 결제금액입력 = UITextField()
+    
+    private lazy var widget: PaymentWidget = PaymentWidget(amount: Constant.defaultAmount, clientKey: Environment.clientKey)
     private lazy var 빈화면 = UIView()
+    
+    private lazy var button = UIButton()
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -56,12 +64,13 @@ public final class PaymentWidgetViewController: UIViewController {
             button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
         ])
-        button.backgroundColor = .blue
+        button.backgroundColor = .systemBlue
         button.setTitle("결제하기", for: .normal)
         button.addTarget(self, action: #selector(requestPayments), for: .touchUpInside)
         
         scrollView.addSubview(stackView)
         stackView.axis = .vertical
+        stackView.spacing = 16
         stackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
@@ -70,6 +79,19 @@ public final class PaymentWidgetViewController: UIViewController {
             stackView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -48),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
         ])
+        
+        stackView.addArrangedSubview(결제금액라벨)
+        stackView.addArrangedSubview(결제금액입력)
+        
+        결제금액라벨.text = "amount (원)"
+        
+        결제금액입력.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+        결제금액입력.keyboardType = .numberPad
+        결제금액입력.borderStyle = .roundedRect
+        결제금액입력.text = "\(Constant.defaultAmount)"
+        
+        widget.amount = Constant.defaultAmount
+        
         
         stackView.addArrangedSubview(widget)
         widget.delegate = self
@@ -86,12 +108,21 @@ public final class PaymentWidgetViewController: UIViewController {
     @objc func requestPayments() {
         widget.requestPayments(
             info: DefaultPaymentInfo(
-                amount: 1000,
+                amount: widget.amount,
                 orderId: "TEST_ORDER",
                 orderName: "테스트 결제"
             ),
             on: self
         )
+    }
+}
+
+extension PaymentWidgetViewController {
+    @objc func textFieldDidChanged(_ sender: Any) {
+        if let amountString = (sender as? UITextField)?.text,
+           let amount = Int64(amountString) {
+            widget.amount = amount
+        }
     }
 }
 

@@ -22,6 +22,13 @@ class WidgetService: NSObject, PaymentServiceProtocol {
 }
 
 extension WidgetService: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        handleError(error)
+    }
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        handleError(error)
+    }
+    
     func webView(
         _ webView: WKWebView,
         decidePolicyFor navigationAction: WKNavigationAction,
@@ -72,6 +79,14 @@ extension WidgetService {
         guard url.scheme != "about" else { return false }
         UIApplication.shared.open(url)
         return true
+    }
+    
+    private func handleError(_ error: Error) {
+        let errorCode = (error as NSError).code
+        let errorMessage = error.localizedDescription
+        if let url = URL(string: "tosspayments://fail?errorCode=\(errorCode)&errorMessage=\(errorMessage)&orderId=unknown") {
+            failURLHandler?(url)
+        }
     }
 }
 

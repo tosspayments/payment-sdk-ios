@@ -19,7 +19,7 @@ private enum Constants {
     )
 }
 
-class ViewController: UIViewController {
+class PaymentsViewController: UIViewController {
     var 입력한결제수단: PaymentMethod? {
         didSet {
             guard let 입력한결제수단 = 입력한결제수단 else { return}

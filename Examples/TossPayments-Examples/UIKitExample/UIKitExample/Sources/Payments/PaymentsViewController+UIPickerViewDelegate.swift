@@ -9,7 +9,7 @@
 import UIKit
 import TossPayments
 
-extension ViewController: UIPickerViewDelegate {
+extension PaymentsViewController: UIPickerViewDelegate {
     func title(for row: Int) -> String {
         if row >= PaymentMethod.allCases.count {
             return "새로운 결제수단"
@@ -29,7 +29,7 @@ extension ViewController: UIPickerViewDelegate {
     }
 }
 
-extension ViewController: UIPickerViewDataSource {
+extension PaymentsViewController: UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         1
     }

@@ -10,7 +10,7 @@ import Foundation
 import TossPayments
 import UIKit
 
-extension ViewController: TossPaymentsDelegate {
+extension PaymentsViewController: TossPaymentsDelegate {
     func didSucceedRequestPayments(paymentKey: String, orderId: String, amount: Int64) {
         let title = "TossPayments 요청에 성공하였습니다."
         let message = """

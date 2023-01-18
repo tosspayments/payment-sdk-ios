@@ -9,7 +9,7 @@
 import UIKit
 import TossPayments
 
-extension ViewController {
+extension PaymentsViewController {
     func showAlertForInputCustomMethod() {
         let alertController = UIAlertController(
             title: "새로운 결제수단 테스트",

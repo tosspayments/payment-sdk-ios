@@ -8,7 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 
-extension ViewController {
+extension PaymentsViewController {
     class ViewHolder {
         var 입력한결제수단레이블: UILabel!
         var 입력한결제정보레이블: UILabel!

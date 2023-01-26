@@ -8,7 +8,7 @@
 import Foundation
 
 public struct TransferPaymentInfo: PaymentInfo {
-    public let amount: Int64
+    public let amount: Double
     public let orderId: String
     public let orderName: String
 
@@ -18,11 +18,11 @@ public struct TransferPaymentInfo: PaymentInfo {
 
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64?
+    public let taxFreeAmount: Double?
     public let cultureExpense: Bool?
     
     public init(
-        amount: Int64,
+        amount: Double,
         orderId: String,
         orderName: String,
         cashReceipt: CashReceipt? = nil,
@@ -30,7 +30,7 @@ public struct TransferPaymentInfo: PaymentInfo {
         escrowProducts: EscrowProducts? = nil,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Int64? = nil,
+        taxFreeAmount: Double? = nil,
         cultureExpense: Bool? = nil
     ) {
         self.amount = amount

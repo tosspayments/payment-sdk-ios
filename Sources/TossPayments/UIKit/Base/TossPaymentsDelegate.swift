@@ -8,8 +8,8 @@
 import Foundation
 
 public protocol TossPaymentsDelegate: AnyObject {
-    func didSucceedRequestPayments(paymentKey: String, orderId: String, amount: Int64)
-    func didFailRequestPayments(errorCode: String, errorMessage: String, orderId: String)
+    func handlePaymentSuccessResult(_ success: TossPaymentsResult.Success)
+    func handlePaymentFailResult(_ fail: TossPaymentsResult.Fail)
 }
 
 protocol HandleURLResult {
@@ -22,17 +22,21 @@ protocol HandleURLResult {
 extension HandleURLResult {
     func handleSuccessURL(_ url: URL) {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-        let paymentKey = components.query(for: "paymentKey")
-        let orderId = components.query(for: "orderId")
-        let amount = Int64(components.query(for: "amount")) ?? 0
-        delegate?.didSucceedRequestPayments(paymentKey: paymentKey, orderId: orderId, amount: amount)
+        let success = TossPaymentsResult.Success(
+            paymentKey: components.query(for: "paymentKey"),
+            orderId: components.query(for: "orderId"),
+            amount: Double(components.query(for: "amount")) ?? 0
+        )
+        delegate?.handlePaymentSuccessResult(success)
     }
     
     func handleFailURL(_ url: URL) {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
-        let errorCode = components.query(for: "code")
-        let errorMessage = components.query(for: "message")
-        let orderId = components.query(for: "orderId")
-        delegate?.didFailRequestPayments(errorCode: errorCode, errorMessage: errorMessage, orderId: orderId)
+        let fail = TossPaymentsResult.Fail(
+            errorCode: components.query(for: "code"),
+            errorMessage: components.query(for: "message"),
+            orderId: components.query(for: "orderId")
+        )
+        delegate?.handlePaymentFailResult(fail)
     }
 }

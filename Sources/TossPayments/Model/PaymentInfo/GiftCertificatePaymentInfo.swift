@@ -8,21 +8,21 @@
 import Foundation
 
 public struct GiftCertificatePaymentInfo: PaymentInfo {
-    public let amount: Int64
+    public let amount: Double
     public let orderId: String
     public let orderName: String
     
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64?
+    public let taxFreeAmount: Double?
     
     public init(
-        amount: Int64,
+        amount: Double,
         orderId: String,
         orderName: String,
         customerName: String?,
         customerEmail: String?,
-        taxFreeAmount: Int64?
+        taxFreeAmount: Double?
     ) {
         self.amount = amount
         self.orderId = orderId

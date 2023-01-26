@@ -8,7 +8,7 @@
 import Foundation
 
 public struct CardPaymentInfo: PaymentInfo {
-    public let amount: Int64
+    public let amount: Double
     public let orderId: String
     public let orderName: String
     
@@ -26,7 +26,7 @@ public struct CardPaymentInfo: PaymentInfo {
     
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64?
+    public let taxFreeAmount: Double?
     
     public struct Plan: Codable {
         public let company: String
@@ -42,7 +42,7 @@ public struct CardPaymentInfo: PaymentInfo {
     }
     
     public init(
-        amount: Int64,
+        amount: Double,
         orderId: String,
         orderName: String,
         cardCompany: String? = nil,
@@ -58,7 +58,7 @@ public struct CardPaymentInfo: PaymentInfo {
         appScheme: String? = nil,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Int64? = nil
+        taxFreeAmount: Double? = nil
     ) {
         self.amount = amount
         self.orderId = orderId

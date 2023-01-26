@@ -10,23 +10,23 @@ import Foundation
 public struct DefaultPaymentInfo: PaymentInfo {
     
     // 필수
-    public let amount: Int64
+    public let amount: Double
     public let orderId: String
     public let orderName: String
     
     // 선택
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Int64?
+    public let taxFreeAmount: Double?
     public let cultureExpense: Bool
         
     public init(
-        amount: Int64,
+        amount: Double,
         orderId: String,
         orderName: String,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Int64? = nil,
+        taxFreeAmount: Double? = nil,
         cultureExpense: Bool = false
     ) {
         self.amount = amount

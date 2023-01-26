@@ -13,7 +13,7 @@ import TossPayments
 
 public final class PaymentWidgetViewController: ViewController {
     enum Constant {
-        static let defaultAmount: Int64 = 1000
+        static let defaultAmount: Double = 1000
     }
     
     public init() {
@@ -26,7 +26,7 @@ public final class PaymentWidgetViewController: ViewController {
     private lazy var orderIdInputField = TextField()
     private lazy var orderNameInputField = TextField()
     
-    private lazy var widget: PaymentWidget = PaymentWidget(amount: Constant.defaultAmount, clientKey: Environment.clientKey)
+    private lazy var widget: PaymentWidget = PaymentWidget(clientKey: Environment.clientKey)
     private lazy var 빈화면 = UIView()
     
     private lazy var button = UIButton()
@@ -41,8 +41,10 @@ public final class PaymentWidgetViewController: ViewController {
         
         view.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewBottomAnchorConstraint?.isActive = false
         NSLayoutConstraint.activate([
             button.heightAnchor.constraint(equalToConstant: 60),
+            button.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -64,7 +66,6 @@ public final class PaymentWidgetViewController: ViewController {
         orderNameInputField.title = "orderName"
         orderNameInputField.text = "토스페이먼츠 세트"
         
-        
         amountInputField.textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         amountInputField.textField.keyboardType = .numberPad
         
@@ -73,7 +74,7 @@ public final class PaymentWidgetViewController: ViewController {
         widget.widgetUIDelegate = self
         
         NSLayoutConstraint.activate([
-            빈화면.heightAnchor.constraint(equalToConstant: 80)
+            빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
     }
@@ -93,28 +94,28 @@ public final class PaymentWidgetViewController: ViewController {
 extension PaymentWidgetViewController {
     @objc func textFieldDidChanged(_ sender: Any) {
         if let amountString = (sender as? UITextField)?.text,
-           let amount = Int64(amountString) {
+           let amount = Double(amountString) {
             widget.amount = amount
         }
     }
 }
 
 extension PaymentWidgetViewController: TossPaymentsDelegate {
-    public func didSucceedRequestPayments(paymentKey: String, orderId: String, amount: Int64) {
+    public func handlePaymentSuccessResult(_ success: TossPaymentsResult.Success) {
         let viewModel = ResultViewModel(
-            result1: ("paymentKey", paymentKey),
-            result2: ("orderId", orderId),
-            result3: ("amount", "\(amount)")
+            result1: ("paymentKey", success.paymentKey),
+            result2: ("orderId", success.orderId),
+            result3: ("amount", "\(success.amount)")
         )
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    public func didFailRequestPayments(errorCode: String, errorMessage: String, orderId: String) {
+    public func handlePaymentFailResult(_ fail: TossPaymentsResult.Fail) {
         let viewModel = ResultViewModel(
-            result1: ("errorCode", errorCode),
-            result2: ("errorMessage", errorMessage),
-            result3: ("orderId", orderId)
+            result1: ("errorCode", fail.errorCode),
+            result2: ("errorMessage", fail.errorMessage),
+            result3: ("orderId", fail.orderId)
         )
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)

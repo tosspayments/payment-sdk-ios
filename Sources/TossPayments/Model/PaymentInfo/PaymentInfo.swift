@@ -9,14 +9,14 @@ import Foundation
 
 public protocol PaymentInfo: Codable {
     // 필수
-    var amount: Int64 { get }
+    var amount: Double { get }
     var orderId: String { get }
     var orderName: String { get }
     
     // 선택
     var customerName: String? { get }
     var customerEmail: String? { get }
-    var taxFreeAmount: Int64? { get }
+    var taxFreeAmount: Double? { get }
 }
 
 public extension PaymentInfo {

@@ -8,13 +8,13 @@
 import Foundation
 import WebKit
 
-enum ScriptName: String {
+private enum ScriptName: String {
     case requestPayments
     case updateHeight
 }
 
 public final class PaymentWidget: WKWebView, HandleURLResult {
-    public var amount: Int64 {
+    public var amount: Double {
         didSet {
             guard amount != oldValue else { return }
             evaluateJavaScript("""
@@ -22,11 +22,11 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
             """)
         }
     }
-    let clientKey: String
-    let customerKey: String
+    private let clientKey: String
+    private let customerKey: String
     
-    weak var rootViewController: UIViewController?
-    var info: PaymentInfo?
+    private weak var rootViewController: UIViewController?
+    private var info: PaymentInfo?
     
     public weak var delegate: TossPaymentsDelegate?
     public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
@@ -40,11 +40,10 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     }
     
     public init(
-        amount: Int64,
         clientKey: String,
         customerKey: String = "ANONYMOUS"
     ) {
-        self.amount = amount
+        self.amount = 1000
         self.clientKey = clientKey
         self.customerKey = customerKey
         let configuration = WKWebViewConfiguration()
@@ -66,7 +65,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         fatalError("init(coder:) has not been implemented")
     }
     
-    lazy var initializeWidgetScript = WKUserScript(
+    private lazy var initializeWidgetScript = WKUserScript(
         source: """
                 const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)");
                 const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount));
@@ -113,7 +112,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     }
 }
 
-final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
+private final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
     private weak var widget: PaymentWidget?
     init(_ widget: PaymentWidget) {
         self.widget = widget
@@ -137,7 +136,7 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
     }
 }
 
-final class UpdateHeightMessageHandler: NSObject, WKScriptMessageHandler {
+private final class UpdateHeightMessageHandler: NSObject, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let updatedHeight = message.body as? CGFloat else { return }
         (message.webView as? PaymentWidget)?.updatedHeight = updatedHeight

@@ -41,6 +41,15 @@ public extension PaymentInfo {
 }
 
 extension PaymentInfo {
+    static func requestJSONString(
+        jsonObject: [String: Any]?
+    ) -> String? {
+        var requestJSONObject = jsonObject
+        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["failUrl"] = WebConstants.failURL
+        return requestJSONObject?.jsonString
+    }
+    
     // 필수 값을 넣어준다.
     var requestJSONObject: [String: Any]? {
         var requestJSONObject = self.jsonObject
@@ -55,7 +64,7 @@ extension PaymentInfo {
     }
 }
 
-private extension Encodable {
+extension Encodable {
     var jsonObject: [String: Any]? {
         return try? JSONSerialization.jsonObject(with: try! JSONEncoder().encode(self)) as? [String: Any]
     }
@@ -67,7 +76,7 @@ private extension Encodable {
     }
 }
 
-private extension Dictionary where Key == String, Value == Any {
+extension Dictionary where Key == String, Value == Any {
     var jsonString: String? {
         guard let data = try? JSONSerialization.data(withJSONObject: self) else { return nil }
         return String(data: data, encoding: .utf8)

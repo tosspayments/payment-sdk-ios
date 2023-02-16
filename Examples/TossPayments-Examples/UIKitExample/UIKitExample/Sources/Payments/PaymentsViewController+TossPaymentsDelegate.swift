@@ -14,7 +14,7 @@ extension PaymentsViewController: TossPaymentsDelegate {
     func handlePaymentSuccessResult(_ success: TossPaymentsResult.Success) {
         let title = "TossPayments 요청에 성공하였습니다."
         let message = """
-        didSucceedRequestPayments
+        didSucceedRequestPayment
         paymentKey: \(success.paymentKey)
         orderId: \(success.orderId)
         amount: \(success.amount)
@@ -25,7 +25,7 @@ extension PaymentsViewController: TossPaymentsDelegate {
     func handlePaymentFailResult(_ fail: TossPaymentsResult.Fail) {
         let title = "TossPayments 요청에 실패하였습니다."
         let message = """
-        didFailRequestPayments
+        didFailRequestPayment
         errorCode: \(fail.errorCode)
         errorMessage: \(fail.errorMessage)
         orderId: \(fail.orderId)

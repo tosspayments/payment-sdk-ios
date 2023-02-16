@@ -14,7 +14,7 @@ private enum ScriptName: String {
 }
 
 public final class PaymentWidget: WKWebView, HandleURLResult {
-    public var amount: Double {
+    private var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
             evaluateJavaScript("""
@@ -26,7 +26,6 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     private let customerKey: String
     
     private weak var rootViewController: UIViewController?
-    private var info: PaymentInfo?
     
     public weak var delegate: TossPaymentsDelegate?
     public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
@@ -41,18 +40,25 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     
     public init(
         clientKey: String,
-        customerKey: String = "ANONYMOUS"
+        customerKey: String
     ) {
-        self.amount = 1000
         self.clientKey = clientKey
         self.customerKey = customerKey
         let configuration = WKWebViewConfiguration()
         super.init(frame: .zero, configuration: configuration)
+    }
+    
+    public func renderPaymentMethods(amount: Double) {
+        self.amount = amount
         configuration.userContentController.addUserScript(initializeWidgetScript)
         configuration.userContentController.add(RequestPaymentsMessageHandler(self), name: ScriptName.requestPayments.rawValue)
         configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
 
         loadHTMLString(htmlString, baseURL: URL(string: "https://tosspayments.com/"))
+    }
+    
+    public func updateAmount(_ amount: Double) {
+        self.amount = amount
     }
     
     public override var intrinsicContentSize: CGSize {
@@ -74,13 +80,16 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         forMainFrameOnly: true
     )
     
-    public func requestPayments(
-        info: PaymentInfo,
+    public func requestPayment(
+        info: WidgetPaymentInfo,
         on rootViewController: UIViewController
     ) {
-        self.info = info
+        var requestJSONObject = info.convertToPaymentInfo(amount: amount)
+        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["failUrl"] = WebConstants.failURL
+        let jsonString = requestJSONObject?.jsonString ?? ""
+        
         self.rootViewController = rootViewController
-        let jsonString = info.requestJSONString ?? ""
         let javascriptString = """
         widget.requestPaymentForNativeSDK(\(jsonString));
         """

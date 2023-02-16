@@ -34,7 +34,7 @@ class TossPaymentsService: NSObject, PaymentServiceProtocol {
     var successURLHandler: ((URL) -> Void)?
     
     // 한번만 요청할 Javascript 요청 여부
-    private var didEvaluateRequestPaymentsJavascript: Bool = false
+    private var didEvaluateRequestPaymentJavascript: Bool = false
 }
 
 extension TossPaymentsService {
@@ -57,7 +57,7 @@ extension TossPaymentsService {
         """
     }
     
-    var requestPaymentsJavascript: String {
+    var requestPaymentJavascript: String {
         let javascriptString = """
         var tossPayments = TossPayments('\(clientKey)');
         tossPayments.requestPayment('\(paymentMethod.rawValue)', \(paymentInfo.requestJSONString ?? ""));
@@ -65,11 +65,11 @@ extension TossPaymentsService {
         return javascriptString
     }
     
-    private func evaluateRequestPaymentsJavascript(with webView: WKWebView) {
-        if didEvaluateRequestPaymentsJavascript { return }
+    private func evaluateRequestPaymentJavascript(with webView: WKWebView) {
+        if didEvaluateRequestPaymentJavascript { return }
         DispatchQueue.main.async {
-            webView.evaluateJavaScript(self.requestPaymentsJavascript)
-            self.didEvaluateRequestPaymentsJavascript = true
+            webView.evaluateJavaScript(self.requestPaymentJavascript)
+            self.didEvaluateRequestPaymentJavascript = true
         }
     }
 }
@@ -100,7 +100,7 @@ extension TossPaymentsService: WKNavigationDelegate {
         didFinish navigation: WKNavigation!
     ) {
         if webView.url?.absoluteString == "https://tosspayments.com/" {
-            self.evaluateRequestPaymentsJavascript(with: webView)
+            self.evaluateRequestPaymentJavascript(with: webView)
         }
     }
 }

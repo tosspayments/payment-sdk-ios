@@ -26,7 +26,7 @@ public final class PaymentWidgetViewController: ViewController {
     private lazy var orderIdInputField = TextField()
     private lazy var orderNameInputField = TextField()
     
-    private lazy var widget: PaymentWidget = PaymentWidget(clientKey: Environment.clientKey)
+    private lazy var widget: PaymentWidget = PaymentWidget(clientKey: Environment.clientKey, customerKey: "ANONYMOUS")
     private lazy var 빈화면 = UIView()
     
     private lazy var button = UIButton()
@@ -51,7 +51,7 @@ public final class PaymentWidgetViewController: ViewController {
         ])
         button.backgroundColor = .systemBlue
         button.setTitle("결제하기", for: .normal)
-        button.addTarget(self, action: #selector(requestPayments), for: .touchUpInside)
+        button.addTarget(self, action: #selector(requestPayment), for: .touchUpInside)
         
         stackView.addArrangedSubview(amountInputField)
         stackView.addArrangedSubview(orderIdInputField)
@@ -69,7 +69,6 @@ public final class PaymentWidgetViewController: ViewController {
         amountInputField.textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         amountInputField.textField.keyboardType = .numberPad
         
-        widget.amount = Constant.defaultAmount
         widget.delegate = self
         widget.widgetUIDelegate = self
         
@@ -77,12 +76,13 @@ public final class PaymentWidgetViewController: ViewController {
             빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
+        
+        widget.renderPaymentMethods(amount: Constant.defaultAmount)
     }
     
-    @objc func requestPayments() {
-        widget.requestPayments(
-            info: DefaultPaymentInfo(
-                amount: widget.amount,
+    @objc func requestPayment() {
+        widget.requestPayment(
+            info: DefaultWidgetPaymentInfo(
                 orderId: orderIdInputField.textField.text ?? UUID().uuidString,
                 orderName: orderNameInputField.textField.text ?? "테스트 결제"
             ),
@@ -95,7 +95,7 @@ extension PaymentWidgetViewController {
     @objc func textFieldDidChanged(_ sender: Any) {
         if let amountString = (sender as? UITextField)?.text,
            let amount = Double(amountString) {
-            widget.amount = amount
+            widget.updateAmount(amount)
         }
     }
 }

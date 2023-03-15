@@ -8,11 +8,6 @@
 import Foundation
 import WebKit
 
-private enum ScriptName: String {
-    case requestPayments
-    case updateHeight
-}
-
 public final class PaymentWidget: WKWebView, HandleURLResult {
     private var amount: Double = 0 {
         didSet {
@@ -24,6 +19,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     }
     private let clientKey: String
     private let customerKey: String
+    let options: Options?
     
     private weak var rootViewController: UIViewController?
     
@@ -38,12 +34,22 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         }
     }
     
+    var baseURL: URL {
+        guard let urlString = options?.brandPay?.redirectURL,
+              let url = URL(string: urlString) else {
+            return URL(string: "https://tosspayments.com")!
+        }
+        return url
+    }
+    
     public init(
         clientKey: String,
-        customerKey: String
+        customerKey: String,
+        options: Options? = nil
     ) {
         self.clientKey = clientKey
         self.customerKey = customerKey
+        self.options = options
         let configuration = WKWebViewConfiguration()
         super.init(frame: .zero, configuration: configuration)
     }
@@ -53,8 +59,9 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         configuration.userContentController.addUserScript(initializeWidgetScript)
         configuration.userContentController.add(RequestPaymentsMessageHandler(self), name: ScriptName.requestPayments.rawValue)
         configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
-
-        loadHTMLString(htmlString, baseURL: URL(string: "https://tosspayments.com/"))
+        configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
+        
+        loadHTMLString(htmlString, baseURL: baseURL)
     }
     
     public func updateAmount(_ amount: Double) {
@@ -71,11 +78,25 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var initializeWidgetScript = WKUserScript(
-        source: """
-                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)");
+    private lazy var source: String = {
+        if let redirectURLString = self.options?.brandPay?.redirectURL {
+            return """
+                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
+                  brandpay: { redirectUrl: "\(redirectURLString)" }
+                });
                 const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount));
-                """,
+                """
+        } else {
+            return """
+                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
+                  brandpay: { redirectUrl: "" }
+                });
+                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount));
+                """
+        }
+    }()
+    private lazy var initializeWidgetScript = WKUserScript(
+        source: source,
         injectionTime: .atDocumentEnd,
         forMainFrameOnly: true
     )
@@ -118,36 +139,5 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         </body>
         </html>
         """
-    }
-}
-
-private final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
-    private weak var widget: PaymentWidget?
-    init(_ widget: PaymentWidget) {
-        self.widget = widget
-    }
-    
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let htmlString = message.body as? String else { return }
-        let service = WidgetService(htmlString: htmlString)
-        let viewController = TossPaymentsViewController(service: service)
-        service.successURLHandler = { url in
-            viewController.dismiss(animated: true) {
-                self.widget?.handleSuccessURL(url)
-            }
-        }
-        service.failURLHandler = { url in
-            viewController.dismiss(animated: true) {
-                self.widget?.handleFailURL(url)
-            }
-        }
-        UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)
-    }
-}
-
-private final class UpdateHeightMessageHandler: NSObject, WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard let updatedHeight = message.body as? CGFloat else { return }
-        (message.webView as? PaymentWidget)?.updatedHeight = updatedHeight
     }
 }

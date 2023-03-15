@@ -11,15 +11,16 @@ import WebKit
 
 protocol PaymentServiceProtocol: WKNavigationDelegate {
     var htmlString: String { get }
+    var baseURL: URL { get }
     var failURLHandler: ((URL) -> Void)? { get set }
     var successURLHandler: ((URL) -> Void)? { get set }
-
 }
 
 class TossPaymentsService: NSObject, PaymentServiceProtocol {
     private let clientKey: String
     private let paymentMethod: PaymentMethod
     private let paymentInfo: PaymentInfo
+    let baseURL: URL = URL(string: "https://tosspayments.com")!
     init(
         clientKey: String,
         paymentMethod: PaymentMethod,

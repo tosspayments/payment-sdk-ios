@@ -11,10 +11,13 @@ import WebKit
 
 class WidgetService: NSObject, PaymentServiceProtocol {
     let htmlString: String
+    let baseURL: URL
     init(
-        htmlString: String
+        htmlString: String,
+        baseURL: URL
     ) {
         self.htmlString = htmlString
+        self.baseURL = baseURL
     }
     
     var failURLHandler: ((URL) -> Void)?

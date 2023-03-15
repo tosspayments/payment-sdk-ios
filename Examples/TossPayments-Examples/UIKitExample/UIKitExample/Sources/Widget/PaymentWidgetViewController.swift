@@ -26,7 +26,13 @@ public final class PaymentWidgetViewController: ViewController {
     private lazy var orderIdInputField = TextField()
     private lazy var orderNameInputField = TextField()
     
-    private lazy var widget: PaymentWidget = PaymentWidget(clientKey: Environment.clientKey, customerKey: "ANONYMOUS")
+    private lazy var widget: PaymentWidget = PaymentWidget(
+        clientKey: Environment.clientKey,
+        customerKey: Environment.customerKey,
+        options: PaymentWidget.Options(
+            brandPay: PaymentWidget.BrandPay(redirectURL: Environment.brandPayRedirectURL)
+        )
+    )
     private lazy var 빈화면 = UIView()
     
     private lazy var button = UIButton()
@@ -76,7 +82,6 @@ public final class PaymentWidgetViewController: ViewController {
             빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
-        
         widget.renderPaymentMethods(amount: Constant.defaultAmount)
     }
     

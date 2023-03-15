@@ -12,12 +12,13 @@ import WebKit
 
 final class TossPaymentsViewController: UIViewController {
     lazy var webView: WKWebView = {
-        let webView = WKWebView()
-        
-
+        let configuration = WKWebViewConfiguration()
+        configuration.userContentController.add(SuccessHandler(self), name: ScriptName.success.rawValue)
+        let webView = WKWebView(frame: .zero, configuration: configuration)
         return webView
     }()
     
+    var success: ((String) -> Void)?
     private let service: PaymentServiceProtocol
     private var htmlString: String?
     
@@ -44,13 +45,13 @@ final class TossPaymentsViewController: UIViewController {
             webView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             webView.leadingAnchor.constraint(equalTo: view.leadingAnchor)
         ])
-        
         loadTossPaymentsJavscript()
     }
+
     
     private func loadTossPaymentsJavscript() {
         DispatchQueue.main.async {
-            self.webView.loadHTMLString(self.service.htmlString, baseURL: URL(string: "https://tosspayments.com/"))
+            self.webView.loadHTMLString(self.service.htmlString, baseURL: self.service.baseURL)
         }
     }
 }

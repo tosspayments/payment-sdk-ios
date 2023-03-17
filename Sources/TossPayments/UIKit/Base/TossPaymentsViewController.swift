@@ -50,6 +50,8 @@ final class TossPaymentsViewController: UIViewController {
 
     
     private func loadTossPaymentsJavscript() {
+        // loadHTMLString 이 history 가 쌓이지 않는 현상이 있어서 hacky 한 방법으로 해결
+        self.webView.load(URLRequest(url: URL(string: "about:blank")!))
         DispatchQueue.main.async {
             self.webView.loadHTMLString(self.service.htmlString, baseURL: self.service.baseURL)
         }

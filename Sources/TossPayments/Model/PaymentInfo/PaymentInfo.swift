@@ -45,7 +45,10 @@ extension PaymentInfo {
         jsonObject: [String: Any]?
     ) -> String? {
         var requestJSONObject = jsonObject
-        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["successUrl"] = [
+            "payment": WebConstants.successPaymentURL,
+            "brandpay": WebConstants.successBrandPayURL
+        ]
         requestJSONObject?["failUrl"] = WebConstants.failURL
         return requestJSONObject?.jsonString
     }
@@ -53,7 +56,10 @@ extension PaymentInfo {
     // 필수 값을 넣어준다.
     var requestJSONObject: [String: Any]? {
         var requestJSONObject = self.jsonObject
-        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["successUrl"] = [
+            "payment": WebConstants.successPaymentURL,
+            "brandpay": WebConstants.successBrandPayURL
+        ]
         requestJSONObject?["failUrl"] = WebConstants.failURL
         return requestJSONObject
     }

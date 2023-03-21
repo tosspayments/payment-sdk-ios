@@ -22,10 +22,14 @@ public class TossPayments: HandleURLResult {
         )
         let viewController = TossPaymentsViewController(service: service)
         let navigationController = UINavigationController(rootViewController: viewController)
-        
-        service.successURLHandler = { url in
+        service.successPaymentURLHandler = { url in
             viewController.dismiss(animated: true) {
-                self.handleSuccessURL(url)
+                self.handlePaymentSuccessURL(url)
+            }
+        }
+        service.successBrandPayURLHandler = { url in
+            viewController.dismiss(animated: true) {
+                self.handleBrandpaySuccessURL(url)
             }
         }
         service.failURLHandler = { url in

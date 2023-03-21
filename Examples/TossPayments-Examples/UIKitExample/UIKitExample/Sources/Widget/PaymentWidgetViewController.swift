@@ -106,7 +106,7 @@ extension PaymentWidgetViewController {
 }
 
 extension PaymentWidgetViewController: TossPaymentsDelegate {
-    public func handlePaymentSuccessResult(_ success: TossPaymentsResult.Success) {
+    public func handlePaymentSuccessResult(_ success: TossPaymentsResult.PaymentSuccess) {
         let viewModel = ResultViewModel(
             result1: ("paymentKey", success.paymentKey),
             result2: ("orderId", success.orderId),
@@ -116,7 +116,18 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
         navigationController?.pushViewController(viewController, animated: true)
     }
     
-    public func handlePaymentFailResult(_ fail: TossPaymentsResult.Fail) {
+    public func handleBrandPaySuccessResult(_ success: TossPaymentsResult.BrandPaySuccess) {
+        let viewModel = ResultViewModel(
+            result1: ("paymentKey", success.paymentKey),
+            result2: ("orderId", success.orderId),
+            result3: ("amount", "\(success.amount)"),
+            result4: ("methodId", "\(success.methodId)")
+        )
+        let viewController = ResultViewController(viewModel: viewModel)
+        navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    public func handleFailResult(_ fail: TossPaymentsResult.Fail) {
         let viewModel = ResultViewModel(
             result1: ("errorCode", fail.errorCode),
             result2: ("errorMessage", fail.errorMessage),

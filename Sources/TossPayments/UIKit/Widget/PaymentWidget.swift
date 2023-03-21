@@ -106,7 +106,10 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         on rootViewController: UIViewController
     ) {
         var requestJSONObject = info.convertToPaymentInfo(amount: amount)
-        requestJSONObject?["successUrl"] = WebConstants.successURL
+        requestJSONObject?["successUrl"] = [
+            "payment": WebConstants.successPaymentURL,
+            "brandpay": WebConstants.successBrandPayURL
+        ]
         requestJSONObject?["failUrl"] = WebConstants.failURL
         let jsonString = requestJSONObject?.jsonString ?? ""
         

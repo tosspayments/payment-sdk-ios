@@ -8,6 +8,7 @@
 import Foundation
 
 enum WebConstants {
-    static var successURL: String { "tosspayments://success" }
+    static var successPaymentURL: String { "tosspayments://success/payment" }
+    static var successBrandPayURL: String { "tosspayments://success/brandpay" }
     static var failURL: String { "tosspayments://fail" }
 }

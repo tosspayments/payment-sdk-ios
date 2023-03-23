@@ -18,6 +18,9 @@ public enum TossPaymentsResult {
         
         /// 결제 금액
         public let amount: Double
+        
+        /// 추가 parameters
+        public let additionalParameters: [String: String]?
     }
     
     public struct BrandPaySuccess {

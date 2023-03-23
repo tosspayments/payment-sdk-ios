@@ -112,6 +112,16 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
             result2: ("orderId", success.orderId),
             result3: ("amount", "\(success.amount)")
         )
+        
+        let additionalParameters = success.additionalParameters
+        
+        let paymentType = additionalParameters?["paymentType"] as? String
+            
+        if paymentType == "BRANDPAY" {
+            // 브랜드페이 승인
+        } else {
+            // 일반결제 승인 -> 추후 일반결제/브랜드페이 승인으로 Migration 예정되어있음
+        }
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }

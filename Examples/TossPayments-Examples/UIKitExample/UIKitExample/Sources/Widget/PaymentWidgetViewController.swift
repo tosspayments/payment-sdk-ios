@@ -106,7 +106,7 @@ extension PaymentWidgetViewController {
 }
 
 extension PaymentWidgetViewController: TossPaymentsDelegate {
-    public func handlePaymentSuccessResult(_ success: TossPaymentsResult.PaymentSuccess) {
+    public func handleSuccessResult(_ success: TossPaymentsResult.Success) {
         let viewModel = ResultViewModel(
             result1: ("paymentKey", success.paymentKey),
             result2: ("orderId", success.orderId),
@@ -122,17 +122,6 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
         } else {
             // 일반결제 승인 -> 추후 일반결제/브랜드페이 승인으로 Migration 예정되어있음
         }
-        let viewController = ResultViewController(viewModel: viewModel)
-        navigationController?.pushViewController(viewController, animated: true)
-    }
-    
-    public func handleBrandPaySuccessResult(_ success: TossPaymentsResult.BrandPaySuccess) {
-        let viewModel = ResultViewModel(
-            result1: ("paymentKey", success.paymentKey),
-            result2: ("orderId", success.orderId),
-            result3: ("amount", "\(success.amount)"),
-            result4: ("methodId", "\(success.methodId)")
-        )
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
     }

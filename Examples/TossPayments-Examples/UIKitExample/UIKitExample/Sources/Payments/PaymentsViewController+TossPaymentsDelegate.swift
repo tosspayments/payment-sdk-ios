@@ -11,25 +11,13 @@ import TossPayments
 import UIKit
 
 extension PaymentsViewController: TossPaymentsDelegate {
-    func handlePaymentSuccessResult(_ success: TossPaymentsResult.PaymentSuccess) {
+    func handleSuccessResult(_ success: TossPaymentsResult.Success) {
         let title = "TossPayments 요청에 성공하였습니다."
         let message = """
         didSucceedRequestPayment
         paymentKey: \(success.paymentKey)
         orderId: \(success.orderId)
         amount: \(success.amount)
-        """
-        showAlert(title: title, message: message)
-    }
-    
-    func handleBrandPaySuccessResult(_ success: TossPaymentsResult.BrandPaySuccess) {
-        let title = "TossPayments 요청에 성공하였습니다."
-        let message = """
-        didSucceedRequestPayment
-        paymentKey: \(success.paymentKey)
-        orderId: \(success.orderId)
-        amount: \(success.amount)
-        methodId: \(success.methodId)
         """
         showAlert(title: title, message: message)
     }

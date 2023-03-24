@@ -13,8 +13,7 @@ protocol PaymentServiceProtocol: WKNavigationDelegate {
     var htmlString: String { get }
     var baseURL: URL { get }
     var failURLHandler: ((URL) -> Void)? { get set }
-    var successBrandPayURLHandler: ((URL) -> Void)? { get set }
-    var successPaymentURLHandler: ((URL) -> Void)? { get set }
+    var successURLHandler: ((URL) -> Void)? { get set }
 }
 
 class TossPaymentsService: NSObject, PaymentServiceProtocol {
@@ -33,8 +32,7 @@ class TossPaymentsService: NSObject, PaymentServiceProtocol {
     }
     
     var failURLHandler: ((URL) -> Void)?
-    var successBrandPayURLHandler: ((URL) -> Void)?
-    var successPaymentURLHandler: ((URL) -> Void)?
+    var successURLHandler: ((URL) -> Void)? 
     
     // 한번만 요청할 Javascript 요청 여부
     private var didEvaluateRequestPaymentJavascript: Bool = false
@@ -50,7 +48,7 @@ extension TossPaymentsService {
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <script src="https://js.tosspayments.com/v1"></script>
+            <script src="https://js.tosspayments.com/\(TossPaymentsEnvironment.stage)"></script>
         </head>
 
         <body>
@@ -117,11 +115,8 @@ extension TossPaymentsService {
         if urlString.hasPrefix(WebConstants.failURL) {
             failURLHandler?(url)
             return true
-        } else if urlString.hasPrefix(WebConstants.successPaymentURL) {
-            successPaymentURLHandler?(url)
-            return true
-        } else if urlString.hasPrefix(WebConstants.successBrandPayURL) {
-            successBrandPayURLHandler?(url)
+        } else if urlString.hasPrefix(WebConstants.successURL) {
+            successURLHandler?(url)
             return true
         }
         

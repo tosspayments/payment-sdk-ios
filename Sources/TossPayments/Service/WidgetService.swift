@@ -21,8 +21,7 @@ class WidgetService: NSObject, PaymentServiceProtocol {
     }
     
     var failURLHandler: ((URL) -> Void)?
-    var successBrandPayURLHandler: ((URL) -> Void)?
-    var successPaymentURLHandler: ((URL) -> Void)?
+    var successURLHandler: ((URL) -> Void)?
 }
 
 extension WidgetService: WKNavigationDelegate {
@@ -69,11 +68,8 @@ extension WidgetService {
         if urlString.hasPrefix(WebConstants.failURL) {
             failURLHandler?(url)
             return true
-        } else if urlString.hasPrefix(WebConstants.successBrandPayURL) {
-            successBrandPayURLHandler?(url)
-            return true
-        } else if urlString.hasPrefix(WebConstants.successPaymentURL) {
-            successPaymentURLHandler?(url)
+        } else if urlString.hasPrefix(WebConstants.successURL) {
+            successURLHandler?(url)
             return true
         }
         

@@ -8,7 +8,7 @@
 import Foundation
 
 public enum TossPaymentsResult {
-    public struct PaymentSuccess {
+    public struct Success {
         
         /// 결제 식별자
         public let paymentKey: String
@@ -21,21 +21,6 @@ public enum TossPaymentsResult {
         
         /// 추가 parameters
         public let additionalParameters: [String: String]?
-    }
-    
-    public struct BrandPaySuccess {
-        
-        /// 결제 식별자
-        public let paymentKey: String
-        
-        /// 주문 식별자
-        public let orderId: String
-        
-        /// 결제 금액
-        public let amount: Double
-        
-        /// 결제 ID
-        public let methodId: String
     }
     
     public struct Fail {

@@ -60,7 +60,6 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         configuration.userContentController.add(RequestPaymentsMessageHandler(self), name: ScriptName.requestPayments.rawValue)
         configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
         configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
-        
         loadHTMLString(htmlString, baseURL: baseURL)
     }
     
@@ -106,10 +105,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         on rootViewController: UIViewController
     ) {
         var requestJSONObject = info.convertToPaymentInfo(amount: amount)
-        requestJSONObject?["successUrl"] = [
-            "payment": WebConstants.successPaymentURL,
-            "brandpay": WebConstants.successBrandPayURL
-        ]
+        requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL
         let jsonString = requestJSONObject?.jsonString ?? ""
         
@@ -134,7 +130,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         <html>
         <head>
           <title>결제하기</title>
-          <script src="https://js.tosspayments.com/v1/payment-widget"></script>
+          <script src="https://js.tosspayments.com/\(TossPaymentsEnvironment.stage)/payment-widget"></script>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         </head>
         <body style="margin:0;padding:0;overflow:hidden;">

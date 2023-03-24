@@ -13,7 +13,7 @@ let project = Project(
             name: "SwiftUIExample",
             platform: .iOS,
             product: .app,
-            productName: "TossPayments SwiftUIExample",
+            productName: "SwiftUIExample",
             bundleId: BundleIdentifier.swiftUIExample,
             deploymentTarget: .iOS(targetVersion: "14.0", devices: [.ipad, .iphone]),
             infoPlist: .extendingDefault(with: [

@@ -34,7 +34,7 @@ public struct TossPaymentsView: View {
     }
     
     public func onSuccess(_ successHandler: @escaping (_ paymentKey: String, _ orderId: String, _ amount: Int64) -> Void) -> Self {
-        service.successPaymentURLHandler = { url in
+        service.successURLHandler = { url in
             self.isPresented = false
             guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else { return }
             let paymentKey = components.query(for: "paymentKey")

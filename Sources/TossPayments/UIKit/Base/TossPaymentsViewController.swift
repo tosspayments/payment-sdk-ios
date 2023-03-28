@@ -26,6 +26,7 @@ final class TossPaymentsViewController: UIViewController {
         self.service = service
         super.init(nibName: nil, bundle: nil)
         webView.navigationDelegate = service
+        modalPresentationStyle = .fullScreen
     }
     
     required init?(coder: NSCoder) {

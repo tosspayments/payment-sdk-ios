@@ -18,7 +18,6 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
         guard let htmlString = message.body as? String, let widget = widget else { return }
         let service = WidgetService(htmlString: htmlString, baseURL: widget.baseURL)
         let viewController = TossPaymentsViewController(service: service)
-        viewController.modalPresentationStyle = .fullScreen
         service.successURLHandler = { url in
             viewController.dismiss(animated: true) {
                 self.widget?.handleSuccessURL(url)

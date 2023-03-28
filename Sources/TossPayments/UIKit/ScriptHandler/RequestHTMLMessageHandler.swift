@@ -19,6 +19,7 @@ final class RequestHTMLMessageHandler: NSObject, WKScriptMessageHandler {
         let widget = widget else { return }
         let service = WidgetService(htmlString: htmlString, baseURL: widget.baseURL)
         let viewController = TossPaymentsViewController(service: service)
+        viewController.modalPresentationStyle = .fullScreen
         viewController.success = { javascript in
             viewController.dismiss(animated: true) {
                 self.widget?.evaluateJavaScript(javascript)

@@ -26,6 +26,7 @@ final class TossPaymentsViewController: UIViewController {
         self.service = service
         super.init(nibName: nil, bundle: nil)
         webView.navigationDelegate = service
+        webView.uiDelegate = self
     }
     
     required init?(coder: NSCoder) {

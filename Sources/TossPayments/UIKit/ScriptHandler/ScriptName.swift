@@ -13,4 +13,3 @@ enum ScriptName: String {
     case requestHTML
     case success
 }
-

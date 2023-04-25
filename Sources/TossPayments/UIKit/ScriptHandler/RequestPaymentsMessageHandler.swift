@@ -36,4 +36,3 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
         UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)
     }
 }
-

@@ -57,7 +57,5 @@ let project = Project(
             analyzeAction: nil
         )
     ],
-    additionalFiles: [
-        "Project.swift"
-    ])
-
+    additionalFiles: ["Project.swift"]
+)

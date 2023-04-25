@@ -118,7 +118,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
             """
             var script = decodeURIComponent(window.atob('\(encodedScript)'));
             eval(script);
-            """) { (_, error) in
+            """) { (_, _) in
                     
             }
     }

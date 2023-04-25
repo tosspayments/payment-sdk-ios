@@ -26,7 +26,6 @@ extension PaymentsViewController {
             ])
             self.입력한결제수단레이블 = 입력한결제수단레이블
             
-            
             let 입력한결제정보레이블 = UILabel()
             입력한결제정보레이블.translatesAutoresizingMaskIntoConstraints = false
             입력한결제정보레이블.numberOfLines = 0

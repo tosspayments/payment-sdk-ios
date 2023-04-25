@@ -39,10 +39,12 @@ final class RootViewController: ViewController {
         위젯버튼.addTarget(self, action: #selector(위젯실행), for: .touchUpInside)
     }
     
+    // swiftlint:disable:next identifier_name
     @objc func 일반결제실행() {
         navigationController?.pushViewController(PaymentsViewController(), animated: true)
     }
     
+    // swiftlint:disable:next identifier_name
     @objc func 위젯실행() {
         navigationController?.pushViewController(PaymentWidgetViewController(), animated: true)
     }

@@ -38,7 +38,6 @@ class PaymentsViewController: UIViewController {
         }
     }
     
-    
     private let viewHolder = ViewHolder()
     override func viewDidLoad() {
         super.viewDidLoad()

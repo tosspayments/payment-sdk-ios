@@ -19,7 +19,11 @@ final class BrowserPopupWindowController: UIViewController {
     required init(popupWebView: WKWebView) {
         self.popupWebView = popupWebView
         super.init(nibName: nil, bundle: nil)
-        view.backgroundColor = .white
+        if #available(iOS 13.0, *) {
+            view.backgroundColor = .systemBackground
+        } else {
+            view.backgroundColor = .white
+        }
         // Re-assign UI delegate to this controler so that we can handle broswers window.close() event.
         popupWebView.uiDelegate = self
     }

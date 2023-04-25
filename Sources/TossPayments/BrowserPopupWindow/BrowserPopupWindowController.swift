@@ -86,7 +86,7 @@ extension BrowserPopupWindowController: WKUIDelegate {
     
     func webViewDidClose(_ webView: WKWebView) {
         // Detect broswer window close event and dismiss this page accordingly.
-        guard webView == self.popupWebView else {return}
-        self.handleCloseAction()
+        guard webView == popupWebView else {return}
+        handleCloseAction()
     }
 }

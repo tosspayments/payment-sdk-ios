@@ -35,10 +35,6 @@ final class BrowserPopupWindowController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addCloseRightNavigationBarButtonItem()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
         autoLayout()
     }
     

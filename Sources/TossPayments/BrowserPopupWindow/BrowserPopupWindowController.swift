@@ -64,8 +64,7 @@ final class BrowserPopupWindowController: UIViewController {
     }
     
     @objc private func handleCloseAction() {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else {return}
+        DispatchQueue.main.async { 
             if let navigationController = self.navigationController {
                 if navigationController.viewControllers.count > 1 {
                     navigationController.popViewController(animated: true)

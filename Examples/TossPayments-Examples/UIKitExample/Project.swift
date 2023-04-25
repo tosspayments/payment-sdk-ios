@@ -1,6 +1,15 @@
 import ProjectDescription
 import ProjectDescriptionHelpers
 
+let swiftlint = TargetScript.pre(script: """
+    ROOT_PATH=${PROJECT_DIR}/../../..
+    source ${ROOT_PATH}/.env.brew 
+    bundle exec swiftlint lint ${TARGET_NAME} --config ${ROOT_PATH}/.swiftlint.yml
+    """, 
+    name: "Run Swiftlint",
+    basedOnDependencyAnalysis: false
+)
+
 let project = Project(
     name: "UIKitExample",
     organizationName: "TossPayments, Inc",
@@ -26,6 +35,9 @@ let project = Project(
             ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],
+            scripts: [
+                swiftlint
+            ],
             dependencies: [
                 .package(product: "TossPayments")
             ],
@@ -45,6 +57,5 @@ let project = Project(
             analyzeAction: nil
         )
     ],
-    additionalFiles: [
-        "Project.swift"
-    ])
+    additionalFiles: ["Project.swift"]
+)

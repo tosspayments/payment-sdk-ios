@@ -1,3 +1,1 @@
-brew "pyenv"
-brew "rbenv"
-brew "nodenv"
+brew "swiftlint"

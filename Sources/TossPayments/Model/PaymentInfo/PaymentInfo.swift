@@ -66,7 +66,8 @@ extension PaymentInfo {
 
 extension Encodable {
     var jsonObject: [String: Any]? {
-        return try? JSONSerialization.jsonObject(with: try! JSONEncoder().encode(self)) as? [String: Any]
+        guard let object = try? JSONEncoder().encode(self) else { return nil }
+        return try? JSONSerialization.jsonObject(with: object) as? [String: Any]
     }
     
     var jsonString: String? {

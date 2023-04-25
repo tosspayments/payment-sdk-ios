@@ -23,7 +23,7 @@ struct ContentView: View {
     @State private var showingTossPayments: Bool = false
     
     @State private var showingResultAlert: Bool = false
-    @State private var resultInfo: (title: String, message: String)? = nil
+    @State private var resultInfo: (title: String, message: String)?
     
     @State private var 입력한결제수단: PaymentMethod = .카드
     @State private var 입력한결제정보: PaymentInfo = Constants.테스트결제정보

@@ -53,7 +53,7 @@ public final class PaymentWidgetViewController: ViewController {
             button.topAnchor.constraint(equalTo: scrollView.bottomAnchor),
             button.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             button.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            button.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor)
         ])
         button.backgroundColor = .systemBlue
         button.setTitle("결제하기", for: .normal)
@@ -141,9 +141,6 @@ extension PaymentWidgetViewController: TossPaymentsWidgetUIDelegate {
     public func didUpdateHeight(_ widget: PaymentWidget, height: CGFloat) {
         print("didUpdateHeight \(height)")
     }
-    
-    
 }
 
 #endif
-

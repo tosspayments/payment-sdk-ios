@@ -42,7 +42,7 @@ extension PaymentsViewController: TossPaymentsDelegate {
             UIAlertAction(
                 title: "클립보드에 복사하기",
                 style: .destructive,
-                handler: { action in
+                handler: { _ in
                     UIPasteboard.general.string = message
                 }
             )

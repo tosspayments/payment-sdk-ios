@@ -12,7 +12,8 @@ final class Environment {
         static let defaultKey = "test_ck_OyL0qZ4G1VODAxdNWDkroWb2MQYg"
     }
     
-    static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey") ?? Constant.defaultKey {
+    static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey")
+    ?? Constant.defaultKey {
         didSet {
             UserDefaults.standard.set(clientKey, forKey: "TossPayments.ClientKey")
         }

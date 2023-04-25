@@ -1,4 +1,3 @@
-
 import ProjectDescription
 
 public struct BundleIdentifier {

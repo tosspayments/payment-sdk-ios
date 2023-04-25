@@ -8,8 +8,15 @@
 import UIKit
 import WebKit
 
-/// A view controller which wraps WKWebView which is then being used as a host when browser `window.open(<url>)` method is triggered.
-///  This happens when buttons/webView UI component onClick events trigger a `window.open(<url>)` javascript method. For example when user tap 신용카드 무이자 할부 안내 등등 component on Toss Widget such action seems to be triggered. To see how this class is used have a look on `PaymentWidget+WKUIDelegate.swift` file.
+/*
+ A view controller which wraps WKWebView which is then being used 
+ as a host when browser `window.open(<url>)` method is triggered.
+ This happens when buttons/webView UI component onClick events
+trigger a `window.open(<url>)` javascript method. For example when 
+user tap 신용카드 무이자 할부 안내 등등 component on Toss Widget such action 
+seems to be triggered. To see how this class is used have a look on 
+`PaymentWidget+WKUIDelegate.swift` file.
+ */
 final class BrowserPopupWindowController: UIViewController {
     
     // MARK: - Properties
@@ -53,9 +60,11 @@ final class BrowserPopupWindowController: UIViewController {
     
     func addCloseRightNavigationBarButtonItem() {
         if #available(iOS 13.0, *) {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(self.handleCloseAction))
+            navigationItem.rightBarButtonItem 
+            = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(handleCloseAction))
         } else {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(self.handleCloseAction))
+            navigationItem.rightBarButtonItem 
+            = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(handleCloseAction))
         }
     }
     
@@ -74,7 +83,6 @@ final class BrowserPopupWindowController: UIViewController {
     }
     
 }
-
 
 // MARK: - WKUIDelegate
 

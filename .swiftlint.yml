@@ -1,6 +1,8 @@
 identifier_name:
   excluded:
     - ^[가-힣_]+$
+    - KT
+    - id
   allowed_symbols:
     - _
 

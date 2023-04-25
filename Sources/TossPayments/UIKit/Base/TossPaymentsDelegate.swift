@@ -26,7 +26,8 @@ extension HandleURLResult {
             paymentKey: components.query(for: "paymentKey"),
             orderId: components.query(for: "orderId"),
             amount: Double(components.query(for: "amount")) ?? 0,
-            additionalParameters: (components.queryItems ?? []).reduce(into: [String: String](), { partialResult, item in
+            additionalParameters: (components.queryItems ?? [])
+            .reduce(into: [String: String](), { partialResult, item in
                 partialResult[item.name] = item.value
             })
         )

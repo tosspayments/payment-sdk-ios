@@ -29,6 +29,7 @@ public enum PaymentMethod: Hashable, Codable, CaseIterable, RawRepresentable {
 
     case custom(method: String)
 
+    // swiftlint:disable:next cyclomatic_complexity
     public init?(rawValue: String) {
         switch rawValue {
         case "카드": self = .카드

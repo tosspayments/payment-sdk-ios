@@ -57,7 +57,10 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     public func renderPaymentMethods(amount: Double) {
         self.amount = amount
         configuration.userContentController.addUserScript(initializeWidgetScript)
-        configuration.userContentController.add(RequestPaymentsMessageHandler(self), name: ScriptName.requestPayments.rawValue)
+        configuration.userContentController.add(
+            RequestPaymentsMessageHandler(self), 
+            name: ScriptName.requestPayments.rawValue
+        )
         configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
         configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
         loadHTMLString(htmlString, baseURL: baseURL)

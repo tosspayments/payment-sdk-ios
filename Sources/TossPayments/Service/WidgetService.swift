@@ -87,7 +87,9 @@ extension WidgetService {
     private func handleError(_ error: Error) {
         let errorCode = (error as NSError).code
         let errorMessage = error.localizedDescription
-        if let url = URL(string: "tosspayments://fail?errorCode=\(errorCode)&errorMessage=\(errorMessage)&orderId=unknown") {
+        if let url = URL(string: """
+            tosspayments://fail?errorCode=\(errorCode)&errorMessage=\(errorMessage)&orderId=unknown
+            """) {
             failURLHandler?(url)
         }
     }

@@ -13,9 +13,5 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Setup Xcode version
-      uses: maxim-lobanov/setup-xcode@v1.5.1
-      with:
-        xcode-version: '14.2'
     - name: Test Podspec 
       run: pod lib lint --verbose --no-clean --allow-warnings TossPayments.podspec

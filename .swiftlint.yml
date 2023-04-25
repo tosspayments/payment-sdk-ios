@@ -1,6 +1,8 @@
 identifier_name:
   excluded:
     - ^[가-힣_]+$
+  allowed_symbols:
+    - _
 
 disabled_rules:
   - trailing_whitespace

@@ -1,0 +1,13 @@
+name: Deploy to cocoapods
+
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  Deploy:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Pod trunk
+      run: bundle exec pod trunk push TossPayments.podspec --allow-warnings

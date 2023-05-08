@@ -7,5 +7,5 @@ if [[ -f "$ROOT_PATH/.tuist-bin/tuist" ]]; then
 fi
 
 pushd $ROOT_PATH/Examples/TossPayments-Examples
-tuist generate -n 
+$TUIST_BINARY generate -n 
 popd 

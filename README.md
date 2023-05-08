@@ -1,7 +1,49 @@
-# Toss Payments iOS SDK
+# 토스페이먼츠 iOS SDK
 
 <img src="https://img.shields.io/badge/Swift-F05138?style=flat-square&logo=Swift&logoColor=white"/>
 
-이 레포지토리는 토스페이먼츠 iOS SDK를 위한 모노레포입니다.
+토스페이먼츠 iOS SDK를 위한 모노레포입니다. 토스페이먼츠 [결제창](https://docs.tosspayments.com/guides/payment/integration), [결제위젯](https://docs.tosspayments.com/guides/payment-widget/overview)을 iOS 앱에 연동하세요.
 
-자세한 사용 방법은 [토스페이먼츠 개발 연동 가이드](https://docs.tosspayments.com/reference/js-sdk)를 참고해주세요.
+## 설치하기
+
+### 요구 사항
+
+토스페이먼츠 iOS SDK를 설치하기 전에 최소 요구 사항을 확인하세요.
+
+- iOS 11.0 이상
+- Swift 5.0 이상
+- Xcode 12.5.1 이상
+
+### Cocoapods로 설치하기
+
+프로젝트 폴더에 있는 Podfile에 아래와 같이 토스페이먼츠 iOS SDK를 추가하세요. Podfile을 저장하고 `pod install` 커맨드를 실행하세요.
+
+```
+pod 'TossPayments'
+```
+
+> [Swift Package Manager(SPM)로 설지하는 방법 알아보기](https://docs.tosspayments.com/reference/widget-ios#swift-package-managerspm로-설치하기)
+
+## 시작하기
+
+### 연동 가이드
+
+* [결제창 연동하기](https://docs.tosspayments.com/guides/payment/integration): 결제창에서 고객이 결제수단을 선택하고, 결제 정보를 입력해서 결제를 완료합니다. 
+* [결제위젯 연동하기](https://docs.tosspayments.com/guides/payment-widget/integration): 토스페이먼츠에서 수많은 상점을 분석하여 만든 최적의 주문서 UI입니다.
+
+### 샘플 프로젝트
+
+1. `payment-sdk-ios` 리포지토리를 클론하세요.
+```
+git clone https://github.com/tosspayments/payment-sdk-ios
+```
+
+2. `get_started.sh` 파일을 실행하세요.
+
+```
+./get_started.sh script
+```
+
+3. Xcode로 빌드하고 단말 또는 시뮬레이터에 설치하세요.
+
+![토스페이먼츠 iOS SDK 예시](https://static.tosspayments.com/docs/github/ios-sample.png)

@@ -9,7 +9,7 @@ import WebKit
 
 // MARK: - WKUIDelegate
 
-extension PaymentWidget: WKUIDelegate, BrowserPopupHandler {
+extension PaymentMethodWidget: WKUIDelegate, BrowserPopupHandler {
     
     public func webView(
         _ webView: WKWebView,

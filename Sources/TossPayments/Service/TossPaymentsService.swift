@@ -127,8 +127,26 @@ extension TossPaymentsService {
         guard let url = navigationAction.request.url else { return false }
         guard !(url.scheme?.hasPrefix("http") ?? false) else { return false }
         guard url.scheme != "about" else { return false }
-        UIApplication.shared.open(url)
+        let app = UIApplication.shared
+        if app.canOpenURL(url) {
+            app.open(url)
+        } else {
+            self.handleUnInstalledApp(scheme: url.scheme)
+        }
         return true
+    }
+    
+    
+    /// A helper function which is used to handle app scheme for apps which are not installed in user device whenever possible.
+    /// - Parameter scheme: A scheme from a url failed to open.
+    private func handleUnInstalledApp(scheme: String?) {
+        guard let scheme = scheme,
+        let appStoreURLString = AppSchemeManager.appStoreUrlFrom(scheme: scheme),
+        let appStoreURL = URL(string: appStoreURLString) else {
+            // Maybe we should log something here to help with debugging?
+            return
+        }
+        UIApplication.shared.open(appStoreURL)
     }
 }
 

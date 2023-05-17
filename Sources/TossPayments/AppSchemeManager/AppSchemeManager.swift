@@ -64,6 +64,8 @@ enum AppSchemeManager: CaseIterable {
     case supertoss
     /// 우리WON뱅킹
     case newsmartpib
+    /// 네이버앱
+    case naversearchthirdlogin
     
     var scheme: String {
         switch self {
@@ -122,6 +124,8 @@ enum AppSchemeManager: CaseIterable {
             return "supertoss"
         case .newsmartpib:
             return "newsmartpib"
+        case .naversearchthirdlogin:
+            return "naversearchthirdlogin"
         }
     }
     
@@ -182,6 +186,8 @@ enum AppSchemeManager: CaseIterable {
             return "id839333328"
         case .newsmartpib:
             return "id1470181651"
+        case .naversearchthirdlogin:
+            return "id393499958"
         }
     }
     

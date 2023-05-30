@@ -8,7 +8,7 @@
 import Foundation
 import WebKit
 
-public final class AgreementWidget: WKWebView, CanUpdateHeight, WKUIDelegate {
+public final class AgreementWidget: WKWebView, CanUpdateHeight, WKUIDelegate, BrowserPopupHandler {
     public weak var agreementUIDelegate: TossPaymentsAgreementUIDelegate?
     
     public var updatedHeight: CGFloat = 92 {
@@ -34,4 +34,15 @@ public final class AgreementWidget: WKWebView, CanUpdateHeight, WKUIDelegate {
         return size
     }
     
+    public func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        let popupWebView = createPopupWindow(parentWebView: webView, configuration: configuration)
+        present(popupWebView: popupWebView)
+        return popupWebView
+        
+    }
 }

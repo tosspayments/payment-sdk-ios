@@ -141,6 +141,18 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
 }
 
 extension PaymentWidgetViewController: TossPaymentsWidgetUIDelegate {
+    public func didReceivedCustomRequest(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomRequest \(paymentMethodKey)")
+    }
+    
+    public func didReceivedCustomPaymentMethodSelected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomPaymentMethodSelected \(paymentMethodKey)")
+    }
+    
+    public func didReceivedCustomPaymentMethodUnselected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomPaymentMethodUnselected \(paymentMethodKey)")
+    }
+    
     public func didUpdateHeight(_ widget: PaymentMethodWidget, height: CGFloat) {
         print("PaymentMethodWidget didUpdateHeight \(height)")
     }

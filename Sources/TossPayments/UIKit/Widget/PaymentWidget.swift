@@ -9,7 +9,10 @@ import Foundation
 import WebKit
 
 public final class PaymentWidget: NSObject, HandleURLResult {
-    
+    private lazy var messageHandler = MessageHandler(
+        paymentMethod: paymentMethodWidget,
+        agreement: agreementWidget
+    )
     private var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
@@ -58,13 +61,14 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         )
         paymentMethodWidget.configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
         paymentMethodWidget.configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
+        paymentMethodWidget.configuration.userContentController.add(MessageScriptHandler(self), name: ScriptName.message.rawValue)
         paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
     
     public func renderAgreement() {
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
         agreementWidget.configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
-        agreementWidget.configuration.userContentController.add(UpdateAgreementStatusMessageHandler(self), name: ScriptName.updateAgreementStatus.rawValue)
+        agreementWidget.configuration.userContentController.add(MessageScriptHandler(self), name: ScriptName.message.rawValue)
         agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
     
@@ -72,11 +76,9 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         self.amount = amount
     }
     
-    func updateAgreementStatus(_ isAgree: Bool) {
-        agreementWidget.agreementUIDelegate?.didUpdateAgreementStatus(agreementWidget, isAgree: isAgree)
-        paymentMethodWidget.evaluateJavaScript("""
-        widget.updateAgreementStatus(\(isAgree))
-        """)
+    func message(_ body: Any) {
+        guard let jsonObject = body as? [String: Any] else { return }
+        messageHandler.handle(jsonObject: jsonObject)
     }
     
     required init?(coder: NSCoder) {

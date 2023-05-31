@@ -10,6 +10,6 @@ import WebKit
 final class UpdateHeightMessageHandler: NSObject, WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let updatedHeight = message.body as? CGFloat else { return }
-        (message.webView as? PaymentWidget)?.updatedHeight = updatedHeight
+        (message.webView as? CanUpdateHeight)?.updatedHeight = updatedHeight
     }
 }

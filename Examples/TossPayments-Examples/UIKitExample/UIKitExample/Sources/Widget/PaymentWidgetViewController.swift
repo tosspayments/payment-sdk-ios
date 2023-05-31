@@ -62,8 +62,9 @@ public final class PaymentWidgetViewController: ViewController {
         stackView.addArrangedSubview(amountInputField)
         stackView.addArrangedSubview(orderIdInputField)
         stackView.addArrangedSubview(orderNameInputField)
-        stackView.addArrangedSubview(widget)
+        stackView.addArrangedSubview(widget.paymentMethodWidget)
         stackView.addArrangedSubview(빈화면)
+        stackView.addArrangedSubview(widget.agreementWidget)
         
         amountInputField.title = "amount (원)"
         amountInputField.text = "\(Constant.defaultAmount)"
@@ -76,13 +77,15 @@ public final class PaymentWidgetViewController: ViewController {
         amountInputField.textField.keyboardType = .numberPad
         
         widget.delegate = self
-        widget.widgetUIDelegate = self
+        widget.paymentMethodWidget.widgetUIDelegate = self
+        widget.agreementWidget.agreementUIDelegate = self
         
         NSLayoutConstraint.activate([
             빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
         widget.renderPaymentMethods(amount: Constant.defaultAmount)
+        widget.renderAgreement()
     }
     
     @objc func requestPayment() {
@@ -138,8 +141,31 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
 }
 
 extension PaymentWidgetViewController: TossPaymentsWidgetUIDelegate {
-    public func didUpdateHeight(_ widget: PaymentWidget, height: CGFloat) {
-        print("didUpdateHeight \(height)")
+    public func didReceivedCustomRequest(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomRequest \(paymentMethodKey)")
+    }
+    
+    public func didReceivedCustomPaymentMethodSelected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomPaymentMethodSelected \(paymentMethodKey)")
+    }
+    
+    public func didReceivedCustomPaymentMethodUnselected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
+        print("PaymentMethodWidget didReceivedCustomPaymentMethodUnselected \(paymentMethodKey)")
+    }
+    
+    public func didUpdateHeight(_ widget: PaymentMethodWidget, height: CGFloat) {
+        print("PaymentMethodWidget didUpdateHeight \(height)")
+    }
+}
+
+extension PaymentWidgetViewController: TossPaymentsAgreementUIDelegate {
+    public func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat) {
+        print("AgreementWidget didUpdateHeight \(height)")
+    }
+    
+    public func didUpdateAgreementStatus(_ widget: AgreementWidget, isAgree: Bool) {
+        print("AgreemenetWidget didUpdateAgreementStatus \(isAgree)")
+        button.isEnabled = isAgree
     }
 }
 

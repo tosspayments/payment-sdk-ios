@@ -8,12 +8,16 @@
 import Foundation
 import WebKit
 
-public final class PaymentWidget: WKWebView, HandleURLResult {
+public final class PaymentWidget: NSObject, HandleURLResult {
+    private lazy var messageHandler = MessageHandler(
+        paymentMethod: paymentMethodWidget,
+        agreement: agreementWidget
+    )
     private var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
-            evaluateJavaScript("""
-            updateAmount(\(amount))
+            paymentMethodWidget.evaluateJavaScript("""
+            widget.updateAmount(\(amount))
             """)
         }
     }
@@ -24,15 +28,6 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
     private weak var rootViewController: UIViewController?
     
     public weak var delegate: TossPaymentsDelegate?
-    public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
-    
-    var updatedHeight: CGFloat = 400 {
-        didSet {
-            guard oldValue != updatedHeight else { return }
-            widgetUIDelegate?.didUpdateHeight(self, height: updatedHeight)
-            invalidateIntrinsicContentSize()
-        }
-    }
     
     var baseURL: URL {
         guard let urlString = options?.brandPay?.redirectURL,
@@ -42,6 +37,8 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         return url
     }
     
+    public let paymentMethodWidget: PaymentMethodWidget
+    public let agreementWidget: AgreementWidget
     public init(
         clientKey: String,
         customerKey: String,
@@ -50,38 +47,60 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         self.clientKey = clientKey
         self.customerKey = customerKey
         self.options = options
-        let configuration = WKWebViewConfiguration()
-        super.init(frame: .zero, configuration: configuration)
-        uiDelegate = self
+        self.paymentMethodWidget = PaymentMethodWidget()
+        self.agreementWidget = AgreementWidget()
+        super.init()
     }
     
     public func renderPaymentMethods(amount: Double) {
         self.amount = amount
-        configuration.userContentController.addUserScript(initializeWidgetScript)
-        configuration.userContentController.add(
+        paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
+        paymentMethodWidget.configuration.userContentController.add(
             RequestPaymentsMessageHandler(self), 
             name: ScriptName.requestPayments.rawValue
         )
-        configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
-        configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
-        loadHTMLString(htmlString, baseURL: baseURL)
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
+    }
+    
+    public func renderAgreement() {
+        agreementWidget.configuration.userContentController.addUserScript(agreementScript)
+        agreementWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        agreementWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
     
     public func updateAmount(_ amount: Double) {
         self.amount = amount
     }
     
-    public override var intrinsicContentSize: CGSize {
-        var size = UIScreen.main.bounds.size
-        size.height = self.updatedHeight
-        return size
+    func message(_ body: Any) {
+        guard let jsonObject = body as? [String: Any] else { return }
+        messageHandler.handle(jsonObject: jsonObject)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private lazy var source: String = {
+    private lazy var paymentMethodSource: String = {
         if let redirectURLString = self.options?.brandPay?.redirectURL {
             return """
                 const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
@@ -98,12 +117,35 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
                 """
         }
     }()
-    private lazy var initializeWidgetScript = WKUserScript(
-        source: source,
+    
+    private lazy var agreementSource: String = {
+        if let redirectURLString = self.options?.brandPay?.redirectURL {
+            return """
+                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
+                  brandpay: { redirectUrl: "\(redirectURLString)" }
+                });
+                widget.renderAgreement('#agreement');
+                """
+        } else {
+            return """
+                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
+                  brandpay: { redirectUrl: "" }
+                });
+                widget.renderAgreement('#agreement');
+                """
+        }
+    }()
+    private lazy var paymentMethodScript = WKUserScript(
+        source: paymentMethodSource,
         injectionTime: .atDocumentEnd,
         forMainFrameOnly: true
     )
-    
+    private lazy var agreementScript = WKUserScript(
+        source: agreementSource,
+        injectionTime: .atDocumentEnd,
+        forMainFrameOnly: true
+    )
+
     public func requestPayment(
         info: WidgetPaymentInfo,
         on rootViewController: UIViewController
@@ -118,7 +160,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         widget.requestPaymentForNativeSDK(\(jsonString));
         """
         guard let encodedScript = javascriptString.urlEncoded.data(using: .utf8)?.base64EncodedString() else { return }
-        evaluateJavaScript(
+        paymentMethodWidget.evaluateJavaScript(
             """
             var script = decodeURIComponent(window.atob('\(encodedScript)'));
             eval(script);
@@ -138,6 +180,7 @@ public final class PaymentWidget: WKWebView, HandleURLResult {
         </head>
         <body style="margin:0;padding:0;overflow:hidden;">
             <div id="payment-method"></div>
+            <div id="agreement"></div>
         </body>
         </html>
         """

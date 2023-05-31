@@ -31,15 +31,24 @@ final class MessageHandler {
         case "customRequest":
             guard let paymentMethod = paymentMethod else { return }
             guard let customRequest = CustomRequestMessage(jsonObject: jsonObject).response else { return }
-            paymentMethod.widgetUIDelegate?.didReceivedCustomRequest(paymentMethod, paymentMethodKey: customRequest.paymentMethodKey)
+            paymentMethod.widgetUIDelegate?.didReceivedCustomRequest(
+                paymentMethod,
+                paymentMethodKey: customRequest.paymentMethodKey
+            )
         case "customPaymentMethodSelectedMessage":
             guard let paymentMethod = paymentMethod else { return }
             guard let customRequest = CustomPaymentMethodSelectedMessage(jsonObject: jsonObject).response else { return }
-            paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodSelected(paymentMethod, paymentMethodKey: customRequest.paymentMethodKey)
+            paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodSelected(
+                paymentMethod,
+                paymentMethodKey: customRequest.paymentMethodKey
+            )
         case "customPaymentMethodUnselectedMessage":
             guard let paymentMethod = paymentMethod else { return }
             guard let customRequest = CustomPaymentMethodUnselectedMessage(jsonObject: jsonObject).response else { return }
-            paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodUnselected(paymentMethod, paymentMethodKey: customRequest.paymentMethodKey)
+            paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodUnselected(
+                paymentMethod,
+                paymentMethodKey: customRequest.paymentMethodKey
+            )
         default:
             break
         }

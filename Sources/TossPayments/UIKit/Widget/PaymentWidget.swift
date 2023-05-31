@@ -59,16 +59,31 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             RequestPaymentsMessageHandler(self), 
             name: ScriptName.requestPayments.rawValue
         )
-        paymentMethodWidget.configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
-        paymentMethodWidget.configuration.userContentController.add(RequestHTMLMessageHandler(self), name: ScriptName.requestHTML.rawValue)
-        paymentMethodWidget.configuration.userContentController.add(MessageScriptHandler(self), name: ScriptName.message.rawValue)
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
         paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
     
     public func renderAgreement() {
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
-        agreementWidget.configuration.userContentController.add(UpdateHeightMessageHandler(), name: ScriptName.updateHeight.rawValue)
-        agreementWidget.configuration.userContentController.add(MessageScriptHandler(self), name: ScriptName.message.rawValue)
+        agreementWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        agreementWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
         agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
     

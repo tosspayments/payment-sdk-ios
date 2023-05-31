@@ -9,6 +9,8 @@ import Foundation
 
 public final class Environment {
     public enum Constant {
+        static let defaultKey = "test_ck_OyL0qZ4G1VODAxdNWDkroWb2MQYg"
+        
         public static let appScheme: String? = {
             guard let infoDictionary = Bundle.main.infoDictionary,
                   let bundleURLTypes = infoDictionary["CFBundleURLTypes"] as? [[String: Any]],

@@ -189,13 +189,10 @@ enum AppSchemeManager: CaseIterable {
         case .naversearchthirdlogin:
             return "id393499958"
         }
-    }
-    
+    }   
 }
 
-
 // MARK: - Internal Helpers
-
 extension AppSchemeManager {
     
     /**
@@ -204,7 +201,8 @@ extension AppSchemeManager {
      - Parameter scheme: The string value of the app scheme for which the App Store URL is to be generated.
 
      - Returns: A string representing the App Store URL corresponding to the given app scheme.
-        If the app scheme does not correspond to any known app ID the function will return `nil`, indicating that the provided scheme needs to be manually added.
+        If the app scheme does not correspond to any known app ID the function will return `nil`,
+        indicating that the provided scheme needs to be manually added.
      */
     static func appStoreUrlFrom(scheme: String) -> String? {
         let appScheme = appSchemeFrom(scheme)
@@ -219,21 +217,25 @@ extension AppSchemeManager {
 }
 
 // MARK: - Private Helpers
-
 private extension AppSchemeManager {
     
     /**
-     This function is used to retrieve an `AppSchemeManager` object that corresponds to a given raw string representing an app scheme by performing a case-insensitive comparison between the provided raw string and the scheme property of each `AppSchemeManager` object.
+     This function is used to retrieve an `AppSchemeManager` object that corresponds 
+     to a given raw string representing an app scheme by performing a case-insensitive
+      comparison between the provided raw string and the scheme property of each 
+      `AppSchemeManager` object.
+     - Parameter schemeRawString: The raw string that represents the app scheme for
+      which the corresponding `AppSchemeManager` object is to be found.
 
-     - Parameter schemeRawString: The raw string that represents the app scheme for which the corresponding `AppSchemeManager` object is to be found.
-
-     - Returns: An `AppSchemeManager` object that corresponds to the given raw string if one exists. If the raw string does not correspond to any `AppSchemeManager` object,
-        the function will return `nil`.
+     - Returns: An `AppSchemeManager` object that corresponds to the given raw string
+      if one exists. If the raw string does not correspond to any `AppSchemeManager`
+       object, the function will return `nil`.
      */
     static func appSchemeFrom(_ schemeRawString: String) -> AppSchemeManager? {
         
         for value in AppSchemeManager.allCases {
-            if (schemeRawString.caseInsensitiveCompare(value.scheme) == .orderedSame) {
+            // swiftlint:disable:next for_where
+            if schemeRawString.caseInsensitiveCompare(value.scheme) == .orderedSame {
                 return value
             }
         }
@@ -242,4 +244,3 @@ private extension AppSchemeManager {
     }
     
 }
-

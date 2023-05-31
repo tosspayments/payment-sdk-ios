@@ -3,6 +3,7 @@ identifier_name:
     - ^[가-힣_]+$
     - KT
     - id
+    - kb
   allowed_symbols:
     - _
 

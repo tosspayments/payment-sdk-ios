@@ -163,9 +163,10 @@ extension PaymentWidgetViewController: TossPaymentsAgreementUIDelegate {
         print("AgreementWidget didUpdateHeight \(height)")
     }
     
-    public func didUpdateAgreementStatus(_ widget: AgreementWidget, isAgree: Bool) {
-        print("AgreemenetWidget didUpdateAgreementStatus \(isAgree)")
-        button.isEnabled = isAgree
+    public func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus) {
+        print("AgreemenetWidget didUpdateAgreementStatus \(agreementStatus)")
+        button.backgroundColor = agreementStatus.agreedRequiredTerms ? .systemBlue : .systemRed
+        button.isEnabled = agreementStatus.agreedRequiredTerms
     }
 }
 

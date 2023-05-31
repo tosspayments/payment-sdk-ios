@@ -22,6 +22,7 @@ public final class PaymentMethodWidget: WKWebView, CanUpdateHeight {
     init() {
         super.init(frame: .zero, configuration: WKWebViewConfiguration())
         uiDelegate = self
+        navigationDelegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -36,6 +37,35 @@ public final class PaymentMethodWidget: WKWebView, CanUpdateHeight {
     
 }
 
-public protocol CanUpdateHeight: AnyObject {
-    var updatedHeight: CGFloat { get set }
+// MARK: - WKNavigationDelegate
+extension PaymentMethodWidget: WKNavigationDelegate {
+    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        print(navigationAction.request)
+        decisionHandler(.allow)
+    }
+    
+    public func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        print(error)
+    }
+    public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print(error)
+    }
+    
+}
+
+// MARK: - WKUIDelegate
+
+extension PaymentMethodWidget: WKUIDelegate, BrowserPopupHandler {
+    
+    public func webView(
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
+        windowFeatures: WKWindowFeatures
+    ) -> WKWebView? {
+        let popupWebView = createPopupWindow(parentWebView: webView, configuration: configuration)
+        present(popupWebView: popupWebView)
+        return popupWebView
+        
+    }
 }

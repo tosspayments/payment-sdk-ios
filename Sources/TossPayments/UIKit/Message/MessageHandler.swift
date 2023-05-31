@@ -19,6 +19,7 @@ final class MessageHandler {
         self.agreement = agreement
     }
     
+    // swiftlint:disable:next cyclomatic_complexity
     func handle(jsonObject: [String: Any]) {
         switch jsonObject["name"] as? String {
         case "updateAgreementStatus":
@@ -26,7 +27,8 @@ final class MessageHandler {
         widget.updateAgreementStatus(\(jsonObject))
         """)
             guard let agreement = agreement else { return }
-            guard let agreementStatus = UpdateAgreementStatusMessage(jsonObject: jsonObject).response else { return }
+            guard let agreementStatus = UpdateAgreementStatusMessage(jsonObject: jsonObject).response
+            else { return }
             agreement.agreementUIDelegate?.didUpdateAgreementStatus(agreement, agreementStatus: agreementStatus)
         case "customRequest":
             guard let paymentMethod = paymentMethod else { return }
@@ -37,14 +39,16 @@ final class MessageHandler {
             )
         case "customPaymentMethodSelectedMessage":
             guard let paymentMethod = paymentMethod else { return }
-            guard let customRequest = CustomPaymentMethodSelectedMessage(jsonObject: jsonObject).response else { return }
+            guard let customRequest = CustomPaymentMethodSelectedMessage(jsonObject: jsonObject).response
+            else { return }
             paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodSelected(
                 paymentMethod,
                 paymentMethodKey: customRequest.paymentMethodKey
             )
         case "customPaymentMethodUnselectedMessage":
             guard let paymentMethod = paymentMethod else { return }
-            guard let customRequest = CustomPaymentMethodUnselectedMessage(jsonObject: jsonObject).response else { return }
+            guard let customRequest = CustomPaymentMethodUnselectedMessage(jsonObject: jsonObject).response
+            else { return }
             paymentMethod.widgetUIDelegate?.didReceivedCustomPaymentMethodUnselected(
                 paymentMethod,
                 paymentMethodKey: customRequest.paymentMethodKey

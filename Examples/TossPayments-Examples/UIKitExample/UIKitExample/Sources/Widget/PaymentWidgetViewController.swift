@@ -92,7 +92,8 @@ public final class PaymentWidgetViewController: ViewController {
         widget.requestPayment(
             info: DefaultWidgetPaymentInfo(
                 orderId: orderIdInputField.textField.text ?? UUID().uuidString,
-                orderName: orderNameInputField.textField.text ?? "테스트 결제"
+                orderName: orderNameInputField.textField.text ?? "테스트 결제",
+                appScheme: Environment.Constant.appScheme
             ),
             on: self
         )

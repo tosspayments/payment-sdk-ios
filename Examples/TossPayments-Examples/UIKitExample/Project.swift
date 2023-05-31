@@ -31,7 +31,15 @@ let project = Project(
                 "LSSupportsOpeningDocumentsInPlace": true,
                 "UIFileSharingEnabled": true,
                 "CFBundleShortVersionString": "$(MARKETING_VERSION)",
-                "Appearance": "Light"
+                "Appearance": "Light",
+                "CFBundleURLTypes": .array([
+                    .dictionary([
+                        "CFBundleTypeRole": "Editor",
+                        "CFBundleURLSchemes": .array([
+                            "tosspaymentExample"
+                        ])
+                    ])
+                ])
             ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],

@@ -37,7 +37,7 @@ final class MessageHandler {
                 paymentMethod,
                 paymentMethodKey: customRequest.paymentMethodKey
             )
-        case "customPaymentMethodSelectedMessage":
+        case "customPaymentMethodSelect":
             guard let paymentMethod = paymentMethod else { return }
             guard let customRequest = CustomPaymentMethodSelectedMessage(jsonObject: jsonObject).response
             else { return }
@@ -45,7 +45,7 @@ final class MessageHandler {
                 paymentMethod,
                 paymentMethodKey: customRequest.paymentMethodKey
             )
-        case "customPaymentMethodUnselectedMessage":
+        case "customPaymentMethodUnselect":
             guard let paymentMethod = paymentMethod else { return }
             guard let customRequest = CustomPaymentMethodUnselectedMessage(jsonObject: jsonObject).response
             else { return }

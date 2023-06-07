@@ -17,7 +17,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         didSet {
             guard amount != oldValue else { return }
             paymentMethodWidget.evaluateJavaScript("""
-            widget.updateAmount(\(amount))
+            updateAmount(\(amount))
             """)
         }
     }

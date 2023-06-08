@@ -2,7 +2,7 @@ name: Deploy Example app
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
   push:
     paths:
       - 'version'

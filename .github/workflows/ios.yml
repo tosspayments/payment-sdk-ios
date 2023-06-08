@@ -1,15 +1,13 @@
 name: Deploy Example app
 
 on:
-  pull_request:
-    branches: [ main ]
   push:
     paths:
       - 'version'
-      
+
 jobs:
-  prepare:
-    name: Prepare depnedencies
+  deploy:
+    name: Deploy
     runs-on: [self-hosted, macos]
     steps:
       - name: Checkout current branch
@@ -17,10 +15,12 @@ jobs:
       - name: Tuist 환경 설정
         run: |
           ./get_started.sh -s
-  xcodebuild:
-    name: Xcode build using fastlane
-    runs-on: [self-hosted, macos]
-    steps:
-      - name: Fastlane
+      - name: Fastlane archive
         run: |
           bundle exec fastlane ios archive_uikit
+      - name: Create Firebase Key File
+        run: |
+          echo "${{ secrets.FIREBASE_DISTRIBUTION_API_SECRET }}" > keyfile.json
+      - name: Firebase distribution
+        run: |
+          bundle exec fastlane ios distribution

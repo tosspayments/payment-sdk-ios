@@ -1,6 +1,8 @@
 name: Deploy Example app
 
 on:
+  pull_request:
+    branches: [ master ]
   push:
     paths:
       - 'version'

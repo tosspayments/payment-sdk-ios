@@ -56,6 +56,19 @@ public final class Environment {
         }
     }
     
+    static var customerKey: String = UserDefaults.standard.string(forKey: "TossPayments.CustomerKey") ?? Constant.defaultCustomerKey {
+        didSet {
+            UserDefaults.standard.set(customerKey, forKey: "TossPayments.CustomerKey")
+        }
+    }
+    
+    /// 현재 redirectURL의 미구현으로 브랜드페이는 정상적으로 동작하지 않고 있다.
+    static var brandPayRedirectURL: String = UserDefaults.standard.string(forKey: "TossPayments.BrandPayRedirectURL") ?? Constant.defaultBrandpayRedirectURL {
+        didSet {
+            UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
+        }
+    }
+    
     static var stage: String = UserDefaults.standard.string(forKey: "TossPayments.Stage") ?? Constant.defaultStage {
         didSet {
             UserDefaults.standard.set(stage, forKey: "TossPayments.Stage")
@@ -68,5 +81,4 @@ public final class Environment {
             UserDefaults.standard.set(variantKey, forKey: "TossPayments.VariantKey")
         }
     }
-
 }

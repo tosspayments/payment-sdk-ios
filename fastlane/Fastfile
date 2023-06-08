@@ -21,7 +21,7 @@ platform :ios do
     end
 end
 
-
+app_version = ""
 def archive(app_name)
     app_version = get_version_number(xcodeproj: "Examples/TossPayments-Examples/#{app_name}/#{app_name}.xcodeproj", target: "#{app_name}")
     number_of_commits = sh("git", "rev-list", "HEAD", "--count").strip.to_i
@@ -56,7 +56,8 @@ def distribution()
         ipa_path: "./output/UIKitExample.ipa",
         service_credentials_file: "./keyfile.json",
         testers: "mqz@toss.im",
-        release_notes: "TEST!!!"
+        release_notes: "#{app_version} 배포",
+        groups: "결제위젯"
     )
 end
 

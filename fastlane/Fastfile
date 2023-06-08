@@ -1,10 +1,6 @@
 fastlane_version "2.127.2"
 default_platform :ios
 
-require 'json'
-
-TEAM_ID_APPSTORE = "NXA4356DUW"
-
 platform :ios do
     before_all do |lane|
         ENV["FASTLANE_XCODEBUILD_SETTINGS_TIMEOUT"] = "120"
@@ -19,9 +15,13 @@ platform :ios do
     lane:archive_swiftui do 
         archive("SwiftUI")
     end
+
+    lane:distribution do
+        distribution()
+    end
 end
 
-
+app_version = ""
 def archive(app_name)
     app_version = get_version_number(xcodeproj: "Examples/TossPayments-Examples/#{app_name}/#{app_name}.xcodeproj", target: "#{app_name}")
     number_of_commits = sh("git", "rev-list", "HEAD", "--count").strip.to_i
@@ -31,23 +31,34 @@ def archive(app_name)
     build_name = "#{app_name}-#{app_version}-#{build_number}"
 
     build_options = {
-        output_directory: "./build/#{folder_name}/output",
+        output_directory: "./build/output",
         build_path: "./build/#{folder_name}/build/",
         buildlog_path: "./build/#{folder_name}/buildlog/",
         derived_data_path: "./build/#{folder_name}/derived_data/",
-        output_name: "#{build_name}.ipa",
+        output_name: "UIKitExample.ipa",
         clean: true,
         skip_package_ipa: false,
-        export_method: "ad-hoc",
-        scheme: "UIKitExample",
+        export_method: "enterprise",
+        export_options: {
+            signingStyle: 'automatic'
+        },
+        scheme: "#{app_name}",
         configuration: "Release",
         xcargs: "-allowProvisioningUpdates"
     }
 
-    print(JSON.pretty_generate(build_options))
-    print("\n")
-
     build_app(build_options)
+end
+
+def distribution()
+    firebase_app_distribution(
+        app: "1:388118058286:ios:fe168c3126d9a32b3d16bf",
+        ipa_path: "./output/UIKitExample.ipa",
+        service_credentials_file: "./keyfile.json",
+        testers: "mqz@toss.im",
+        release_notes: "#{app_version} 배포",
+        groups: "결제위젯"
+    )
 end
 
 def get_swift_version()

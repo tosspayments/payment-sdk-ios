@@ -41,7 +41,7 @@ git clone https://github.com/tosspayments/payment-sdk-ios
 2. `get_started.sh` 파일을 실행하세요.
 
 ```
-./get_started.sh script
+./get_started.sh 
 ```
 
 3. Xcode로 빌드하고 단말 또는 시뮬레이터에 설치하세요.

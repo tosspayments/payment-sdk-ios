@@ -20,6 +20,32 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         let popupWebView = createPopupWindow(parentWebView: webView, configuration: configuration)
         present(popupWebView: popupWebView)
         return popupWebView
+    }
+    
+    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+        /// 사파리 /.안드로이드 등에서 기본적인 alert의 title로 사용하는것을 차용
+        let title: String? = {
+            let domain: String? = {
+                guard let url = webView.url else { return nil }
+                guard let scheme = url.scheme else { return nil }
+                guard let host = url.host else { return nil }
+                
+                return scheme + "://" + host
+            }()
+            
+            guard let domain else { return nil }
+            return """
+            '\(domain)' 페이지 내용:
+            """
+        }()
         
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
+            completionHandler(true)
+        }))
+        alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
+            completionHandler(false)
+        }))
+        UIApplication.shared.keyWindow?.visibleViewController?.present(alertController, animated: true)
     }
 }

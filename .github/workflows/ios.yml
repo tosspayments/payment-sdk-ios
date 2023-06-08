@@ -17,4 +17,10 @@ jobs:
       - name: Tuist 환경 설정
         run: |
           ./get_started.sh
-      
+  xcodebuild:
+    name: Xcode build using fastlane
+    runs-on: [self-hosted, macos]
+    steps:
+      - name: Fastlane
+        run: |
+          bundle exec fastlane ios archive_uikit

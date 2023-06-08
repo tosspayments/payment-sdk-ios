@@ -50,7 +50,8 @@ let project = Project(
                 .package(product: "TossPayments")
             ],
             settings: .settings(base: [
-                "MARKETING_VERSION": Version.current
+                "MARKETING_VERSION": Version.current,
+                "DEVELOPMENT_TEAM": "NEBK7L4Z4D"
             ])
         )
     ],

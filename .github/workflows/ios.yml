@@ -1,0 +1,18 @@
+name: Deploy Example app
+
+on:
+  push:
+    paths:
+      - 'version'
+      
+jobs:
+  prepare:
+    name: Prepare depnedencies
+    runs-on: [self-hosted, macos]
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+      - name: Tuist 환경 설정
+        run: |
+          ./get_started.sh
+      

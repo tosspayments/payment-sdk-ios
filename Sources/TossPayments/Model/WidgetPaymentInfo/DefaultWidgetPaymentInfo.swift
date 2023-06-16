@@ -24,7 +24,7 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
     // 추가 선택
     public let customerMobilePhone: String?
     public let showCustomerMobilePhone: String?
-    public let useEscrow: Bool
+    public let useEscrow: Bool?
     public let escrowProducts: [String]?
     public let mobileCarrier: String?
         
@@ -39,7 +39,7 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
         cultureExpense: Bool = false,
         customerMobilePhone: String? = nil,
         showCustomerMobilePhone: String? = nil,
-        useEscrow: Bool = false,
+        useEscrow: Bool? = nil,
         escrowProducts: [String]? = nil,
         mobileCarrier: String? = nil
     ) {

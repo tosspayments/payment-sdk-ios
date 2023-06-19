@@ -48,4 +48,12 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         }))
         UIApplication.shared.keyWindow?.visibleViewController?.present(alertController, animated: true)
     }
+    
+    func webView(_ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping () -> Void) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "닫기", style: .default, handler: { _ in
+            completionHandler()
+        }))
+        UIApplication.shared.keyWindow?.visibleViewController?.present(alertController, animated: true)
+    }
 }

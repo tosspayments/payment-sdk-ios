@@ -118,6 +118,6 @@ final class RootViewController: ViewController {
         스테이지화면.text = Environment.Constant.defaultStage
         Environment.stage = Environment.Constant.defaultStage
         배리언트키화면.text = Environment.Constant.defaultVariantKey
-        Environment.stage = Environment.Constant.defaultVariantKey
+        Environment.variantKey = Environment.Constant.defaultVariantKey
     }
 }

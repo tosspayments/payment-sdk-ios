@@ -5,6 +5,7 @@ on:
     paths:
       - 'version'
   pull_request:
+    types: [opened, reopened]
     branches: [ "deploy/**" ]
 
 jobs:

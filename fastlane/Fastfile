@@ -64,7 +64,7 @@ def distribution(app_name)
     app_version = get_version_number(xcodeproj: "Examples/TossPayments-Examples/#{app_name}/#{app_name}.xcodeproj", target: "#{app_name}")
     firebase_app_distribution(
         app: "1:388118058286:ios:fe168c3126d9a32b3d16bf",
-        ipa_path: "./output/UIKitExample.ipa",
+        ipa_path: "./build/output/UIKitExample.ipa",
         service_credentials_file: "./keyfile.json",
         testers: "mqz@toss.im",
         release_notes: "#{app_version} 배포",

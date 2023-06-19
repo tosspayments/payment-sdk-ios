@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'version'
+  pull_request:
+    branches: [ "deploy/**" ]
 
 jobs:
   deploy:

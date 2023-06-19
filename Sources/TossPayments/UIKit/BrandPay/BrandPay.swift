@@ -10,7 +10,7 @@ import Foundation
 extension PaymentWidget {
     
     /// 결제위젯에 추가적으로 들어갈 수 있는 기능
-    public struct Options {
+    public struct Options: Encodable {
         public let brandPay: BrandPay?
         public init(
             brandPay: BrandPay?
@@ -20,7 +20,7 @@ extension PaymentWidget {
     }
 
     /// 브랜드페이
-    public struct BrandPay {
+    public struct BrandPay: Encodable {
         
         /// 가맹점의 서버에서 구현해줘야하는 auth URL 주소
         public let redirectURL: String

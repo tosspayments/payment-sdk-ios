@@ -86,7 +86,7 @@ public final class PaymentWidgetViewController: ViewController {
         빈화면.backgroundColor = .lightGray
         widget.renderPaymentMethods(
             amount: PaymentMethodWidget.Amount(
-                amount: 1000,
+                value: 1000,
                 currency: "USD",
                 country: "US"
             ),

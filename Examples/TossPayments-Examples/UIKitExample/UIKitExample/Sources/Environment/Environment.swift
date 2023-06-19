@@ -57,7 +57,7 @@ public final class Environment {
     // swiftlint:disable:next line_length
     static var variantKey: String = UserDefaults.standard.string(forKey: "TossPayments.VariantKey") ?? Constant.defaultVariantKey {
         didSet {
-            UserDefaults.standard.set(stage, forKey: "TossPayments.VariantKey")
+            UserDefaults.standard.set(variantKey, forKey: "TossPayments.VariantKey")
         }
     }
 

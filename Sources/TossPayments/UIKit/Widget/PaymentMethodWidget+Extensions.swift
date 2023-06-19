@@ -10,16 +10,16 @@ import Foundation
 extension PaymentMethodWidget {
     
     public struct Amount: Encodable {
-        public let amount: Double
+        public let value: Double
         public let currency: String?
         public let country: String?
         
         public init(
-            amount: Double,
-            currency: String? = nil,
-            country: String? = nil
+            value: Double,
+            currency: String? = "KRW",
+            country: String? = "KR"
         ) {
-            self.amount = amount
+            self.value = value
             self.currency = currency
             self.country = country
         }

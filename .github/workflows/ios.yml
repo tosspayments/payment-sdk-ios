@@ -2,6 +2,7 @@ name: Deploy Example app
 
 on:
   push:
+    branches: [ "deploy/**" ]
     paths:
       - 'version'
 

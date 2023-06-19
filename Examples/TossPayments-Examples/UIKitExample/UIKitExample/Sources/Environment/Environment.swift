@@ -19,6 +19,7 @@ public final class Environment {
             }
             return scheme + "://"
         }()
+
         static let defaultClientKey = "live_ck_JQbgMGZzorzj0ZnKbOjrl5E1em4d"
         static let defaultCustomerKey = "TOSSPAYMENTS"
         static let defaultBrandpayRedirectURL: String = {

@@ -45,6 +45,15 @@ final class RootViewController: ViewController {
         return textField
     }()
     
+    private lazy var 배리언트키화면: TextField = {
+        let textField = TextField()
+        textField.title = "Variant Key"
+        textField.text = Environment.variantKey
+        textField.textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
+        
+        return textField
+    }()
+    
     private lazy var 테스트키리셋 = Button()
     private lazy var 일반결제버튼 = Button()
     private lazy var 위젯버튼 = Button()
@@ -56,6 +65,7 @@ final class RootViewController: ViewController {
         stackView.addArrangedSubview(커스터머키화면)
         stackView.addArrangedSubview(브랜드키리다이렉트화면)
         stackView.addArrangedSubview(스테이지화면)
+        stackView.addArrangedSubview(배리언트키화면)
         stackView.addArrangedSubview(테스트키리셋)
         stackView.addArrangedSubview(일반결제버튼)
         stackView.addArrangedSubview(위젯버튼)
@@ -91,6 +101,8 @@ final class RootViewController: ViewController {
             Environment.brandPayRedirectURL = text
         case 스테이지화면:
             Environment.stage = text
+        case 배리언트키화면:
+            Environment.variantKey = text
         default:
             break
         }
@@ -105,6 +117,7 @@ final class RootViewController: ViewController {
         Environment.brandPayRedirectURL = Environment.Constant.defaultBrandpayRedirectURL
         스테이지화면.text = Environment.Constant.defaultStage
         Environment.stage = Environment.Constant.defaultStage
-        
+        배리언트키화면.text = Environment.Constant.defaultVariantKey
+        Environment.stage = Environment.Constant.defaultVariantKey
     }
 }

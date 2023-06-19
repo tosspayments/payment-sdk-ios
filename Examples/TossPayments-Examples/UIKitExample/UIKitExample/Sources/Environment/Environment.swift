@@ -25,6 +25,7 @@ public final class Environment {
         https://tosspayments.com/redierct
         """
         static let defaultStage = "alpha"
+        static let defaultVariantKey = "CardOnly"
     }
     
     static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey") ?? Constant.defaultClientKey {
@@ -51,4 +52,11 @@ public final class Environment {
             UserDefaults.standard.set(stage, forKey: "TossPayments.Stage")
         }
     }
+    
+    static var variantKey: String = UserDefaults.standard.string(forKey: "TossPayments.VariantKey") ?? Constant.defaultVariantKey {
+        didSet {
+            UserDefaults.standard.set(stage, forKey: "TossPayments.VariantKey")
+        }
+    }
+
 }

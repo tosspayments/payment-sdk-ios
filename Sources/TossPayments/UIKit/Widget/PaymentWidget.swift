@@ -21,6 +21,15 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             """)
         }
     }
+    private var methodWidgetOptions: PaymentMethodWidget.Options?
+    private var methodWidgetOptionsObject: String {
+        guard let variantKey = methodWidgetOptions?.variantKey,
+              !variantKey.isEmpty else { return "{}"}
+        return """
+            { variantKey: "\(variantKey)" }
+            """
+    }
+        
     private let clientKey: String
     private let customerKey: String
     let options: Options?
@@ -52,8 +61,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         super.init()
     }
     
-    public func renderPaymentMethods(amount: Double) {
+    public func renderPaymentMethods(
+        amount: Double,
+        options: PaymentMethodWidget.Options? = nil
+    ) {
         self.amount = amount
+        self.methodWidgetOptions = options
         paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
         paymentMethodWidget.configuration.userContentController.add(
             RequestPaymentsMessageHandler(self), 
@@ -106,14 +119,14 @@ public final class PaymentWidget: NSObject, HandleURLResult {
                 const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
                   brandpay: { redirectUrl: "\(redirectURLString)" }
                 });
-                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount));
+                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount), \(methodWidgetOptionsObject));
                 """
         } else {
             return """
                 const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
                   brandpay: { redirectUrl: "" }
                 });
-                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount));
+                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount), \(methodWidgetOptionsObject));
                 """
         }
     }()

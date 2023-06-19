@@ -22,7 +22,12 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         return popupWebView
     }
     
-    func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
+    func webView(
+        _ webView: WKWebView,
+        runJavaScriptConfirmPanelWithMessage message: String,
+        initiatedByFrame frame: WKFrameInfo,
+        completionHandler: @escaping (Bool) -> Void
+    ) {
         /// 사파리 /.안드로이드 등에서 기본적인 alert의 title로 사용하는것을 차용
         let title: String? = {
             let domain: String? = {
@@ -45,6 +50,18 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         }))
         alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
             completionHandler(false)
+        }))
+        UIApplication.shared.keyWindow?.visibleViewController?.present(alertController, animated: true)
+    }
+    
+    func webView(
+        _ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
+        initiatedByFrame frame: WKFrameInfo,
+        completionHandler: @escaping () -> Void
+    ) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "닫기", style: .default, handler: { _ in
+            completionHandler()
         }))
         UIApplication.shared.keyWindow?.visibleViewController?.present(alertController, animated: true)
     }

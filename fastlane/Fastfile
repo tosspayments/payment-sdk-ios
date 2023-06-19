@@ -28,12 +28,10 @@ platform :ios do
     end
 
     lane:distribution do
-        distribution()
+        distribution("UIKitExample")
     end
 end
 
-
-app_version = ""
 def archive(app_name)
     app_version = get_version_number(xcodeproj: "Examples/TossPayments-Examples/#{app_name}/#{app_name}.xcodeproj", target: "#{app_name}")
     number_of_commits = sh("git", "rev-list", "HEAD", "--count").strip.to_i
@@ -62,7 +60,8 @@ def archive(app_name)
     build_app(build_options)
 end
 
-def distribution()
+def distribution(app_name)
+    app_version = get_version_number(xcodeproj: "Examples/TossPayments-Examples/#{app_name}/#{app_name}.xcodeproj", target: "#{app_name}")
     firebase_app_distribution(
         app: "1:388118058286:ios:fe168c3126d9a32b3d16bf",
         ipa_path: "./output/UIKitExample.ipa",

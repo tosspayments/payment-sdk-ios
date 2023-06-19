@@ -25,7 +25,7 @@ extension WidgetMessageProtocol where Response: Decodable {
     }
     
     var response: Response? {
-        guard let data = try? JSONSerialization.data(withJSONObject: params) else { return nil }
+        guard let params, let data = try? JSONSerialization.data(withJSONObject: params) else { return nil }
         return try? JSONDecoder().decode(Response.self, from: data)
     }
 }

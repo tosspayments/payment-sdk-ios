@@ -84,7 +84,7 @@ public final class PaymentWidgetViewController: ViewController {
             빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
-        widget.renderPaymentMethods(amount: Constant.defaultAmount)
+        widget.renderPaymentMethods(amount: Constant.defaultAmount, options: PaymentMethodWidget.Options(variantKey: Environment.variantKey))
         widget.renderAgreement()
     }
     

@@ -17,6 +17,9 @@ jobs:
       - name: Tuist 환경 설정
         run: |
           ./get_started.sh -s
+      - name: Update brandyapy key 
+        run: |
+          bundle exec fastlane ios update_brandpay_url url:${{ secrets.BRANDY_PAY_REDIRECT_URL }}
       - name: Fastlane archive
         run: |
           bundle exec fastlane ios archive_uikit

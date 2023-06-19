@@ -39,7 +39,8 @@ let project = Project(
                             "tosspaymentExample"
                         ])
                     ])
-                ])
+                ]),
+                "BRANDPAY_REDIRECT_URL": "https://tosspayments.com/redirect"
             ]),
             sources: ["UIKitExample/Sources/**"],
             resources: ["UIKitExample/Resources/**"],

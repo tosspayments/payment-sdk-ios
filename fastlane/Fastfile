@@ -8,6 +8,17 @@ platform :ios do
         puts "[Swift Version] : #{get_swift_version}"
     end
 
+    lane :update_brandpay_url do |options|
+        url = options[:url]
+        update_info_plist(
+            xcodeproj: "Examples/TossPayments-Examples/UIKitExample/UIKitExample.xcodeproj",
+            plist_path: "Derived/InfoPlists/UIKitExample-Info.plist",
+            block: lambda { |plist|
+                plist["BRANDPAY_REDIRECT_URL"] = url
+            }
+        )
+    end
+
     lane:archive_uikit do
         archive("UIKitExample")
     end
@@ -20,6 +31,7 @@ platform :ios do
         distribution()
     end
 end
+
 
 app_version = ""
 def archive(app_name)

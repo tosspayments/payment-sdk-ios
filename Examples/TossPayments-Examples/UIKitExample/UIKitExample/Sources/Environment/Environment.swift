@@ -19,12 +19,19 @@ public final class Environment {
             }
             return scheme + "://"
         }()
-        static let defaultClientKey = "test_ck_0Poxy1XQL8R4P1zpv14V7nO5Wmlg"
+        static let defaultClientKey = "live_ck_JQbgMGZzorzj0ZnKbOjrl5E1em4d"
         static let defaultCustomerKey = "TOSSPAYMENTS"
-        static let defaultBrandpayRedirectURL = """
-        https://tosspayments.com/redierct
-        """
-        static let defaultStage = "alpha"
+        static let defaultBrandpayRedirectURL: String? = {
+            if let infoDictionary = Bundle.main.infoDictionary,
+               let brandpayRedirectURL = infoDictionary["BRANDPAY_REDIRECT_URL"] as? String,
+               !brandPayRedirectURL.isEmpty {
+                return brandpayRedirectURL
+            }
+            return """
+            https://tosspayments.com/redierct
+            """
+        }()
+        static let defaultStage = "beta"
         static let defaultVariantKey = "CardOnly"
     }
     

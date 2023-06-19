@@ -6,7 +6,8 @@ on:
       - 'version'
   pull_request:
     types: [opened, reopened]
-    branches: [ "deploy/**" ]
+    branches: 
+      - 'deploy/**'
 
 jobs:
   deploy:

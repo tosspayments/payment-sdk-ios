@@ -9,11 +9,33 @@ import Foundation
 import WebKit
 
 public final class PaymentWidget: NSObject, HandleURLResult {
+    
+    // MARK: - Private properties
+    private weak var rootViewController: UIViewController?
     private lazy var messageHandler = MessageHandler(
         paymentMethod: paymentMethodWidget,
         agreement: agreementWidget
     )
-    private var amount: Double = 0 {
+
+    @available(*, deprecated, message: "use paymentMethodScript")
+    private lazy var legacyPaymentMethodScript = WKUserScript(
+        source: legacyPaymentMethodSource,
+        injectionTime: .atDocumentEnd,
+        forMainFrameOnly: true
+    )
+    private lazy var paymentMethodScript = WKUserScript(
+        source: paymentMethodSource,
+        injectionTime: .atDocumentEnd,
+        forMainFrameOnly: true
+    )
+    private lazy var agreementScript = WKUserScript(
+        source: agreementSource,
+        injectionTime: .atDocumentEnd,
+        forMainFrameOnly: true
+    )
+    
+    // MARK: Internal properties
+    var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
             paymentMethodWidget.evaluateJavaScript("""
@@ -21,23 +43,25 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             """)
         }
     }
+    private var methodWidgetAmount: PaymentMethodWidget.Amount?
+    var methodWidgetAmountObjectString: String {
+        guard let jsonString = methodWidgetAmount.jsonString else { return "\(amount)"}
+        return jsonString
+    }
+    
     private var methodWidgetOptions: PaymentMethodWidget.Options?
-    private var methodWidgetOptionsObject: String {
-        guard let variantKey = methodWidgetOptions?.variantKey,
-              !variantKey.isEmpty else { return "{}"}
-        return """
-            { variantKey: "\(variantKey)" }
-            """
+    var methodWidgetOptionsObject: String {
+        guard let jsonString = methodWidgetOptions?.jsonString else { return "{}"}
+        return jsonString
     }
         
-    private let clientKey: String
-    private let customerKey: String
-    let options: Options?
-    
-    private weak var rootViewController: UIViewController?
-    
-    public weak var delegate: TossPaymentsDelegate?
-    
+    let clientKey: String
+    let customerKey: String
+    private let options: Options?
+    var optionsObject: String {
+        guard let jsonString = options?.jsonString else { return "{}"}
+        return jsonString
+    }
     var baseURL: URL {
         guard let urlString = options?.brandPay?.redirectURL,
               let url = URL(string: urlString) else {
@@ -46,6 +70,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         return url
     }
     
+    // MARK: Public properties
+    public weak var delegate: TossPaymentsDelegate?
     public let paymentMethodWidget: PaymentMethodWidget
     public let agreementWidget: AgreementWidget
     public init(
@@ -61,30 +87,38 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         super.init()
     }
     
+    // MARK: Internal methods
+    func message(_ body: Any) {
+        guard let jsonObject = body as? [String: Any] else { return }
+        messageHandler.handle(jsonObject: jsonObject)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    
+    // MARK: Public methods
+    public func renderPaymentMethods(amount: PaymentMethodWidget.Amount, options: PaymentMethodWidget.Options? = nil) {
+        self.methodWidgetAmount = amount
+        self.methodWidgetOptions = options
+        
+        paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
+        
+        loadPaymentMethodsScripts()
+    }
+    
+    @available(*, deprecated, message: "use func renderPaymentMethods(amount: PaymentMethodWidget.Object, options: PaymentMethodWidget.Options? = nil)")
     public func renderPaymentMethods(
         amount: Double,
         options: PaymentMethodWidget.Options? = nil
     ) {
         self.amount = amount
         self.methodWidgetOptions = options
-        paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
-        paymentMethodWidget.configuration.userContentController.add(
-            RequestPaymentsMessageHandler(self), 
-            name: ScriptName.requestPayments.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            UpdateHeightMessageHandler(),
-            name: ScriptName.updateHeight.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            RequestHTMLMessageHandler(self),
-            name: ScriptName.requestHTML.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            MessageScriptHandler(self),
-            name: ScriptName.message.rawValue
-        )
-        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        
+        paymentMethodWidget.configuration.userContentController.addUserScript(legacyPaymentMethodScript)
+        
+        loadPaymentMethodsScripts()
     }
     
     public func renderAgreement() {
@@ -104,61 +138,6 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         self.amount = amount
     }
     
-    func message(_ body: Any) {
-        guard let jsonObject = body as? [String: Any] else { return }
-        messageHandler.handle(jsonObject: jsonObject)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    private lazy var paymentMethodSource: String = {
-        if let redirectURLString = self.options?.brandPay?.redirectURL {
-            return """
-                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
-                  brandpay: { redirectUrl: "\(redirectURLString)" }
-                });
-                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount), \(methodWidgetOptionsObject));
-                """
-        } else {
-            return """
-                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
-                  brandpay: { redirectUrl: "" }
-                });
-                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(amount), \(methodWidgetOptionsObject));
-                """
-        }
-    }()
-    
-    private lazy var agreementSource: String = {
-        if let redirectURLString = self.options?.brandPay?.redirectURL {
-            return """
-                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
-                  brandpay: { redirectUrl: "\(redirectURLString)" }
-                });
-                widget.renderAgreement('#agreement');
-                """
-        } else {
-            return """
-                const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", {
-                  brandpay: { redirectUrl: "" }
-                });
-                widget.renderAgreement('#agreement');
-                """
-        }
-    }()
-    private lazy var paymentMethodScript = WKUserScript(
-        source: paymentMethodSource,
-        injectionTime: .atDocumentEnd,
-        forMainFrameOnly: true
-    )
-    private lazy var agreementScript = WKUserScript(
-        source: agreementSource,
-        injectionTime: .atDocumentEnd,
-        forMainFrameOnly: true
-    )
-
     public func requestPayment(
         info: WidgetPaymentInfo,
         on rootViewController: UIViewController
@@ -181,21 +160,27 @@ public final class PaymentWidget: NSObject, HandleURLResult {
                     
             }
     }
-    
-    private var htmlString: String {
-        """
-        <!DOCTYPE html>
-        <html>
-        <head>
-          <title>결제하기</title>
-          <script src="https://js.tosspayments.com/\(TossPaymentsEnvironment.stage)/payment-widget"></script>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-        </head>
-        <body style="margin:0;padding:0;overflow:hidden;">
-            <div id="payment-method"></div>
-            <div id="agreement"></div>
-        </body>
-        </html>
-        """
+}
+
+// MARK: - Private methods
+private extension PaymentWidget {
+    func loadPaymentMethodsScripts() {
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestPaymentsMessageHandler(self),
+            name: ScriptName.requestPayments.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
 }

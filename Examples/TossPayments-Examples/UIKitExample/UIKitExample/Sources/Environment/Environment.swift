@@ -28,19 +28,20 @@ public final class Environment {
         static let defaultVariantKey = "CardOnly"
     }
     
+    // swiftlint:disable:next line_length
     static var clientKey: String = UserDefaults.standard.string(forKey: "TossPayments.ClientKey") ?? Constant.defaultClientKey {
         didSet {
             UserDefaults.standard.set(clientKey, forKey: "TossPayments.ClientKey")
         }
     }
-    
+    // swiftlint:disable:next line_length
     static var customerKey: String = UserDefaults.standard.string(forKey: "TossPayments.CustomerKey") ?? Constant.defaultCustomerKey {
         didSet {
             UserDefaults.standard.set(customerKey, forKey: "TossPayments.CustomerKey")
         }
     }
     
-    /// 현재 redirectURL의 미구현으로 브랜드페이는 정상적으로 동작하지 않고 있다.
+    // swiftlint:disable:next line_length
     static var brandPayRedirectURL: String = UserDefaults.standard.string(forKey: "TossPayments.BrandPayRedirectURL") ?? Constant.defaultBrandpayRedirectURL {
         didSet {
             UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
@@ -53,9 +54,10 @@ public final class Environment {
         }
     }
     
+    // swiftlint:disable:next line_length
     static var variantKey: String = UserDefaults.standard.string(forKey: "TossPayments.VariantKey") ?? Constant.defaultVariantKey {
         didSet {
-            UserDefaults.standard.set(stage, forKey: "TossPayments.VariantKey")
+            UserDefaults.standard.set(variantKey, forKey: "TossPayments.VariantKey")
         }
     }
 

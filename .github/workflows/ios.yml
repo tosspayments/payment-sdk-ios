@@ -1,0 +1,31 @@
+name: Deploy Example app
+
+on:
+  push:
+    paths:
+      - 'version'
+  pull_request:
+    branches: [ "deploy/**" ]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: [self-hosted, macos]
+    steps:
+      - name: Checkout current branch
+        uses: actions/checkout@v3
+      - name: Tuist 환경 설정
+        run: |
+          ./get_started.sh -s
+      - name: Update brandyapy key 
+        run: |
+          bundle exec fastlane ios update_brandpay_url url:${{ secrets.BRANDY_PAY_REDIRECT_URL }}
+      - name: Fastlane archive
+        run: |
+          bundle exec fastlane ios archive_uikit
+      - name: Create Firebase Key File
+        run: |
+          echo "${{ secrets.FIREBASE_DISTRIBUTION_API_SECRET }}" > keyfile.json
+      - name: Firebase distribution
+        run: |
+          bundle exec fastlane ios distribution

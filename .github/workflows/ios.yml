@@ -2,9 +2,10 @@ name: Deploy Example app
 
 on:
   push:
-    branches: [ "deploy/**" ]
     paths:
       - 'version'
+  pull_request:
+    branches: [ "deploy/**" ]
 
 jobs:
   deploy:

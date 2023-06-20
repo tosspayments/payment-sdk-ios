@@ -53,6 +53,14 @@ final class MessageHandler {
                 paymentMethod,
                 paymentMethodKey: customRequest.paymentMethodKey
             )
+        case "widgetStatus":
+            guard let widgetStatus = WidgetStatusMessage(jsonObject: jsonObject).response else { return }
+            if let paymentMethod, widgetStatus.widget == "paymentMethods" {
+                paymentMethod.widgetUIDelegate?.didReceivedWidgetStatus(paymentMethod, status: widgetStatus.status)
+            } else if let agreement, widgetStatus.widget == "agreement" {
+                agreement.agreementUIDelegate?.didReceivedWidgetStatus(agreement, status: widgetStatus.status)
+            }
+                    
         default:
             break
         }

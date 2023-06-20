@@ -8,7 +8,8 @@
 import Foundation
 import WebKit
 
-public final class AgreementWidget: WKWebView, CanUpdateHeight, WKUIDelegate, BrowserPopupHandler {
+public final class AgreementWidget: WKWebView, PaymentWidgetComponent {
+    public weak var widgetStatusDelegate: TossPaymentsWidgetStatusDelegate?
     public weak var agreementUIDelegate: TossPaymentsAgreementUIDelegate?
     
     public var updatedHeight: CGFloat = 92 {

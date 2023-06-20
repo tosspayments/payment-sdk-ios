@@ -21,6 +21,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window.makeKeyAndVisible()
         self.window = window
         
+        OverlayLogDisplayManager.shared.show(on: window)
+        
         return true
     }
 }

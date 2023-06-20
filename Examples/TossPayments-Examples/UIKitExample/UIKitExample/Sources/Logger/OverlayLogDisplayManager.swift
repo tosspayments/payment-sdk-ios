@@ -13,8 +13,18 @@ class OverlayLogDisplayManager {
     var window: UIWindow?
     var viewController: OverlayLogViewController?
     static let shared = OverlayLogDisplayManager()
-    func show(on window: UIWindow) {
-        
+    var isShowing: Bool = false {
+        didSet {
+            guard oldValue != isShowing else { return }
+            window?.alpha = isShowing ? 1 : 0
+        }
+    }
+    
+    func start(on window: UIWindow) {
+        setupOverlayLog(on: window)
+    }
+    
+    private func setupOverlayLog(on window: UIWindow) {
         let overlayWindow = UIWindow(frame: CGRect(x: 0, y: 80, width: window.frame.width, height: 200))
         overlayWindow.windowLevel = window.windowLevel + 1
         overlayWindow.backgroundColor = UIColor(white: 0, alpha: 0.5)

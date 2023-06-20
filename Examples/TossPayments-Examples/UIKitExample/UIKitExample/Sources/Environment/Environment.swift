@@ -21,7 +21,7 @@ public final class Environment {
         }()
         static let defaultClientKey = "live_ck_JQbgMGZzorzj0ZnKbOjrl5E1em4d"
         static let defaultCustomerKey = "TOSSPAYMENTS"
-        static let defaultBrandpayRedirectURL: String? = {
+        static let defaultBrandpayRedirectURL: String = {
             if let infoDictionary = Bundle.main.infoDictionary,
                let brandpayRedirectURL = infoDictionary["BRANDPAY_REDIRECT_URL"] as? String,
                !brandPayRedirectURL.isEmpty {

@@ -8,7 +8,8 @@
 import Foundation
 import WebKit
 
-public final class PaymentMethodWidget: WKWebView, CanUpdateHeight {
+public final class PaymentMethodWidget: WKWebView, PaymentWidgetComponent {
+    public weak var widgetStatusDelegate: TossPaymentsWidgetStatusDelegate?
     public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
     
     public var updatedHeight: CGFloat = 400 {
@@ -33,11 +34,6 @@ public final class PaymentMethodWidget: WKWebView, CanUpdateHeight {
         size.height = self.updatedHeight
         return size
     }
-    
-}
-
-// MARK: - WKUIDelegate
-extension PaymentMethodWidget: WKUIDelegate, BrowserPopupHandler {
     
     public func webView(
         _ webView: WKWebView,

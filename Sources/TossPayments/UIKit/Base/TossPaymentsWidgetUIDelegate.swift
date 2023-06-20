@@ -13,7 +13,6 @@ public protocol TossPaymentsWidgetUIDelegate: AnyObject {
     func didReceivedCustomRequest(_ widget: PaymentMethodWidget, paymentMethodKey: String)
     func didReceivedCustomPaymentMethodSelected(_ widget: PaymentMethodWidget, paymentMethodKey: String)
     func didReceivedCustomPaymentMethodUnselected(_ widget: PaymentMethodWidget, paymentMethodKey: String)
-    func didReceivedWidgetStatus(_ widget: PaymentMethodWidget, status: String)
 }
 
 public extension TossPaymentsWidgetUIDelegate {
@@ -21,17 +20,26 @@ public extension TossPaymentsWidgetUIDelegate {
     func didReceivedCustomRequest(_ widget: PaymentMethodWidget, paymentMethodKey: String) {}
     func didReceivedCustomPaymentMethodSelected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {}
     func didReceivedCustomPaymentMethodUnselected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {}
-    func didReceivedWidgetStatus(_ widget: PaymentMethodWidget, status: String) {}
 }
 
 public protocol TossPaymentsAgreementUIDelegate: AnyObject {
     func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat)
     func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus)
-    func didReceivedWidgetStatus(_ widget: AgreementWidget, status: String)
 }
 
 public extension TossPaymentsAgreementUIDelegate {
     func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat) {}
     func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus) {}
-    func didReceivedWidgetStatus(_ widget: AgreementWidget, status: String) {}
+}
+
+public protocol TossPaymentsWidgetStatusDelegate: AnyObject {
+    func didReceivedLoading(_ name: String)
+    func didReceivedLoaded(_ name: String)
+    func didReceivedFailed(_ name: String)
+}
+
+public extension TossPaymentsWidgetStatusDelegate {
+    func didReceivedLoading(_ name: String) {}
+    func didReceivedLoaded(_ name: String) {}
+    func didReceivedFailed(_ name: String) {}
 }

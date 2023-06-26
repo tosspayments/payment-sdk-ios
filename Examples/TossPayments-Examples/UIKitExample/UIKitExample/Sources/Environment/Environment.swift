@@ -61,14 +61,14 @@ public final class Environment {
     // swiftlint:disable:next line_length
     static var countryName: String = UserDefaults.standard.string(forKey: "TossPayments.countryName") ?? Constant.defaultCountryName {
         didSet {
-            UserDefaults.standard.set(customerKey, forKey: "TossPayments.countryName")
+            UserDefaults.standard.set(countryName, forKey: "TossPayments.countryName")
         }
     }
     
     // swiftlint:disable:next line_length
     static var currencyName: String = UserDefaults.standard.string(forKey: "TossPayments.currencyName") ?? Constant.defaultCurrencyName {
         didSet {
-            UserDefaults.standard.set(customerKey, forKey: "TossPayments.currencyName")
+            UserDefaults.standard.set(currencyName, forKey: "TossPayments.currencyName")
         }
     }
     

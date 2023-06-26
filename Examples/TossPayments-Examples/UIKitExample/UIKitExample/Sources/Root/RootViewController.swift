@@ -129,9 +129,9 @@ final class RootViewController: ViewController {
         case 브랜드키리다이렉트화면:
             Environment.brandPayRedirectURL = text
         case 국가화면:
-            Environment.countryName
+            Environment.countryName = text
         case 통화화면:
-            Environment.currencyName
+            Environment.currencyName = text
         case 스테이지화면:
             Environment.stage = text
         case 배리언트키화면:

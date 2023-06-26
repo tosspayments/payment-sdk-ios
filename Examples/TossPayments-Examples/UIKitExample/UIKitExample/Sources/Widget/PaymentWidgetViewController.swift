@@ -59,7 +59,15 @@ public final class PaymentWidgetViewController: ViewController {
         button.setTitle("결제하기", for: .normal)
         button.addTarget(self, action: #selector(requestPayment), for: .touchUpInside)
         
-        let paymentMethodWidget = widget.renderPaymentMethods(amount: Constant.defaultAmount)
+        let paymentMethodWidget = widget.renderPaymentMethods(
+            amount: PaymentMethodWidget.Amount(
+                value: 1000,
+                currency: Environment.currencyName,
+                country: Environment.countryName
+            ),
+            options: PaymentMethodWidget.Options(variantKey: Environment.variantKey)
+        )
+
         let agreementWidget = widget.renderAgreement()
         
         stackView.addArrangedSubview(amountInputField)

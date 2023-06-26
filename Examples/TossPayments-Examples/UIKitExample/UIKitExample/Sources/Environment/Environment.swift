@@ -30,6 +30,8 @@ public final class Environment {
             https://tosspayments.com/redierct
             """
         }()
+        static let defaultCountryName: String = "KR"
+        static let defaultCurrencyName: String = "KRW"
         static let defaultStage = "alpha"
         static let defaultVariantKey = "CardOnly"
     }
@@ -53,17 +55,18 @@ public final class Environment {
             UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
         }
     }
-    
-    static var customerKey: String = UserDefaults.standard.string(forKey: "TossPayments.CustomerKey") ?? Constant.defaultCustomerKey {
+
+    // swiftlint:disable:next line_length
+    static var countryName: String = UserDefaults.standard.string(forKey: "TossPayments.countryName") ?? Constant.defaultCountryName {
         didSet {
-            UserDefaults.standard.set(customerKey, forKey: "TossPayments.CustomerKey")
+            UserDefaults.standard.set(customerKey, forKey: "TossPayments.countryName")
         }
     }
     
-    /// 현재 redirectURL의 미구현으로 브랜드페이는 정상적으로 동작하지 않고 있다.
-    static var brandPayRedirectURL: String = UserDefaults.standard.string(forKey: "TossPayments.BrandPayRedirectURL") ?? Constant.defaultBrandpayRedirectURL {
+    // swiftlint:disable:next line_length
+    static var currencyName: String = UserDefaults.standard.string(forKey: "TossPayments.currencyName") ?? Constant.defaultCurrencyName {
         didSet {
-            UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
+            UserDefaults.standard.set(customerKey, forKey: "TossPayments.currencyName")
         }
     }
     

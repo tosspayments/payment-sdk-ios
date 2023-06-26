@@ -19,19 +19,20 @@ public final class Environment {
             }
             return scheme + "://"
         }()
-        static let defaultClientKey = "live_ck_JQbgMGZzorzj0ZnKbOjrl5E1em4d"
+
+        static let defaultClientKey = "live_ck_GKNbdOvk5rk475yz9Kq8n07xlzmj"
         static let defaultCustomerKey = "TOSSPAYMENTS"
         static let defaultBrandpayRedirectURL: String = {
-            if let infoDictionary = Bundle.main.infoDictionary,
-               let brandpayRedirectURL = infoDictionary["BRANDPAY_REDIRECT_URL"] as? String,
-               !brandPayRedirectURL.isEmpty {
-                return brandpayRedirectURL
+            if let redirectURL = Bundle.main.object(forInfoDictionaryKey: "BRANDPAY_REDIRECT_URL") as? String,
+               !redirectURL.isEmpty {
+                return redirectURL
             }
             return """
             https://tosspayments.com/redierct
             """
         }()
-        static let defaultStage = "beta"
+    
+        static let defaultStage = "alpha"
         static let defaultVariantKey = "CardOnly"
     }
     
@@ -67,5 +68,4 @@ public final class Environment {
             UserDefaults.standard.set(variantKey, forKey: "TossPayments.VariantKey")
         }
     }
-
 }

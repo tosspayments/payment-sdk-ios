@@ -31,3 +31,11 @@ public extension TossPaymentsAgreementUIDelegate {
     func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat) {}
     func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus) {}
 }
+
+public protocol TossPaymentsWidgetStatusDelegate: AnyObject {
+    func didReceivedLoad(_ name: String)
+}
+
+public extension TossPaymentsWidgetStatusDelegate {
+    func didReceivedLoad(_ name: String) {}
+}

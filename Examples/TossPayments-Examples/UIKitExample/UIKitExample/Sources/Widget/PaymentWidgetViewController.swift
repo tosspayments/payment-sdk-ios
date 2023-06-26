@@ -59,12 +59,15 @@ public final class PaymentWidgetViewController: ViewController {
         button.setTitle("결제하기", for: .normal)
         button.addTarget(self, action: #selector(requestPayment), for: .touchUpInside)
         
+        let paymentMethodWidget = widget.renderPaymentMethods(amount: Constant.defaultAmount)
+        let agreementWidget = widget.renderAgreement()
+        
         stackView.addArrangedSubview(amountInputField)
         stackView.addArrangedSubview(orderIdInputField)
         stackView.addArrangedSubview(orderNameInputField)
-        stackView.addArrangedSubview(widget.paymentMethodWidget)
+        stackView.addArrangedSubview(paymentMethodWidget)
         stackView.addArrangedSubview(빈화면)
-        stackView.addArrangedSubview(widget.agreementWidget)
+        stackView.addArrangedSubview(agreementWidget)
         
         amountInputField.title = "amount (원)"
         amountInputField.text = "\(Constant.defaultAmount)"
@@ -77,10 +80,10 @@ public final class PaymentWidgetViewController: ViewController {
         amountInputField.textField.keyboardType = .numberPad
         
         widget.delegate = self
-        widget.paymentMethodWidget.widgetUIDelegate = self
-        widget.agreementWidget.agreementUIDelegate = self
-        widget.paymentMethodWidget.widgetStatusDelegate = self
-        widget.agreementWidget.widgetStatusDelegate = self
+        widget.paymentMethodWidget?.widgetUIDelegate = self
+        widget.agreementWidget?.agreementUIDelegate = self
+        widget.paymentMethodWidget?.widgetStatusDelegate = self
+        widget.agreementWidget?.widgetStatusDelegate = self
         
         NSLayoutConstraint.activate([
             빈화면.heightAnchor.constraint(equalToConstant: 200)
@@ -181,16 +184,8 @@ extension PaymentWidgetViewController: TossPaymentsAgreementUIDelegate {
 }
 
 extension PaymentWidgetViewController: TossPaymentsWidgetStatusDelegate {
-    public func didReceivedLoading(_ name: String) {
-        Logger.debug("didReceivedLoading \(name)")
-    }
-    
-    public func didReceivedLoaded(_ name: String) {
-        Logger.debug("didReceivedLoaded \(name)")
-    }
-    
-    public func didReceivedFailed(_ name: String) {
-        Logger.debug("didReceivedFailed \(name)")
+    public func didReceivedLoad(_ name: String) {
+        Logger.debug("didReceivedLoad \(name)")
     }
 }
 

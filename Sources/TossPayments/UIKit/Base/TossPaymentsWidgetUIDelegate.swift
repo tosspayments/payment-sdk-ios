@@ -33,13 +33,9 @@ public extension TossPaymentsAgreementUIDelegate {
 }
 
 public protocol TossPaymentsWidgetStatusDelegate: AnyObject {
-    func didReceivedLoading(_ name: String)
-    func didReceivedLoaded(_ name: String)
-    func didReceivedFailed(_ name: String)
+    func didReceivedLoad(_ name: String)
 }
 
 public extension TossPaymentsWidgetStatusDelegate {
-    func didReceivedLoading(_ name: String) {}
-    func didReceivedLoaded(_ name: String) {}
-    func didReceivedFailed(_ name: String) {}
+    func didReceivedLoad(_ name: String) {}
 }

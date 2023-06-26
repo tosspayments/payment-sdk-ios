@@ -38,7 +38,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
-            paymentMethodWidget.evaluateJavaScript("""
+            paymentMethodWidget?.evaluateJavaScript("""
             updateAmount(\(amount))
             """)
         }
@@ -71,9 +71,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
     
     // MARK: Public properties
-    public weak var delegate: TossPaymentsDelegate?
-    public let paymentMethodWidget: PaymentMethodWidget
-    public let agreementWidget: AgreementWidget
+    public var paymentMethodWidget: PaymentMethodWidget?
+    public var agreementWidget: AgreementWidget?
     public init(
         clientKey: String,
         customerKey: String,
@@ -82,8 +81,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         self.clientKey = clientKey
         self.customerKey = customerKey
         self.options = options
-        self.paymentMethodWidget = PaymentMethodWidget()
-        self.agreementWidget = AgreementWidget()
+        
         super.init()
     }
     
@@ -121,7 +119,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         loadPaymentMethodsScripts()
     }
     
-    public func renderAgreement() {
+    public func renderAgreement() -> AgreementWidget {
+        let agreementWidget = AgreementWidget()
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
         agreementWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
@@ -132,6 +131,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             name: ScriptName.message.rawValue
         )
         agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        self.agreementWidget = agreementWidget
+        return agreementWidget
     }
     
     public func updateAmount(_ amount: Double) {
@@ -152,7 +153,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         widget.requestPaymentForNativeSDK(\(jsonString));
         """
         guard let encodedScript = javascriptString.urlEncoded.data(using: .utf8)?.base64EncodedString() else { return }
-        paymentMethodWidget.evaluateJavaScript(
+        paymentMethodWidget?.evaluateJavaScript(
             """
             var script = decodeURIComponent(window.atob('\(encodedScript)'));
             eval(script);

@@ -31,6 +31,8 @@ public final class Environment {
             https://tosspayments.com/redierct
             """
         }()
+        static let defaultCountryName: String = "KR"
+        static let defaultCurrencyName: String = "KRW"
     
         static let defaultStage = "alpha"
         static let defaultVariantKey = "CardOnly"
@@ -53,6 +55,20 @@ public final class Environment {
     static var brandPayRedirectURL: String = UserDefaults.standard.string(forKey: "TossPayments.BrandPayRedirectURL") ?? Constant.defaultBrandpayRedirectURL {
         didSet {
             UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
+        }
+    }
+    
+    // swiftlint:disable:next line_length
+    static var countryName: String = UserDefaults.standard.string(forKey: "TossPayments.countryName") ?? Constant.defaultCountryName {
+        didSet {
+            UserDefaults.standard.set(customerKey, forKey: "TossPayments.countryName")
+        }
+    }
+    
+    // swiftlint:disable:next line_length
+    static var currencyName: String = UserDefaults.standard.string(forKey: "TossPayments.currencyName") ?? Constant.defaultCurrencyName {
+        didSet {
+            UserDefaults.standard.set(customerKey, forKey: "TossPayments.currencyName")
         }
     }
     

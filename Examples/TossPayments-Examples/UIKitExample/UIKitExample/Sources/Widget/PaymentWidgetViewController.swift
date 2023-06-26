@@ -62,8 +62,8 @@ public final class PaymentWidgetViewController: ViewController {
         let paymentMethodWidget = widget.renderPaymentMethods(
             amount: PaymentMethodWidget.Amount(
                 value: 1000,
-                currency: "USD",
-                country: "US"
+                currency: Environment.currencyName,
+                country: Environment.countryName
             ),
             options: PaymentMethodWidget.Options(variantKey: Environment.variantKey)
         )

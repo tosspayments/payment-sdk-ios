@@ -22,7 +22,7 @@ final class RequestHTMLMessageHandler: NSObject, WKScriptMessageHandler {
         viewController.modalPresentationStyle = .fullScreen
         viewController.success = { javascript in
             viewController.dismiss(animated: true) {
-                self.widget?.paymentMethodWidget.evaluateJavaScript(javascript)
+                self.widget?.paymentMethodWidget?.evaluateJavaScript(javascript)
             }
         }
         UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)

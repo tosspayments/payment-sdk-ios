@@ -9,7 +9,6 @@ import Foundation
 import WebKit
 
 public final class PaymentWidget: NSObject, HandleURLResult {
-    
     // MARK: - Private properties
     private weak var rootViewController: UIViewController?
     private lazy var messageHandler = MessageHandler(
@@ -38,7 +37,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     var amount: Double = 0 {
         didSet {
             guard amount != oldValue else { return }
-            paymentMethodWidget.evaluateJavaScript("""
+            paymentMethodWidget?.evaluateJavaScript("""
             updateAmount(\(amount))
             """)
         }
@@ -71,9 +70,9 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
     
     // MARK: Public properties
-    public weak var delegate: TossPaymentsDelegate?
-    public let paymentMethodWidget: PaymentMethodWidget
-    public let agreementWidget: AgreementWidget
+    public var delegate: TossPaymentsDelegate?
+    public var paymentMethodWidget: PaymentMethodWidget?
+    public var agreementWidget: AgreementWidget?
     public init(
         clientKey: String,
         customerKey: String,
@@ -82,8 +81,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         self.clientKey = clientKey
         self.customerKey = customerKey
         self.options = options
-        self.paymentMethodWidget = PaymentMethodWidget()
-        self.agreementWidget = AgreementWidget()
+        
         super.init()
     }
     
@@ -99,29 +97,70 @@ public final class PaymentWidget: NSObject, HandleURLResult {
 
     
     // MARK: Public methods
-    public func renderPaymentMethods(amount: PaymentMethodWidget.Amount, options: PaymentMethodWidget.Options? = nil) {
+    public func renderPaymentMethods(amount: PaymentMethodWidget.Amount, options: PaymentMethodWidget.Options? = nil) -> PaymentMethodWidget {
+        let paymentMethodWidget = PaymentMethodWidget()
         self.methodWidgetAmount = amount
         self.methodWidgetOptions = options
         
         paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
         
-        loadPaymentMethodsScripts()
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestPaymentsMessageHandler(self),
+            name: ScriptName.requestPayments.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        
+        self.paymentMethodWidget = paymentMethodWidget
+        return paymentMethodWidget
     }
     
     @available(*, deprecated, message: "use func renderPaymentMethods(amount: PaymentMethodWidget.Object, options: PaymentMethodWidget.Options? = nil)")
     public func renderPaymentMethods(
         amount: Double,
         options: PaymentMethodWidget.Options? = nil
-    ) {
+    ) -> PaymentMethodWidget {
+        let paymentMethodWidget = PaymentMethodWidget()
         self.amount = amount
         self.methodWidgetOptions = options
         
         paymentMethodWidget.configuration.userContentController.addUserScript(legacyPaymentMethodScript)
         
-        loadPaymentMethodsScripts()
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestPaymentsMessageHandler(self),
+            name: ScriptName.requestPayments.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        
+        self.paymentMethodWidget = paymentMethodWidget
+        return paymentMethodWidget
     }
     
-    public func renderAgreement() {
+    public func renderAgreement() -> AgreementWidget {
+        let agreementWidget = AgreementWidget()
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
         agreementWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
@@ -132,6 +171,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             name: ScriptName.message.rawValue
         )
         agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        self.agreementWidget = agreementWidget
+        return agreementWidget
     }
     
     public func updateAmount(_ amount: Double) {
@@ -152,35 +193,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         widget.requestPaymentForNativeSDK(\(jsonString));
         """
         guard let encodedScript = javascriptString.urlEncoded.data(using: .utf8)?.base64EncodedString() else { return }
-        paymentMethodWidget.evaluateJavaScript(
+        paymentMethodWidget?.evaluateJavaScript(
             """
             var script = decodeURIComponent(window.atob('\(encodedScript)'));
             eval(script);
             """) { (_, _) in
                     
             }
-    }
-}
-
-// MARK: - Private methods
-private extension PaymentWidget {
-    func loadPaymentMethodsScripts() {
-        paymentMethodWidget.configuration.userContentController.add(
-            RequestPaymentsMessageHandler(self),
-            name: ScriptName.requestPayments.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            UpdateHeightMessageHandler(),
-            name: ScriptName.updateHeight.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            RequestHTMLMessageHandler(self),
-            name: ScriptName.requestHTML.rawValue
-        )
-        paymentMethodWidget.configuration.userContentController.add(
-            MessageScriptHandler(self),
-            name: ScriptName.message.rawValue
-        )
-        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
     }
 }

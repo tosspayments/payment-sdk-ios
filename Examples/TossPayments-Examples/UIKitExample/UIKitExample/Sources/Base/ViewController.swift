@@ -23,6 +23,7 @@ open class ViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
         scrollView.alwaysBounceVertical = true
+        scrollView.keyboardDismissMode = .onDrag
         
         stackView.spacing = 24
         stackView.axis = .vertical

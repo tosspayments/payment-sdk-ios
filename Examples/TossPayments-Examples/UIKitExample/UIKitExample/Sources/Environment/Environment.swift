@@ -19,19 +19,20 @@ public final class Environment {
             }
             return scheme + "://"
         }()
-        static let defaultClientKey = "live_ck_JQbgMGZzorzj0ZnKbOjrl5E1em4d"
+        static let defaultClientKey = "live_ck_GKNbdOvk5rk475yz9Kq8n07xlzmj"
         static let defaultCustomerKey = "TOSSPAYMENTS"
         static let defaultBrandpayRedirectURL: String = {
-            if let infoDictionary = Bundle.main.infoDictionary,
-               let brandpayRedirectURL = infoDictionary["BRANDPAY_REDIRECT_URL"] as? String,
+            if let brandPayRedirectURL = Bundle.main.object(forInfoDictionaryKey: "BRANDPAY_REDIRECT_URL") as? String,
                !brandPayRedirectURL.isEmpty {
-                return brandpayRedirectURL
+                return brandPayRedirectURL
             }
             return """
             https://tosspayments.com/redierct
             """
         }()
-        static let defaultStage = "beta"
+        static let defaultCountryName: String = "KR"
+        static let defaultCurrencyName: String = "KRW"
+        static let defaultStage = "alpha"
         static let defaultVariantKey = "CardOnly"
     }
     
@@ -54,6 +55,20 @@ public final class Environment {
             UserDefaults.standard.set(brandPayRedirectURL, forKey: "TossPayments.BrandPayRedirectURL")
         }
     }
+
+    // swiftlint:disable:next line_length
+    static var countryName: String = UserDefaults.standard.string(forKey: "TossPayments.countryName") ?? Constant.defaultCountryName {
+        didSet {
+            UserDefaults.standard.set(countryName, forKey: "TossPayments.countryName")
+        }
+    }
+    
+    // swiftlint:disable:next line_length
+    static var currencyName: String = UserDefaults.standard.string(forKey: "TossPayments.currencyName") ?? Constant.defaultCurrencyName {
+        didSet {
+            UserDefaults.standard.set(currencyName, forKey: "TossPayments.currencyName")
+        }
+    }
     
     static var stage: String = UserDefaults.standard.string(forKey: "TossPayments.Stage") ?? Constant.defaultStage {
         didSet {
@@ -67,5 +82,4 @@ public final class Environment {
             UserDefaults.standard.set(variantKey, forKey: "TossPayments.VariantKey")
         }
     }
-
 }

@@ -56,18 +56,10 @@ final class MessageHandler {
         case "widgetStatus":
             guard let widgetStatus = WidgetStatusMessage(jsonObject: jsonObject).response else { return }
             switch (widgetStatus.widget, widgetStatus.status) {
-            case ("paymentMethods", "loading"):
-                paymentMethod?.widgetStatusDelegate?.didReceivedLoading(widgetStatus.widget)
-            case ("paymentMethods", "loaded"):
-                paymentMethod?.widgetStatusDelegate?.didReceivedLoaded(widgetStatus.widget)
-            case ("paymentMethods", "failed"):
-                paymentMethod?.widgetStatusDelegate?.didReceivedFailed(widgetStatus.widget)
-            case ("agreement", "loading"):
-                agreement?.widgetStatusDelegate?.didReceivedLoading(widgetStatus.widget)
-            case ("agreement", "loaded"):
-                agreement?.widgetStatusDelegate?.didReceivedLoaded(widgetStatus.widget)
-            case ("agreement", "failed"):
-                agreement?.widgetStatusDelegate?.didReceivedFailed(widgetStatus.widget)
+            case ("paymentMethods", "load"):
+                paymentMethod?.widgetStatusDelegate?.didReceivedLoad(widgetStatus.widget)
+            case ("agreement", "load"):
+                agreement?.widgetStatusDelegate?.didReceivedLoad(widgetStatus.widget)
             default: break
             }
             

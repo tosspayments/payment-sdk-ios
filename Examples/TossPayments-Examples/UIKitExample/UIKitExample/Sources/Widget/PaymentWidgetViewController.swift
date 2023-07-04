@@ -79,6 +79,8 @@ public final class PaymentWidgetViewController: ViewController {
         widget.delegate = self
         widget.paymentMethodWidget.widgetUIDelegate = self
         widget.agreementWidget.agreementUIDelegate = self
+        widget.paymentMethodWidget.widgetStatusDelegate = self
+        widget.agreementWidget.widgetStatusDelegate = self
         
         NSLayoutConstraint.activate([
             빈화면.heightAnchor.constraint(equalToConstant: 200)
@@ -150,31 +152,45 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
 
 extension PaymentWidgetViewController: TossPaymentsWidgetUIDelegate {
     public func didReceivedCustomRequest(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
-        print("PaymentMethodWidget didReceivedCustomRequest \(paymentMethodKey)")
+        Logger.debug("PaymentMethodWidget didReceivedCustomRequest \(paymentMethodKey)")
     }
     
     public func didReceivedCustomPaymentMethodSelected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
-        print("PaymentMethodWidget didReceivedCustomPaymentMethodSelected \(paymentMethodKey)")
+        Logger.debug("PaymentMethodWidget didReceivedCustomPaymentMethodSelected \(paymentMethodKey)")
     }
     
     public func didReceivedCustomPaymentMethodUnselected(_ widget: PaymentMethodWidget, paymentMethodKey: String) {
-        print("PaymentMethodWidget didReceivedCustomPaymentMethodUnselected \(paymentMethodKey)")
+        Logger.debug("PaymentMethodWidget didReceivedCustomPaymentMethodUnselected \(paymentMethodKey)")
     }
     
     public func didUpdateHeight(_ widget: PaymentMethodWidget, height: CGFloat) {
-        print("PaymentMethodWidget didUpdateHeight \(height)")
+        Logger.debug("PaymentMethodWidget didUpdateHeight \(height)")
     }
 }
 
 extension PaymentWidgetViewController: TossPaymentsAgreementUIDelegate {
     public func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat) {
-        print("AgreementWidget didUpdateHeight \(height)")
+        Logger.debug("AgreementWidget didUpdateHeight \(height)")
     }
     
     public func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus) {
-        print("AgreemenetWidget didUpdateAgreementStatus \(agreementStatus)")
+        Logger.debug("AgreemenetWidget didUpdateAgreementStatus \(agreementStatus)")
         button.backgroundColor = agreementStatus.agreedRequiredTerms ? .systemBlue : .systemRed
         button.isEnabled = agreementStatus.agreedRequiredTerms
+    }
+}
+
+extension PaymentWidgetViewController: TossPaymentsWidgetStatusDelegate {
+    public func didReceivedLoading(_ name: String) {
+        Logger.debug("didReceivedLoading \(name)")
+    }
+    
+    public func didReceivedLoaded(_ name: String) {
+        Logger.debug("didReceivedLoaded \(name)")
+    }
+    
+    public func didReceivedFailed(_ name: String) {
+        Logger.debug("didReceivedFailed \(name)")
     }
 }
 

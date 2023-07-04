@@ -67,7 +67,6 @@ public final class PaymentWidgetViewController: ViewController {
             ),
             options: PaymentMethodWidget.Options(variantKey: Environment.variantKey)
         )
-
         let agreementWidget = widget.renderAgreement()
         
         stackView.addArrangedSubview(amountInputField)
@@ -97,15 +96,6 @@ public final class PaymentWidgetViewController: ViewController {
             빈화면.heightAnchor.constraint(equalToConstant: 200)
         ])
         빈화면.backgroundColor = .lightGray
-        widget.renderPaymentMethods(
-            amount: PaymentMethodWidget.Amount(
-                value: 1000,
-                currency: "USD",
-                country: "US"
-            ),
-            options: PaymentMethodWidget.Options(variantKey: Environment.variantKey)
-        )
-        widget.renderAgreement()
     }
     
     @objc func requestPayment() {

@@ -9,6 +9,9 @@ DerivedData/
 .swiftpm/xcode/package.xcworkspace/contents.xcworkspacedata
 .netrc
 
+# Bundler
+vendor/
+
 # tuist
 .tuist-bin/
 /Examples/TossPayments-Examples/SwiftUIExample/SwiftUIExample.xcodeproj

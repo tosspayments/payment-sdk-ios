@@ -4,7 +4,11 @@ import ProjectDescriptionHelpers
 let swiftlint = TargetScript.pre(script: """
     ROOT_PATH=${PROJECT_DIR}/../../..
     source ${ROOT_PATH}/.env.brew 
-    bundle exec swiftlint lint ${TARGET_NAME} --config ${ROOT_PATH}/.swiftlint.yml
+    if command -v bundle exec swiftlint &> /dev/null; then
+        bundle exec swiftlint lint ${TARGET_NAME} --config ${ROOT_PATH}/.swiftlint.yml
+    else
+        echo 'skip swiftlint'
+    fi
     """, 
     name: "Run Swiftlint",
     basedOnDependencyAnalysis: false

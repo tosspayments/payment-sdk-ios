@@ -22,13 +22,13 @@ public class TossPayments: HandleURLResult {
         )
         let viewController = TossPaymentsViewController(service: service)
         let navigationController = UINavigationController(rootViewController: viewController)
-        service.successURLHandler = { url in
-            viewController.dismiss(animated: true) {
+        service.successURLHandler = { [weak viewController] url in
+            viewController?.dismiss(animated: true) {
                 self.handleSuccessURL(url)
             }
         }
-        service.failURLHandler = { url in
-            viewController.dismiss(animated: true) {
+        service.failURLHandler = { [weak viewController] url in
+            viewController?.dismiss(animated: true) {
                 self.handleFailURL(url)
             }
         }

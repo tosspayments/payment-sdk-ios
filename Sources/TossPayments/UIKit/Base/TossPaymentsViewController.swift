@@ -14,11 +14,13 @@ final class TossPaymentsViewController: UIViewController {
     lazy var webView: WKWebView = {
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(SuccessHandler(self), name: ScriptName.success.rawValue)
+        configuration.userContentController.add(ErrorHandler(self), name: ScriptName.error.rawValue)
         let webView = WKWebView(frame: .zero, configuration: configuration)
         return webView
     }()
     
     var success: ((String) -> Void)?
+    var error: ((TossPaymentsResult.Fail) -> Void)?
     private let service: PaymentServiceProtocol
     private var htmlString: String?
     

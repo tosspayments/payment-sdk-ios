@@ -12,5 +12,6 @@ enum ScriptName: String {
     case updateHeight
     case requestHTML
     case success
+    case error
     case message
 }

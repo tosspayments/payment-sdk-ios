@@ -33,11 +33,5 @@ public enum TossPaymentsResult {
         
         /// 주문 식별자
         public let orderId: String
-        
-        enum CodingKeys: String, CodingKey {
-            case errorCode = "code"
-            case errorMessage = "message"
-            case orderId
-        }
     }
 }

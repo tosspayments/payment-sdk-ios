@@ -33,6 +33,12 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
                 self.widget?.paymentMethodWidget?.evaluateJavaScript(javascript)
             }
         }
+        viewController.error = { error in
+            viewController.dismiss(animated: true) {
+                self.widget?.delegate?.handleFailResult(error)
+            }
+        }
+        
         UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)
     }
 }

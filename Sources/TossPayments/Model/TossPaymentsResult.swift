@@ -23,7 +23,7 @@ public enum TossPaymentsResult {
         public let additionalParameters: [String: String]?
     }
     
-    public struct Fail {
+    public struct Fail: Decodable {
         
         /// 결제 실패코드
         public let errorCode: String

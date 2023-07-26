@@ -34,7 +34,9 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
             }
         }
         viewController.error = { error in
-            self.widget?.delegate?.handleFailResult(fail)
+            viewController.dismiss(animated: true) {
+                self.widget?.delegate?.handleFailResult(error)
+            }
         }
         
         UIApplication.shared.keyWindow?.visibleViewController?.present(viewController, animated: true)

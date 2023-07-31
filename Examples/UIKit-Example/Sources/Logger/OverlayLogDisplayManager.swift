@@ -10,18 +10,26 @@ import UIKit
 
 class OverlayLogDisplayManager {
     
+    enum Const {
+        static let isShowingOverlayLogKey = "IsShowingOverlayLog"
+    }
+    
     var window: UIWindow?
     var viewController: OverlayLogViewController?
     static let shared = OverlayLogDisplayManager()
-    var isShowing: Bool = false {
-        didSet {
-            guard oldValue != isShowing else { return }
+    var isShowing: Bool {
+        get {
+            return UserDefaults.standard.bool(forKey: Const.isShowingOverlayLogKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: Const.isShowingOverlayLogKey)
             window?.alpha = isShowing ? 1 : 0
         }
     }
     
     func start(on window: UIWindow) {
         setupOverlayLog(on: window)
+        self.window?.alpha = isShowing ? 1 : 0
     }
     
     private func setupOverlayLog(on window: UIWindow) {

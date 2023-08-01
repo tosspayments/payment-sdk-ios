@@ -14,7 +14,7 @@
 - Swift 5.0 이상
 - Xcode 12.5.1 이상
 
-### Cocoapods로 설치하기
+### CocoaPods로 설치하기
 
 프로젝트 폴더에 있는 Podfile에 아래와 같이 토스페이먼츠 iOS SDK를 추가하세요. Podfile을 저장하고 `pod install` 커맨드를 실행하세요.
 
@@ -22,7 +22,8 @@
 pod 'TossPayments'
 ```
 
-> [Swift Package Manager(SPM)로 설지하는 방법 알아보기](https://docs.tosspayments.com/reference/widget-ios#swift-package-managerspm로-설치하기)
+### Swift Package Manager(SPM)로 설치하기
+[토스페이먼츠 개발자 센터](https://docs.tosspayments.com/reference/widget-ios#swift-package-managerspm로-설치하기)
 
 ## 시작하기
 
@@ -41,7 +42,7 @@ git clone https://github.com/tosspayments/payment-sdk-ios
 2. `TossPayments.xcworkspace` 파일을 XCode로 실행하세요.
 
 ```
-./get_started.sh 
+xed TossPayments.xcworkspace
 ```
 
 3. `UIKit-Example`을 빌드하고 단말 또는 시뮬레이터에 설치하세요. 앱이 실행되면 Client Key, Customer Key 등 필요한 정보를 모두 수정하고 Stage 필드를 `v1`으로 설정하세요.

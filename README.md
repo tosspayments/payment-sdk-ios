@@ -38,12 +38,12 @@ pod 'TossPayments'
 git clone https://github.com/tosspayments/payment-sdk-ios
 ```
 
-2. `get_started.sh` 파일을 실행하세요.
+2. `TossPayments.xcworkspace` 파일을 XCode로 실행하세요.
 
 ```
 ./get_started.sh 
 ```
 
-3. Xcode로 `UIKitExample`을 빌드하고 단말 또는 시뮬레이터에 설치하세요. 앱이 실행되면 Client Key, Customer Key 등 필요한 정보를 모두 수정하고 Stage 필드를 `v1`으로 설정하세요.
+3. `UIKit-Example`을 빌드하고 단말 또는 시뮬레이터에 설치하세요. 앱이 실행되면 Client Key, Customer Key 등 필요한 정보를 모두 수정하고 Stage 필드를 `v1`으로 설정하세요.
 
 ![토스페이먼츠 iOS SDK 예시](https://static.tosspayments.com/docs/github/ios-sample.png)

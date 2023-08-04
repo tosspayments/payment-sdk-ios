@@ -8,7 +8,7 @@
 import Foundation
 
 public enum TossPaymentsResult {
-    public struct Success {
+    public struct Success: Equatable {
         
         /// 결제 식별자
         public let paymentKey: String
@@ -23,7 +23,7 @@ public enum TossPaymentsResult {
         public let additionalParameters: [String: String]?
     }
     
-    public struct Fail: Decodable {
+    public struct Fail: Equatable, Decodable {
         
         /// 결제 실패코드
         public let errorCode: String

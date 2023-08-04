@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
+		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
+		6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */; };
+		6A8EE1112A7CA79700A9DD94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */; };
+		6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */; };
+		6A8EE1192A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */; };
+		6A8EE11B2A7CC3AE00A9DD94 /* AgreementWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */; };
+		6A8EE11C2A7CC66E00A9DD94 /* TossPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; };
+		6A8EE11D2A7CC66E00A9DD94 /* TossPayments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6A8EE1222A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */; };
 		6AB1E2F62A77976700D49332 /* BrowserPopupHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */; };
 		6AB1E2F72A77976700D49332 /* BrowserPopupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */; };
 		6AB1E2F82A77976700D49332 /* URLComponent+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */; };
@@ -87,6 +97,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6A8EE11E2A7CC66E00A9DD94 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6ACD03052A778F0A00B6DAD1;
+			remoteInfo = TossPayments;
+		};
 		6AB1E32F2A77982500D49332 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
@@ -104,6 +121,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		6A8EE1202A7CC66F00A9DD94 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6A8EE11D2A7CC66E00A9DD94 /* TossPayments.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6AB1E3352A77990D00D49332 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -118,6 +146,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
+		6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentView.swift; sourceTree = "<group>"; };
+		6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWidgetView.swift; sourceTree = "<group>"; };
+		6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodWidgetView.swift; sourceTree = "<group>"; };
+		6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementWidgetView.swift; sourceTree = "<group>"; };
+		6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentViewModel.swift; sourceTree = "<group>"; };
 		6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupHandler.swift; sourceTree = "<group>"; };
 		6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupWindowController.swift; sourceTree = "<group>"; };
 		6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponent+TossPaymentExtension.swift"; sourceTree = "<group>"; };
@@ -200,6 +237,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6A8EE1042A7CA79600A9DD94 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A8EE11C2A7CC66E00A9DD94 /* TossPayments.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ACD03032A778F0A00B6DAD1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,8 +268,39 @@
 			children = (
 				6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */,
 				6ACD03A92A778F9A00B6DAD1 /* UIKit-Example.app */,
+				6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		6A8EE1082A7CA79600A9DD94 /* SwiftUI-Example */ = {
+			isa = PBXGroup;
+			children = (
+				6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */,
+				6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */,
+				6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */,
+				6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */,
+				6A8EE10F2A7CA79700A9DD94 /* Preview Content */,
+			);
+			path = "SwiftUI-Example";
+			sourceTree = "<group>";
+		};
+		6A8EE10F2A7CA79700A9DD94 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		6A8EE1152A7CA80500A9DD94 /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */,
+				6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */,
+				6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */,
+			);
+			path = Widget;
 			sourceTree = "<group>";
 		};
 		6AB1E2A62A77976700D49332 /* TossPayments */ = {
@@ -446,6 +522,7 @@
 		6AB1E2F12A77976700D49332 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				6A8EE1152A7CA80500A9DD94 /* Widget */,
 				6AB1E2F22A77976700D49332 /* TossPayments */,
 			);
 			path = SwiftUI;
@@ -587,6 +664,7 @@
 			children = (
 				6AB1E2A62A77976700D49332 /* TossPayments */,
 				6ACD03AA2A778F9A00B6DAD1 /* UIKit-Example */,
+				6A8EE1082A7CA79600A9DD94 /* SwiftUI-Example */,
 				87F8BE6CD708A1BD538D9513 /* Frameworks */,
 				2E84ED8F29EF63DC8EE12764 /* Products */,
 			);
@@ -605,6 +683,25 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6A8EE1062A7CA79600A9DD94 /* SwiftUI-Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A8EE1122A7CA79700A9DD94 /* Build configuration list for PBXNativeTarget "SwiftUI-Example" */;
+			buildPhases = (
+				6A8EE1032A7CA79600A9DD94 /* Sources */,
+				6A8EE1042A7CA79600A9DD94 /* Frameworks */,
+				6A8EE1052A7CA79600A9DD94 /* Resources */,
+				6A8EE1202A7CC66F00A9DD94 /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6A8EE11F2A7CC66E00A9DD94 /* PBXTargetDependency */,
+			);
+			name = "SwiftUI-Example";
+			productName = "SwiftUI-Example";
+			productReference = 6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 		6ACD03052A778F0A00B6DAD1 /* TossPayments */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6ACD03172A778F0C00B6DAD1 /* Build configuration list for PBXNativeTarget "TossPayments" */;
@@ -652,6 +749,9 @@
 				LastSwiftUpdateCheck = 1430;
 				ORGANIZATIONNAME = "TossPayments, Inc";
 				TargetAttributes = {
+					6A8EE1062A7CA79600A9DD94 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					6ACD03052A778F0A00B6DAD1 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -675,11 +775,21 @@
 			targets = (
 				6ACD03052A778F0A00B6DAD1 /* TossPayments */,
 				6ACD03A82A778F9A00B6DAD1 /* UIKit-Example */,
+				6A8EE1062A7CA79600A9DD94 /* SwiftUI-Example */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6A8EE1052A7CA79600A9DD94 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A8EE1112A7CA79700A9DD94 /* Preview Assets.xcassets in Resources */,
+				6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ACD03042A778F0A00B6DAD1 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -700,6 +810,16 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6A8EE1032A7CA79600A9DD94 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */,
+				6A8EE1222A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift in Sources */,
+				6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6ACD03022A778F0A00B6DAD1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -711,6 +831,7 @@
 				6AB1E31E2A77976700D49332 /* CashReceipt.swift in Sources */,
 				6AB1E3132A77976700D49332 /* TossPaymentsDelegate.swift in Sources */,
 				6AB1E30F2A77976700D49332 /* UpdateHeightMessageHandler.swift in Sources */,
+				6A8EE11B2A7CC3AE00A9DD94 /* AgreementWidgetView.swift in Sources */,
 				6AB1E3202A77976700D49332 /* WidgetStatus.swift in Sources */,
 				6AB1E3082A77976700D49332 /* UpdateHeightMessage.swift in Sources */,
 				6AB1E32B2A77976700D49332 /* TossPaymentsService.swift in Sources */,
@@ -743,6 +864,7 @@
 				6AB1E2FD2A77976700D49332 /* PaymentWidgetComponent.swift in Sources */,
 				6AB1E3222A77976700D49332 /* GiftCertificatePaymentInfo.swift in Sources */,
 				6AB1E3242A77976700D49332 /* PaymentInfo.swift in Sources */,
+				6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */,
 				6AB1E3182A77976700D49332 /* PaymentMethod.swift in Sources */,
 				6AB1E3022A77976700D49332 /* MessageHandler.swift in Sources */,
 				6AB1E3272A77976700D49332 /* WebConstants.swift in Sources */,
@@ -761,6 +883,7 @@
 				6AB1E3102A77976700D49332 /* MessageScriptHandler.swift in Sources */,
 				6AB1E32D2A77976700D49332 /* TossPaymentsView.swift in Sources */,
 				6AB1E3002A77976700D49332 /* PaymentWidget+WebSources.swift in Sources */,
+				6A8EE1192A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -789,6 +912,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		6A8EE11F2A7CC66E00A9DD94 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6ACD03052A778F0A00B6DAD1 /* TossPayments */;
+			targetProxy = 6A8EE11E2A7CC66E00A9DD94 /* PBXContainerItemProxy */;
+		};
 		6AB1E3302A77982500D49332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 6ACD03052A778F0A00B6DAD1 /* TossPayments */;
@@ -879,6 +1007,77 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
+		};
+		6A8EE1132A7CA79700A9DD94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Example/Preview Content\"";
+				DEVELOPMENT_TEAM = NXA4356DUW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tosspayments.SwiftUI-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6A8EE1142A7CA79700A9DD94 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"SwiftUI-Example/Preview Content\"";
+				DEVELOPMENT_TEAM = NXA4356DUW;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tosspayments.SwiftUI-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
 		};
 		6ACD03182A778F0C00B6DAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1084,6 +1283,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6A8EE1122A7CA79700A9DD94 /* Build configuration list for PBXNativeTarget "SwiftUI-Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A8EE1132A7CA79700A9DD94 /* Debug */,
+				6A8EE1142A7CA79700A9DD94 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6ACD03172A778F0C00B6DAD1 /* Build configuration list for PBXNativeTarget "TossPayments" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

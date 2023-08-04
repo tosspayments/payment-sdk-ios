@@ -7,11 +7,11 @@ Pod::Spec.new do |spec|
                    DESC
   spec.homepage     = "https://tosspayments.com"
   spec.license      = "MIT"
-  spec.author       = { "김진규" => "mqz@toss.im" }
+  spec.author       = { "김진규" => "mqz@toss.im" }
   spec.platform     = :ios, "11.0"
 
   spec.source       = { :git => "https://github.com/tosspayments/payment-sdk-ios.git", :tag => "#{spec.version}" }
 
   spec.swift_version = '5.0'
-  spec.source_files  = 'Sources/**/*.swift', 'Sources/**/*.{h,m}'
+  spec.source_files  = 'TossPayments/Sources/**/*.swift', 'TossPayments/Sources/**/*.{h,m}'
 end

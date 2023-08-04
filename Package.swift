@@ -16,7 +16,7 @@ let package = Package(
     targets: [
         .target(
             name: "TossPayments",
-            dependencies: []
+            path: "TossPayments/Sources"
         )
     ],
     swiftLanguageVersions: [.v5]

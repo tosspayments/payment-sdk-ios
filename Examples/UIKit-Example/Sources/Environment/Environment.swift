@@ -19,7 +19,7 @@ public final class Environment {
             }
             return scheme + "://"
         }()
-        static let defaultClientKey = "test_sk_P24xLea5zVAaOkv6oexVQAMYNwW6"
+        static let defaultClientKey = "test_ck_P24xLea5zVAqkMGkoG7VQAMYNwW6"
         static let defaultCustomerKey = "TOSSPAYMENTS"
         static let defaultBrandpayRedirectURL: String = {
             if let brandPayRedirectURL = Bundle.main.object(forInfoDictionaryKey: "BRANDPAY_REDIRECT_URL") as? String,

@@ -104,8 +104,7 @@ public final class PaymentWidgetViewController: ViewController {
                 orderId: orderIdInputField.textField.text ?? UUID().uuidString,
                 orderName: orderNameInputField.textField.text ?? "테스트 결제",
                 appScheme: Environment.Constant.appScheme
-            ),
-            on: self
+            )
         )
     }
 }

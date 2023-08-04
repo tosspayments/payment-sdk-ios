@@ -10,7 +10,6 @@ import WebKit
 
 public final class PaymentWidget: NSObject, HandleURLResult {
     // MARK: - Private properties
-    private weak var rootViewController: UIViewController?
     private lazy var messageHandler = MessageHandler(
         paymentMethod: paymentMethodWidget,
         agreement: agreementWidget
@@ -95,7 +94,6 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         fatalError("init(coder:) has not been implemented")
     }
 
-    
     // MARK: Public methods
     public func renderPaymentMethods(amount: PaymentMethodWidget.Amount, options: PaymentMethodWidget.Options? = nil) -> PaymentMethodWidget {
         let paymentMethodWidget = PaymentMethodWidget()
@@ -180,15 +178,13 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
     
     public func requestPayment(
-        info: WidgetPaymentInfo,
-        on rootViewController: UIViewController
+        info: WidgetPaymentInfo
     ) {
         var requestJSONObject = info.convertToPaymentInfo(amount: amount)
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL
         let jsonString = requestJSONObject?.jsonString ?? ""
         
-        self.rootViewController = rootViewController
         let javascriptString = """
         widget.requestPaymentForNativeSDK(\(jsonString));
         """

@@ -30,7 +30,7 @@ public final class PaymentWidgetViewController: ViewController {
         clientKey: Environment.clientKey,
         customerKey: Environment.customerKey,
         options: PaymentWidget.Options(
-            brandPay: PaymentWidget.BrandPay(redirectURL: Environment.brandPayRedirectURL)
+            brandpay: PaymentWidget.BrandPay(redirectURL: Environment.brandPayRedirectURL)
         )
     )
     private lazy var 빈화면 = UIView()

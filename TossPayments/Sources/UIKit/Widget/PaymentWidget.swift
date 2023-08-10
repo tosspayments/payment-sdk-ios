@@ -61,7 +61,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         return jsonString
     }
     var baseURL: URL {
-        guard let urlString = options?.brandPay?.redirectURL,
+        guard let urlString = options?.brandpay?.redirectURL,
               let url = URL(string: urlString) else {
             return URL(string: "https://tosspayments.com")!
         }

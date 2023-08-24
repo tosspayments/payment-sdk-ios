@@ -17,6 +17,37 @@
 			</array>
 		</dict>
 	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+        <string>kftc-bankpay</string>
+        <string>ispmobile</string>
+        <string>hdcardappcardansimclick</string>
+        <string>shinhan-sr-ansimclick</string>
+        <string>kb-acp</string>
+        <string>kbbank</string>
+        <string>mpocket.online.ansimclick</string>
+        <string>lottesmartpay</string>
+        <string>lotteappcard</string>
+        <string>cloudpay</string>
+        <string>citimobileapp</string>
+        <string>payco</string>
+        <string>kakaotalk</string>
+        <string>lpayapp</string>
+        <string>wooripay</string>
+        <string>nhallonepayansimclick</string>
+        <string>hanawalletmembers</string>
+        <string>shinsegaeeasypayment</string>
+        <string>chaipayment</string>
+        <string>kb-auth</string>
+        <string>hyundaicardappcardid</string>
+        <string>lmslpay</string>
+        <string>com.wooricard.wcard</string>
+        <string>lguthepay-xpay</string>
+        <string>liivbank</string>
+        <string>supertoss</string>
+        <string>newsmartpib</string>
+        <string>naversearchthirdlogin</string>
+	</array>
 	<key>UIFileSharingEnabled</key>
 	<true/>
 </dict>

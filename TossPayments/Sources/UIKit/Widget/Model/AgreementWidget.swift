@@ -23,6 +23,12 @@ public final class AgreementWidget: WKWebView, PaymentWidgetComponent {
     init() {
         super.init(frame: .zero, configuration: WKWebViewConfiguration())
         uiDelegate = self
+#if DEBUG
+        if #available(iOS 16.4, *) {
+            isInspectable = true
+        }
+#endif
+
     }
     
     required init?(coder: NSCoder) {

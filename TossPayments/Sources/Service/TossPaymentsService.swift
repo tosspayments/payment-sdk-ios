@@ -136,14 +136,10 @@ extension TossPaymentsService {
         return true
     }
     
-    /// A helper function which is used to handle app scheme for apps which 
-    /// are not installed in user device whenever possible.
-    /// - Parameter scheme: A scheme from a url failed to open.
     private func handleUnInstalledApp(scheme: String?) {
         guard let scheme = scheme,
         let appStoreURLString = AppSchemeManager.appStoreUrlFrom(scheme: scheme),
         let appStoreURL = URL(string: appStoreURLString) else {
-            // Maybe we should log something here to help with debugging?
             return
         }
         UIApplication.shared.open(appStoreURL)

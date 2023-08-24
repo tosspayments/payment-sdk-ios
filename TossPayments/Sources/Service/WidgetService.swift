@@ -32,6 +32,7 @@ extension WidgetService: WKNavigationDelegate {
         handleError(error)
     }
     
+    
     func webView(
         _ webView: WKWebView,
         decidePolicyFor navigationAction: WKNavigationAction,
@@ -80,8 +81,22 @@ extension WidgetService {
         guard let url = navigationAction.request.url else { return false }
         guard !(url.scheme?.hasPrefix("http") ?? false) else { return false }
         guard url.scheme != "about" else { return false }
-        UIApplication.shared.open(url)
+        let app = UIApplication.shared
+        if app.canOpenURL(url) {
+            app.open(url)
+        } else {
+            self.handleUnInstalledApp(scheme: url.scheme)
+        }
         return true
+    }
+    
+    private func handleUnInstalledApp(scheme: String?) {
+        guard let scheme = scheme,
+        let appStoreURLString = AppSchemeManager.appStoreUrlFrom(scheme: scheme),
+        let appStoreURL = URL(string: appStoreURLString) else {
+            return
+        }
+        UIApplication.shared.open(appStoreURL)
     }
     
     private func handleError(_ error: Error) {

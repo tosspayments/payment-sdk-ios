@@ -33,6 +33,11 @@ final class BrowserPopupWindowController: UIViewController {
         }
         // Re-assign UI delegate to this controler so that we can handle broswers window.close() event.
         popupWebView.uiDelegate = self
+#if DEBUG
+        if #available(iOS 16.4, *) {
+            popupWebView.isInspectable = true
+        }
+#endif
     }
     
     required init?(coder: NSCoder) {

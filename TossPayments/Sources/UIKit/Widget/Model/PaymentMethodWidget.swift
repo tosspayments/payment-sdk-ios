@@ -12,6 +12,7 @@ public final class PaymentMethodWidget: WKWebView, PaymentWidgetComponent {
     public weak var widgetStatusDelegate: TossPaymentsWidgetStatusDelegate?
     public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?
     
+    var method: WidgetPaymentMethod?
     public var updatedHeight: CGFloat = 400 {
         didSet {
             guard oldValue != updatedHeight else { return }
@@ -33,7 +34,7 @@ public final class PaymentMethodWidget: WKWebView, PaymentWidgetComponent {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
     public override var intrinsicContentSize: CGSize {
         var size = UIScreen.main.bounds.size
         size.height = self.updatedHeight
@@ -50,5 +51,9 @@ public final class PaymentMethodWidget: WKWebView, PaymentWidgetComponent {
         present(popupWebView: popupWebView)
         return popupWebView
         
+    }
+    
+    public func getSelectedPaymentMethod() -> WidgetPaymentMethod? {
+        return method
     }
 }

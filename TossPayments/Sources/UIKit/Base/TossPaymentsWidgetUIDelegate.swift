@@ -34,8 +34,10 @@ public extension TossPaymentsAgreementUIDelegate {
 
 public protocol TossPaymentsWidgetStatusDelegate: AnyObject {
     func didReceivedLoad(_ name: String)
+    func didReceiveFail(_ name: String, fail: TossPaymentsResult.Fail)
 }
 
 public extension TossPaymentsWidgetStatusDelegate {
     func didReceivedLoad(_ name: String) {}
+    func didReceiveFail(_ name: String, fail: TossPaymentsResult.Fail) {}
 }

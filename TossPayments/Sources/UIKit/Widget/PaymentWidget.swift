@@ -107,6 +107,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             name: ScriptName.requestPayments.rawValue
         )
         paymentMethodWidget.configuration.userContentController.add(
+            ErrorHandler({ [weak self] fail in
+                self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
+            }),
+            name: ScriptName.error.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
             name: ScriptName.updateHeight.rawValue
         )
@@ -140,6 +146,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             name: ScriptName.requestPayments.rawValue
         )
         paymentMethodWidget.configuration.userContentController.add(
+            ErrorHandler({ [weak self] fail in
+                self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
+            }),
+            name: ScriptName.error.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
             name: ScriptName.updateHeight.rawValue
         )
@@ -160,6 +172,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     public func renderAgreement() -> AgreementWidget {
         let agreementWidget = AgreementWidget()
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
+        agreementWidget.configuration.userContentController.add(
+            ErrorHandler({ [weak self] fail in
+                self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("agreement", fail: fail)
+            }),
+            name: ScriptName.error.rawValue
+        )
         agreementWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
             name: ScriptName.updateHeight.rawValue
@@ -182,19 +200,21 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     ) {
         var requestJSONObject = info.convertToPaymentInfo(amount: amount)
         requestJSONObject?["successUrl"] = WebConstants.successURL
-        requestJSONObject?["failUrl"] = WebConstants.failURL
+        
         let jsonString = requestJSONObject?.jsonString ?? ""
         
         let javascriptString = """
         widget.requestPaymentForNativeSDK(\(jsonString));
         """
         guard let encodedScript = javascriptString.urlEncoded.data(using: .utf8)?.base64EncodedString() else { return }
-        paymentMethodWidget?.evaluateJavaScript(
+        DispatchQueue.main.async {
+            self.paymentMethodWidget?.evaluateJavaScript(
             """
             var script = decodeURIComponent(window.atob('\(encodedScript)'));
             eval(script);
-            """) { (_, _) in
-                    
+            """) { (_, error) in
+                
             }
+        }
     }
 }

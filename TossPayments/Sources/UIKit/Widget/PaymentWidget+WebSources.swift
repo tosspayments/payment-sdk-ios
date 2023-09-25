@@ -36,7 +36,8 @@ extension PaymentWidget {
     var paymentMethodSource: String {
         return """
                 const widget = PaymentWidget("\(self.clientKey)", "\(self.customerKey)", \(optionsObject));
-                const { updateAmount } = widget.renderPaymentMethods('#payment-method', \(methodWidgetAmountObjectString), \(methodWidgetOptionsObject));
+                const paymentMethodWidget = widget.renderPaymentMethods('#payment-method', \(methodWidgetAmountObjectString), \(methodWidgetOptionsObject));
+                const { updateAmount } = paymentMethodWidget;
                 """
     }
     

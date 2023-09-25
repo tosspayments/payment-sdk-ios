@@ -62,6 +62,10 @@ final class MessageHandler {
                 agreement?.widgetStatusDelegate?.didReceivedLoad(widgetStatus.widget)
             default: break
             }
+        case "changePaymentMethod":
+            guard let method = ChangePaymentMethodMessage(jsonObject: jsonObject).response else { return }
+            paymentMethod?.method = method
+            
             
         default:
             break

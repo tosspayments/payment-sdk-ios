@@ -8,15 +8,15 @@
 import WebKit
 
 final class ErrorHandler: NSObject, WKScriptMessageHandler {
-    private weak var viewController: TossPaymentsViewController?
-    init(_ viewController: TossPaymentsViewController) {
-        self.viewController = viewController
+    var error: ((TossPaymentsResult.Fail) -> Void)?
+    init(_ error: ((TossPaymentsResult.Fail) -> Void)?) {
+        self.error = error
     }
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let jsonObject = message.body as? [String: Any] else { return }
         guard let jsonData = try? JSONSerialization.data(withJSONObject: jsonObject) else { return }
-        guard let error = try? JSONDecoder().decode(TossPaymentsResult.Fail.self, from: jsonData) else { return }
+        guard let fail = try? JSONDecoder().decode(TossPaymentsResult.Fail.self, from: jsonData) else { return }
         
-        viewController?.error?(error)
+        error?(fail)
     }
 }

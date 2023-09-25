@@ -10,7 +10,9 @@ import Foundation
 
 enum Logger {
     static func debug(_ text: String) {
-        print(text)
-        OverlayLogDisplayManager.shared.log(text)
+        DispatchQueue.main.async {
+            print(text)
+            OverlayLogDisplayManager.shared.log(text)
+        }
     }
 }

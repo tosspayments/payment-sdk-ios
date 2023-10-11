@@ -17,6 +17,7 @@
 		6A8EE11C2A7CC66E00A9DD94 /* TossPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; };
 		6A8EE11D2A7CC66E00A9DD94 /* TossPayments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A8EE1222A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */; };
+		6AB129262AB8ADB7000B4485 /* WidgetPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */; };
 		6AB1E2F62A77976700D49332 /* BrowserPopupHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */; };
 		6AB1E2F72A77976700D49332 /* BrowserPopupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */; };
 		6AB1E2F82A77976700D49332 /* URLComponent+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */; };
@@ -94,6 +95,7 @@
 		6AB1E3872A7799FC00D49332 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E3792A7799FC00D49332 /* TextField.swift */; };
 		6AB1E3882A7799FC00D49332 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E37A2A7799FC00D49332 /* Button.swift */; };
 		6ACD03AC2A778F9B00B6DAD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACD03AB2A778F9B00B6DAD1 /* AppDelegate.swift */; };
+		6AFE43212AC12A05002CAE67 /* ChangePaymentMethodMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +157,7 @@
 		6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodWidgetView.swift; sourceTree = "<group>"; };
 		6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementWidgetView.swift; sourceTree = "<group>"; };
 		6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentViewModel.swift; sourceTree = "<group>"; };
+		6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPaymentMethod.swift; sourceTree = "<group>"; };
 		6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupHandler.swift; sourceTree = "<group>"; };
 		6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupWindowController.swift; sourceTree = "<group>"; };
 		6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponent+TossPaymentExtension.swift"; sourceTree = "<group>"; };
@@ -234,6 +237,7 @@
 		6ACD03A92A778F9A00B6DAD1 /* UIKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACD03AB2A778F9B00B6DAD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ACD03BD2A778FFF00B6DAD1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaymentMethodMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -403,6 +407,7 @@
 				6AB1E2BE2A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift */,
 				6AB1E2BF2A77976700D49332 /* WidgetStatusMessage.swift */,
 				6AB1E2C02A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift */,
+				6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */,
 				6AB1E2C12A77976700D49332 /* CustomRequestMessage.swift */,
 				6AB1E2C22A77976700D49332 /* UpdateHeightMessage.swift */,
 				6AB1E2C32A77976700D49332 /* UpdateAgreementStatusMessage.swift */,
@@ -462,6 +467,7 @@
 				6AB1E2E22A77976700D49332 /* WidgetStatus.swift */,
 				6AB1E2E32A77976700D49332 /* CustomRequest.swift */,
 				6AB1E2E42A77976700D49332 /* PaymentInfo */,
+				6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -864,11 +870,13 @@
 				6AB1E2FD2A77976700D49332 /* PaymentWidgetComponent.swift in Sources */,
 				6AB1E3222A77976700D49332 /* GiftCertificatePaymentInfo.swift in Sources */,
 				6AB1E3242A77976700D49332 /* PaymentInfo.swift in Sources */,
+				6AB129262AB8ADB7000B4485 /* WidgetPaymentMethod.swift in Sources */,
 				6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */,
 				6AB1E3182A77976700D49332 /* PaymentMethod.swift in Sources */,
 				6AB1E3022A77976700D49332 /* MessageHandler.swift in Sources */,
 				6AB1E3272A77976700D49332 /* WebConstants.swift in Sources */,
 				6AB1E31B2A77976700D49332 /* DefaultWidgetPaymentInfo.swift in Sources */,
+				6AFE43212AC12A05002CAE67 /* ChangePaymentMethodMessage.swift in Sources */,
 				6AB1E2FB2A77976700D49332 /* PaymentMethodWidget+Extensions.swift in Sources */,
 				6AB1E32E2A77976700D49332 /* TossPaymentsWebView.swift in Sources */,
 				6AB1E3122A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift in Sources */,
@@ -1098,7 +1106,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.23;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -1138,7 +1146,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 0.1.23;
 				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
 				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
 				MTL_FAST_MATH = YES;
@@ -1163,7 +1171,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2308102038;
+				CURRENT_PROJECT_VERSION = 2310102052;
 				DEVELOPMENT_TEAM = NEBK7L4Z4D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit-Example/Info.plist";
@@ -1180,7 +1188,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.22;
+				MARKETING_VERSION = 0.1.23;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.uikit;
@@ -1201,7 +1209,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2308102038;
+				CURRENT_PROJECT_VERSION = 2310102052;
 				DEVELOPMENT_TEAM = NEBK7L4Z4D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "UIKit-Example/Info.plist";
@@ -1218,7 +1226,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.22;
+				MARKETING_VERSION = 0.1.23;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.uikit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

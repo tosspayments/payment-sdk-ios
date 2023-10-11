@@ -32,6 +32,6 @@ public enum TossPaymentsResult {
         public let errorMessage: String
         
         /// 주문 식별자
-        public let orderId: String
+        public let orderId: String?
     }
 }

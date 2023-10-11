@@ -19,7 +19,7 @@ public final class Environment {
             }
             return scheme + "://"
         }()
-        static let defaultClientKey = "test_ck_P24xLea5zVAqkMGkoG7VQAMYNwW6"
+        static let defaultClientKey = "test_ck_P24xLea5zVA5mxMkelxVQAMYNwW6"
         static let defaultCustomerKey = "TOSSPAYMENTS"
         static let defaultBrandpayRedirectURL: String = {
             if let brandPayRedirectURL = Bundle.main.object(forInfoDictionaryKey: "BRANDPAY_REDIRECT_URL") as? String,
@@ -32,8 +32,8 @@ public final class Environment {
         }()
         static let defaultCountryName: String = "KR"
         static let defaultCurrencyName: String = "KRW"
-        static let defaultStage = "alpha"
-        static let defaultVariantKey = "CardOnly"
+        static let defaultStage = "v1"
+        static let defaultVariantKey = "DEFAULT"
     }
     
     // swiftlint:disable:next line_length

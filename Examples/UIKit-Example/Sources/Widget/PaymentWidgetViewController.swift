@@ -99,6 +99,8 @@ public final class PaymentWidgetViewController: ViewController {
     }
     
     @objc func requestPayment() {
+        let selectedPaymentMethod = widget.paymentMethodWidget?.getSelectedPaymentMethod()
+        Logger.debug("getSelectedPaymentMethod: \(selectedPaymentMethod)")
         widget.requestPayment(
             info: DefaultWidgetPaymentInfo(
                 orderId: orderIdInputField.textField.text ?? UUID().uuidString,
@@ -143,7 +145,7 @@ extension PaymentWidgetViewController: TossPaymentsDelegate {
         let viewModel = ResultViewModel(
             result1: ("errorCode", fail.errorCode),
             result2: ("errorMessage", fail.errorMessage),
-            result3: ("orderId", fail.orderId)
+            result3: ("orderId", fail.orderId ?? "unknown")
         )
         let viewController = ResultViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)
@@ -183,6 +185,10 @@ extension PaymentWidgetViewController: TossPaymentsAgreementUIDelegate {
 extension PaymentWidgetViewController: TossPaymentsWidgetStatusDelegate {
     public func didReceivedLoad(_ name: String) {
         Logger.debug("didReceivedLoad \(name)")
+    }
+    
+    public func didReceiveFail(_ name: String, fail: TossPaymentsResult.Fail) {
+        Logger.debug("didReceiveFail \(name), \(fail)")
     }
 }
 

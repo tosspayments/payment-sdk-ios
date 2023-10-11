@@ -5,17 +5,21 @@
 //  Created by 김진규 on 2023/03/15.
 //
 
-import Foundation
+import UIKit
 
 extension PaymentWidget {
     
     /// 결제위젯에 추가적으로 들어갈 수 있는 기능
     public struct Options: Encodable {
         public let brandpay: BrandPay?
+        let environment: Environment
+        let service: String
         public init(
             brandpay: BrandPay?
         ) {
             self.brandpay = brandpay
+            self.environment = Environment()
+            self.service = "payment-widget-ios"
         }
     }
 
@@ -31,5 +35,11 @@ extension PaymentWidget {
         public init(redirectURL: String) {
             self.redirectURL = redirectURL
         }
+    }
+    
+    public struct Environment: Encodable {
+        public let platform: String = "ios"
+        public let sdkVersion: String = Bundle(for: PaymentWidget.self).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown"
+        public let osVersion: String = UIDevice.current.systemVersion
     }
 }

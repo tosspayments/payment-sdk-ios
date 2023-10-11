@@ -33,7 +33,7 @@ extension AppDelegate {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey: Any] = [:]
     ) -> Bool {
-        print(url)
+        Logger.debug("open URL : " + url.absoluteString)
         return true
     }
 }

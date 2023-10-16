@@ -9,7 +9,9 @@ let package = Package(
     products: [
         .library(
             name: "TossPayments",
-            targets: ["TossPayments"])
+            type: .dynamic,
+            targets: ["TossPayments"]
+        )
     ],
     dependencies: [
     ],
@@ -19,6 +21,5 @@ let package = Package(
             path: "TossPayments/Sources"
         )
     ],
-    swiftLanguageVersions: [.v5],
-    version: .exact(try? String(contentsOf: URL(fileURLWithPath: "version")) ?? "0.0.1")
+    swiftLanguageVersions: [.v5]
 )

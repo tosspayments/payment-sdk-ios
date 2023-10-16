@@ -19,5 +19,6 @@ let package = Package(
             path: "TossPayments/Sources"
         )
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageVersions: [.v5],
+    version: .exact(try? String(contentsOf: URL(fileURLWithPath: "version")) ?? "0.0.1")
 )

@@ -1,7 +1,6 @@
 // swift-tools-version:5.3
 import PackageDescription
 
-let setting = ProductSetting.bundleVersion("0.1.24")
 let package = Package(
     name: "TossPayments",
     platforms: [
@@ -19,7 +18,7 @@ let package = Package(
         .target(
             name: "TossPayments",
             path: "TossPayments/Sources",
-            resources: [.copy("../version")]
+            resources: [.process("../version")]
         )
     ],
     swiftLanguageVersions: [.v5]

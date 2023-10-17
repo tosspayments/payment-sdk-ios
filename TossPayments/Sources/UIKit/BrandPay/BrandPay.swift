@@ -39,7 +39,7 @@ extension PaymentWidget {
     
     public struct Environment: Encodable {
         public let platform: String = "ios"
-        public let sdkVersion: String = Bundle(for: PaymentWidget.self).object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "unknown"
+        public let sdkVersion: String = "0.1.25"
         public let osVersion: String = UIDevice.current.systemVersion
     }
 }

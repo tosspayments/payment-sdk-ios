@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Examples/TossPayments.xcodeproj">
+      location = "group:Examples/SwiftPackageManager/TossPayments-SPM/TossPayments-SPM.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:Examples/Bulk/TossPayments-Bulk.xcodeproj">
    </FileRef>
 </Workspace>

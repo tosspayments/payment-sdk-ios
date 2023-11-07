@@ -39,7 +39,7 @@ extension PaymentWidget {
     
     public struct Environment: Encodable {
         public let platform: String = "ios"
-        public let sdkVersion: String = "0.1.25"
+        public let sdkVersion: String = "0.1.26"
         public let osVersion: String = UIDevice.current.systemVersion
     }
 }

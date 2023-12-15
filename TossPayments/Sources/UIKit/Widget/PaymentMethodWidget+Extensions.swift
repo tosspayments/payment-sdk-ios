@@ -9,7 +9,9 @@ import Foundation
 
 extension PaymentMethodWidget {
     
-    public struct Amount: Encodable {
+    @objc
+    @objcMembers
+    public class Amount: NSObject, Encodable {
         public let value: Double
         public let currency: String?
         public let country: String?
@@ -25,7 +27,9 @@ extension PaymentMethodWidget {
         }
     }
     
-    public struct Options: Encodable {
+    @objc(PaymentMethodWidgetOptions)
+    @objcMembers
+    public class Options: NSObject, Encodable {
         public let variantKey: String?
         public init(
             variantKey: String?

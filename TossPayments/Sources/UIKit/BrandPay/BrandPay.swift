@@ -10,7 +10,9 @@ import UIKit
 extension PaymentWidget {
     
     /// 결제위젯에 추가적으로 들어갈 수 있는 기능
-    public struct Options: Encodable {
+    @objc(PaymentWidgetOptions)
+    @objcMembers
+    public class Options: NSObject, Encodable {
         public let brandpay: BrandPay?
         let environment: Environment
         let service: String
@@ -24,7 +26,9 @@ extension PaymentWidget {
     }
 
     /// 브랜드페이
-    public struct BrandPay: Encodable {
+    @objc
+    @objcMembers
+    public class BrandPay: NSObject, Encodable {
         
         /// 가맹점의 서버에서 구현해줘야하는 auth URL 주소
         public let redirectURL: String
@@ -37,7 +41,8 @@ extension PaymentWidget {
         }
     }
     
-    public struct Environment: Encodable {
+    @objcMembers
+    public class Environment: NSObject, Encodable {
         public let platform: String = "ios"
         public let sdkVersion: String = "0.1.26"
         public let osVersion: String = UIDevice.current.systemVersion

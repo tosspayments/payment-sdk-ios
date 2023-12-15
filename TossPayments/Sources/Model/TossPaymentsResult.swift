@@ -8,7 +8,8 @@
 import Foundation
 
 public enum TossPaymentsResult {
-    public struct Success: Equatable {
+    @objc
+    public class Success: NSObject {
         
         /// 결제 식별자
         public let paymentKey: String
@@ -21,9 +22,31 @@ public enum TossPaymentsResult {
         
         /// 추가 parameters
         public let additionalParameters: [String: String]?
+        
+        @objc
+        public init(
+            paymentKey: String,
+            orderId: String,
+            amount: Double,
+            additionalParameters: [String : String]?
+        ) {
+            self.paymentKey = paymentKey
+            self.orderId = orderId
+            self.amount = amount
+            self.additionalParameters = additionalParameters
+        }
+        
+        public override func isEqual(_ object: Any?) -> Bool {
+            guard let fail = object as? Success else { return false }
+            return self.paymentKey == fail.paymentKey
+            && self.orderId == fail.orderId
+            && self.amount == fail.amount
+            && self.additionalParameters == fail.additionalParameters
+        }
     }
     
-    public struct Fail: Equatable, Decodable {
+    @objc
+    public class Fail: NSObject, Decodable {
         
         /// 결제 실패코드
         public let errorCode: String
@@ -33,5 +56,19 @@ public enum TossPaymentsResult {
         
         /// 주문 식별자
         public let orderId: String?
+        
+        @objc
+        public init(errorCode: String, errorMessage: String, orderId: String?) {
+            self.errorCode = errorCode
+            self.errorMessage = errorMessage
+            self.orderId = orderId
+        }
+        
+        public override func isEqual(_ object: Any?) -> Bool {
+            guard let fail = object as? Fail else { return false }
+            return self.errorCode == fail.errorCode
+            && self.errorMessage == fail.errorMessage
+            && self.orderId == fail.orderId
+        }
     }
 }

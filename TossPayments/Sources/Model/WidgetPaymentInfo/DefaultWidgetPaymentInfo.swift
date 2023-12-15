@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
+public class DefaultWidgetPaymentInfo: WidgetPaymentInfo {
     
     // 필수
     public let orderId: String
@@ -18,7 +18,7 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
     // 선택
     public let customerName: String?
     public let customerEmail: String?
-    public let taxFreeAmount: Double?
+    public let taxFreeAmount: NSNumber?
     public let cultureExpense: Bool
     
     // 추가 선택
@@ -35,7 +35,7 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
         appScheme: String? = nil,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Double? = nil,
+        taxFreeAmount: NSNumber? = nil,
         cultureExpense: Bool = false,
         customerMobilePhone: String? = nil,
         showCustomerMobilePhone: String? = nil,

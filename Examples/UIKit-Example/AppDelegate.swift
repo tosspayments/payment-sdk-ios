@@ -7,7 +7,6 @@
 
 #if canImport(UIKit)
 import UIKit
-import TossPayments
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

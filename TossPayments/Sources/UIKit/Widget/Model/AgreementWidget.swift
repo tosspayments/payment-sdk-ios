@@ -8,6 +8,7 @@
 import Foundation
 import WebKit
 
+@objcMembers
 public final class AgreementWidget: WKWebView, PaymentWidgetComponent {
     public weak var widgetStatusDelegate: TossPaymentsWidgetStatusDelegate?
     public weak var agreementUIDelegate: TossPaymentsAgreementUIDelegate?
@@ -28,7 +29,6 @@ public final class AgreementWidget: WKWebView, PaymentWidgetComponent {
             isInspectable = true
         }
 #endif
-
     }
     
     required init?(coder: NSCoder) {

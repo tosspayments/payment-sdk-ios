@@ -29,7 +29,7 @@ final class TossPaymentsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         webView.navigationDelegate = service
         webView.uiDelegate = self
-#if DEBUG
+#if DEBUG && swift(>=5.8)
         if #available(iOS 16.4, *) {
             webView.isInspectable = true
         }

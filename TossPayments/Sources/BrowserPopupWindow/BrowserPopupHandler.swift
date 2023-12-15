@@ -24,7 +24,7 @@ extension BrowserPopupHandler {
         let popupWebView = WKWebView(frame: parentWebView.frame, configuration: configuration)
         popupWebView.navigationDelegate = parentWebView.navigationDelegate
         popupWebView.uiDelegate = parentWebView.uiDelegate
-#if DEBUG
+#if DEBUG && swift(>=5.8)
         if #available(iOS 16.4, *) {
             popupWebView.isInspectable = true
         }

@@ -103,6 +103,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         let paymentMethodWidget = PaymentMethodWidget()
         self.methodWidgetAmount = amount
         self.methodWidgetOptions = options
+        self.amount = amount.value
         
         paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
         
@@ -134,45 +135,46 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         return paymentMethodWidget
     }
     
-//    @available(*, deprecated, message: "use func renderPaymentMethods(amount: PaymentMethodWidget.Object, options: PaymentMethodWidget.Options? = nil)")
-//    public func renderPaymentMethods(
-//        amount: Double,
-//        options: PaymentMethodWidget.Options? = nil
-//    ) -> PaymentMethodWidget {
-//        let paymentMethodWidget = PaymentMethodWidget()
-//        self.amount = amount
-//        self.methodWidgetOptions = options
-//        
-//        paymentMethodWidget.configuration.userContentController.addUserScript(legacyPaymentMethodScript)
-//        
-//        paymentMethodWidget.configuration.userContentController.add(
-//            RequestPaymentsMessageHandler(self),
-//            name: ScriptName.requestPayments.rawValue
-//        )
-//        paymentMethodWidget.configuration.userContentController.add(
-//            ErrorHandler({ [weak self] fail in
-//                self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
-//            }),
-//            name: ScriptName.error.rawValue
-//        )
-//        paymentMethodWidget.configuration.userContentController.add(
-//            UpdateHeightMessageHandler(),
-//            name: ScriptName.updateHeight.rawValue
-//        )
-//        paymentMethodWidget.configuration.userContentController.add(
-//            RequestHTMLMessageHandler(self),
-//            name: ScriptName.requestHTML.rawValue
-//        )
-//        paymentMethodWidget.configuration.userContentController.add(
-//            MessageScriptHandler(self),
-//            name: ScriptName.message.rawValue
-//        )
-//        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
-//        
-//        self.paymentMethodWidget = paymentMethodWidget
-//        return paymentMethodWidget
-//    }
-//    
+    @available(*, deprecated, message: "use func renderPaymentMethods(amount: PaymentMethodWidget.Object, options: PaymentMethodWidget.Options? = nil)")
+    @objc(renderPaymentMethodsAmount:options:)
+    public func renderPaymentMethods(
+        amount: Double,
+        options: PaymentMethodWidget.Options? = nil
+    ) -> PaymentMethodWidget {
+        let paymentMethodWidget = PaymentMethodWidget()
+        self.amount = amount
+        self.methodWidgetOptions = options
+        
+        paymentMethodWidget.configuration.userContentController.addUserScript(legacyPaymentMethodScript)
+        
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestPaymentsMessageHandler(self),
+            name: ScriptName.requestPayments.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            ErrorHandler({ [weak self] fail in
+                self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
+            }),
+            name: ScriptName.error.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            UpdateHeightMessageHandler(),
+            name: ScriptName.updateHeight.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            RequestHTMLMessageHandler(self),
+            name: ScriptName.requestHTML.rawValue
+        )
+        paymentMethodWidget.configuration.userContentController.add(
+            MessageScriptHandler(self),
+            name: ScriptName.message.rawValue
+        )
+        paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
+        
+        self.paymentMethodWidget = paymentMethodWidget
+        return paymentMethodWidget
+    }
+    
     public func renderAgreement() -> AgreementWidget {
         let agreementWidget = AgreementWidget()
         agreementWidget.configuration.userContentController.addUserScript(agreementScript)
@@ -202,7 +204,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     public func requestPayment(
         info: WidgetPaymentInfo
     ) {
-        var requestJSONObject = info.convertToPaymentInfo(amount: amount)
+        var requestJSONObject = info.convertToPaymentInfo()
+        requestJSONObject?["amount"] = methodWidgetAmount?.jsonObject ?? amount
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL
         let jsonString = requestJSONObject?.jsonString ?? ""

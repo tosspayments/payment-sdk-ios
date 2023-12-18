@@ -18,5 +18,5 @@ public protocol WidgetPaymentInfo: AnyObject {
     var customerEmail: String? { get }
     var taxFreeAmount: NSNumber? { get }
     
-    func convertToPaymentInfo(amount: Double) -> [String: Any]?
+    func convertToPaymentInfo() -> [String: Any]?
 }

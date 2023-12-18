@@ -86,7 +86,7 @@
     NSLog(@"fail %@", fail);
 }
 
-- (void)handleSuccessResult:(Success * _Nonnull)success { 
+- (void)handleSuccessResult:(Success * _Nonnull)success {
     NSLog(@"success %@", success);
 }
 
@@ -106,7 +106,7 @@
     
 }
 
-- (void)didUpdateHeight:(PaymentMethodWidget * _Nonnull)widget height:(CGFloat)height { 
+- (void)didUpdateMethodWidgetHeight:(PaymentMethodWidget * _Nonnull)widget height:(CGFloat)height { 
     
 }
 
@@ -117,6 +117,7 @@
 - (void)didUpdateAgreementStatus:(AgreementWidget * _Nonnull)widget agreementStatus:(AgreementStatus * _Nonnull)agreementStatus {
     
 }
+
 
 - (void)didUpdateAgreementWidgetHeight:(AgreementWidget * _Nonnull)agreementWidget height:(CGFloat)height { 
     

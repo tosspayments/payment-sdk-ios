@@ -7,8 +7,11 @@
 
 import Foundation
 
-public enum TossPaymentsResult {
+@objc
+public class TossPaymentsResult: NSObject {
+    
     @objc
+    @objcMembers
     public class Success: NSObject {
         
         /// 결제 식별자
@@ -23,7 +26,6 @@ public enum TossPaymentsResult {
         /// 추가 parameters
         public let additionalParameters: [String: String]?
         
-        @objc
         public init(
             paymentKey: String,
             orderId: String,
@@ -46,7 +48,8 @@ public enum TossPaymentsResult {
     }
     
     @objc
-    public class Fail: NSObject, Decodable {
+    @objcMembers
+    public class Fail: NSObject, Codable {
         
         /// 결제 실패코드
         public let errorCode: String
@@ -57,7 +60,6 @@ public enum TossPaymentsResult {
         /// 주문 식별자
         public let orderId: String?
         
-        @objc
         public init(errorCode: String, errorMessage: String, orderId: String?) {
             self.errorCode = errorCode
             self.errorMessage = errorMessage

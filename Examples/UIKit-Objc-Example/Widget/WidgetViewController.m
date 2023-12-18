@@ -35,7 +35,10 @@
     
     BrandPay* brandPay = [[BrandPay alloc] initWithRedirectURL:@"https://tosspayments.com/redierct"];
     PaymentWidgetOptions* paymentWidgetOptions = [[PaymentWidgetOptions alloc] initWithBrandpay:brandPay];
-    PaymentWidget* widget = [[PaymentWidget alloc] initWithClientKey:@"test_ck_5GePWvyJnrKdzdyY29b8gLzN97Eo" customerKey:@"TOSSPAYMENTS" options:paymentWidgetOptions];
+    PaymentWidget* widget = [[PaymentWidget alloc] 
+                             initWithClientKey:@"test_ck_5GePWvyJnrKdzdyY29b8gLzN97Eo"
+                             customerKey:@"TOSSPAYMENTS"
+                             options:paymentWidgetOptions];
     UIButton *button = [[UIButton alloc] init];
     
     Amount *amount = [[Amount alloc] initWithValue:1000 currency:@"KRW" country:@"KR"];
@@ -73,7 +76,20 @@
 }
 
 - (void)requestPayment {
-    [self.widget requestPaymentWithInfo: [[DefaultWidgetPaymentInfo alloc] initWithOrderId:@"123" orderName:@"김토스" taxExemptionAmount:NULL appScheme:NULL customerName:NULL customerEmail:NULL taxFreeAmount:NULL cultureExpense:NULL customerMobilePhone:NULL showCustomerMobilePhone:NULL useEscrow:NULL escrowProducts:NULL mobileCarrier:NULL]];
+    [self.widget requestPaymentWithInfo: [[DefaultWidgetPaymentInfo alloc]
+                                          initWithOrderId:[[NSUUID alloc] init].UUIDString 
+                                          orderName:@"김토스"
+                                          taxExemptionAmount:NULL
+                                          appScheme:@"tosspaymentsExample://"
+                                          customerName:NULL
+                                          customerEmail:NULL
+                                          taxFreeAmount:NULL
+                                          cultureExpense:NULL
+                                          customerMobilePhone:NULL 
+                                          showCustomerMobilePhone:NULL
+                                          useEscrow:NULL
+                                          escrowProducts:NULL 
+                                          mobileCarrier:NULL]];
 }
 
 @end
@@ -81,11 +97,12 @@
 @implementation WidgetViewController (TossPaymentsDelegate)
 
 - (void)handleFailResult:(Fail * _Nonnull)fail {
-    NSLog(@"fail %@", fail);
+    NSLog(@"fail %@", fail.debugDescription);
+
 }
 
 - (void)handleSuccessResult:(Success * _Nonnull)success {
-    NSLog(@"success %@", success);
+    NSLog(@"success %@", success.debugDescription);
 }
 
 @end
@@ -93,19 +110,19 @@
 @implementation WidgetViewController (TossPaymentsWidgetUIDelegate)
 
 - (void)didReceivedCustomPaymentMethodSelected:(PaymentMethodWidget * _Nonnull)widget paymentMethodKey:(NSString * _Nonnull)paymentMethodKey {
-    
+    NSLog(@"didReceivedCustomPaymentMethodSelected %@ %@", widget, paymentMethodKey);
 }
 
 - (void)didReceivedCustomPaymentMethodUnselected:(PaymentMethodWidget * _Nonnull)widget paymentMethodKey:(NSString * _Nonnull)paymentMethodKey {
-    
+    NSLog(@"didReceivedCustomPaymentMethodUnselected %@ %@", widget, paymentMethodKey);
 }
 
 - (void)didReceivedCustomRequest:(PaymentMethodWidget * _Nonnull)widget paymentMethodKey:(NSString * _Nonnull)paymentMethodKey {
-    
+    NSLog(@"didReceivedCustomRequest %@ %@", widget, paymentMethodKey);
 }
 
 - (void)didUpdateMethodWidgetHeight:(PaymentMethodWidget * _Nonnull)widget height:(CGFloat)height { 
-    
+    NSLog(@"didUpdateMethodWidgetHeight %@ %f", widget, height);
 }
 
 @end
@@ -113,11 +130,11 @@
 @implementation WidgetViewController (TossPaymentsAgreementUIDelegate)
 
 - (void)didUpdateAgreementStatus:(AgreementWidget * _Nonnull)widget agreementStatus:(AgreementStatus * _Nonnull)agreementStatus {
-    
+    NSLog(@"didUpdateAgreementStatus %@ %@", widget, agreementStatus);
 }
 
-- (void)didUpdateAgreementWidgetWidgetHeight:(AgreementWidget * _Nonnull)widget height:(CGFloat)height { 
-    
+- (void)didUpdateAgreementWidgetHeight:(AgreementWidget * _Nonnull)widget height:(CGFloat)height { 
+    NSLog(@"didUpdateAgreementWidgetHeight %@ %f", widget, height);
 }
 
 @end
@@ -126,11 +143,11 @@
 
 
 - (void)didReceiveFail:(NSString * _Nonnull)name fail:(Fail * _Nonnull)fail {
-    
+    NSLog(@"didReceiveFail %@ %@", name, fail);
 }
 
 - (void)didReceivedLoad:(NSString * _Nonnull)name {
-    
+    NSLog(@"didReceivedLoad %@", name);
 }
 
 @end

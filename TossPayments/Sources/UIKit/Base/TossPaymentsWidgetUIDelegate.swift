@@ -28,7 +28,7 @@ public extension TossPaymentsWidgetUIDelegate {
 @objc
 public protocol TossPaymentsAgreementUIDelegate: AnyObject {
     
-    @objc(didUpdateAgreementWidgetWidgetHeight:height:)
+    @objc(didUpdateAgreementWidgetHeight:height:)
     func didUpdateHeight(_ widget: AgreementWidget, height: CGFloat)
     func didUpdateAgreementStatus(_ widget: AgreementWidget, agreementStatus: AgreementStatus)
 }

@@ -7,6 +7,7 @@
 
 import Foundation
 
+@objc
 public protocol TossPaymentsDelegate: AnyObject {
     func handleSuccessResult(_ success: TossPaymentsResult.Success)
     func handleFailResult(_ fail: TossPaymentsResult.Fail)

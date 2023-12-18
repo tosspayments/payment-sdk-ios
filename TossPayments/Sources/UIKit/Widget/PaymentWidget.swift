@@ -8,6 +8,7 @@
 import Foundation
 import WebKit
 
+@objcMembers
 public final class PaymentWidget: NSObject, HandleURLResult {
     // MARK: - Private properties
     private lazy var messageHandler = MessageHandler(
@@ -72,6 +73,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     public weak var delegate: TossPaymentsDelegate?
     public var paymentMethodWidget: PaymentMethodWidget?
     public var agreementWidget: AgreementWidget?
+    
+    @objc
     public init(
         clientKey: String,
         customerKey: String,
@@ -95,10 +98,12 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
 
     // MARK: Public methods
+    @objc
     public func renderPaymentMethods(amount: PaymentMethodWidget.Amount, options: PaymentMethodWidget.Options? = nil) -> PaymentMethodWidget {
         let paymentMethodWidget = PaymentMethodWidget()
         self.methodWidgetAmount = amount
         self.methodWidgetOptions = options
+        self.amount = amount.value
         
         paymentMethodWidget.configuration.userContentController.addUserScript(paymentMethodScript)
         
@@ -131,6 +136,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
     
     @available(*, deprecated, message: "use func renderPaymentMethods(amount: PaymentMethodWidget.Object, options: PaymentMethodWidget.Options? = nil)")
+    @objc(renderPaymentMethodsAmount:options:)
     public func renderPaymentMethods(
         amount: Double,
         options: PaymentMethodWidget.Options? = nil
@@ -198,7 +204,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     public func requestPayment(
         info: WidgetPaymentInfo
     ) {
-        var requestJSONObject = info.convertToPaymentInfo(amount: amount)
+        var requestJSONObject = info.convertToPaymentInfo()
+        requestJSONObject?["amount"] = methodWidgetAmount?.jsonObject ?? amount
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL
         let jsonString = requestJSONObject?.jsonString ?? ""

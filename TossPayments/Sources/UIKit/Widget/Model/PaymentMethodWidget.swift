@@ -8,6 +8,7 @@
 import Foundation
 import WebKit
 
+@objcMembers
 public final class PaymentMethodWidget: WKWebView, PaymentWidgetComponent {
     public weak var widgetStatusDelegate: TossPaymentsWidgetStatusDelegate?
     public weak var widgetUIDelegate: TossPaymentsWidgetUIDelegate?

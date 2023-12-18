@@ -7,7 +7,8 @@
 
 import Foundation
 
-public class DefaultWidgetPaymentInfo: WidgetPaymentInfo {
+@objc
+public class DefaultWidgetPaymentInfo: NSObject, WidgetPaymentInfo {
     
     // 필수
     public let orderId: String
@@ -56,5 +57,25 @@ public class DefaultWidgetPaymentInfo: WidgetPaymentInfo {
         self.useEscrow = useEscrow
         self.escrowProducts = escrowProducts
         self.mobileCarrier = mobileCarrier
+    }
+    
+    public func convertToPaymentInfo(amount: Double) -> [String: Any]? {
+        var info = [String: Any]()
+        
+        info["orderId"] = orderId
+        info["orderName"] = orderName
+        info["taxExemptionAmount"] = taxExemptionAmount
+        info["appScheme"] = appScheme
+        info["customerName"] = customerName
+        info["customerEmail"] = customerEmail
+        info["taxFreeAmount"] = taxFreeAmount
+        info["cultureExpense"] = cultureExpense
+        info["customerMobilePhone"] = customerMobilePhone
+        info["showCustomerMobilePhone"] = showCustomerMobilePhone
+        info["useEscrow"] = useEscrow
+        info["escrowProducts"] = escrowProducts
+        info["mobileCarrier"] = mobileCarrier
+        
+        return info
     }
 }

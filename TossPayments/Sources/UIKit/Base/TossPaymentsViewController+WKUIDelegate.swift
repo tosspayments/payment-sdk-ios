@@ -10,18 +10,18 @@ import WebKit
 // MARK: - WKUIDelegate
 
 extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
-    
+
     func webView(
-        _ webView: WKWebView, 
-        createWebViewWith configuration: WKWebViewConfiguration, 
-        for navigationAction: WKNavigationAction, 
+        _ webView: WKWebView,
+        createWebViewWith configuration: WKWebViewConfiguration,
+        for navigationAction: WKNavigationAction,
         windowFeatures: WKWindowFeatures
     ) -> WKWebView? {
         let popupWebView = createPopupWindow(parentWebView: webView, configuration: configuration)
         present(popupWebView: popupWebView)
         return popupWebView
     }
-    
+
     func webView(
         _ webView: WKWebView,
         runJavaScriptConfirmPanelWithMessage message: String,
@@ -34,16 +34,16 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
                 guard let url = webView.url else { return nil }
                 guard let scheme = url.scheme else { return nil }
                 guard let host = url.host else { return nil }
-                
+
                 return scheme + "://" + host
             }()
-            
+
             guard let domain else { return nil }
             return """
             '\(domain)' 페이지 내용:
             """
         }()
-        
+
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: "확인", style: .default, handler: { _ in
             completionHandler(true)
@@ -51,14 +51,16 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
             completionHandler(false)
         }))
-        
+
         if let viewController = UIApplication.shared.windows.first?.visibleViewController {
             viewController.present(alertController, animated: true)
         } else if let viewController = webView.currentViewController {
             viewController.present(alertController, animated: true)
+        } else {
+            completionHandler(false)
         }
     }
-    
+
     func webView(
         _ webView: WKWebView, runJavaScriptAlertPanelWithMessage message: String,
         initiatedByFrame frame: WKFrameInfo,
@@ -68,11 +70,13 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         alertController.addAction(UIAlertAction(title: "닫기", style: .default, handler: { _ in
             completionHandler()
         }))
-        
+
         if let viewController = UIApplication.shared.windows.first?.visibleViewController {
             viewController.present(alertController, animated: true)
         } else if let viewController = webView.currentViewController {
             viewController.present(alertController, animated: true)
+        } else {
+            completionHandler()
         }
     }
 }

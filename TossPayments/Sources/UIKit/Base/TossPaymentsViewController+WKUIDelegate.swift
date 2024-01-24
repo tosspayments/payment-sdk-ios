@@ -51,7 +51,12 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         alertController.addAction(UIAlertAction(title: "취소", style: .cancel, handler: { _ in
             completionHandler(false)
         }))
-        UIApplication.shared.windows.first?.visibleViewController?.present(alertController, animated: true)
+        
+        if let viewController = UIApplication.shared.windows.first?.visibleViewController {
+            viewController.present(alertController, animated: true)
+        } else if let viewController = webView.currentViewController {
+            viewController.present(alertController, animated: true)
+        }
     }
     
     func webView(
@@ -63,6 +68,11 @@ extension TossPaymentsViewController: WKUIDelegate, BrowserPopupHandler {
         alertController.addAction(UIAlertAction(title: "닫기", style: .default, handler: { _ in
             completionHandler()
         }))
-        UIApplication.shared.windows.first?.visibleViewController?.present(alertController, animated: true)
+        
+        if let viewController = UIApplication.shared.windows.first?.visibleViewController {
+            viewController.present(alertController, animated: true)
+        } else if let viewController = webView.currentViewController {
+            viewController.present(alertController, animated: true)
+        }
     }
 }

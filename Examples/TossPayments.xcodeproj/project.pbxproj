@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
 		6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */; };
@@ -148,6 +149,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TossPaymentExtension.swift"; sourceTree = "<group>"; };
 		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
 		6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentView.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 			children = (
 				6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */,
 				6AB1E2AD2A77976700D49332 /* UIWindow+TossPaymentExtension.swift */,
+				6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -879,6 +882,7 @@
 				6AFE43212AC12A05002CAE67 /* ChangePaymentMethodMessage.swift in Sources */,
 				6AB1E2FB2A77976700D49332 /* PaymentMethodWidget+Extensions.swift in Sources */,
 				6AB1E32E2A77976700D49332 /* TossPaymentsWebView.swift in Sources */,
+				6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */,
 				6AB1E3122A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift in Sources */,
 				6AB1E31A2A77976700D49332 /* TossPaymentsResult.swift in Sources */,
 				6AB1E30B2A77976700D49332 /* RequestHTMLMessageHandler.swift in Sources */,
@@ -1188,7 +1192,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.1.28;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.uikit;
@@ -1226,7 +1230,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.27;
+				MARKETING_VERSION = 0.1.28;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.paymentsdk.examples.uikit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -13,10 +13,7 @@ extension UIWindow {
         while let presentedViewController = visibleViewController?.presentedViewController {
             visibleViewController = presentedViewController
         }
-
-        // 1. https://github.toss.bz/toss/toss-ios/pull/8947 의 이슈로 인해 추가함
-        // 2. pendingDismiss 를 통해 중간에 pending 된 녀석들이 visibleViewController 에 걸리는 경우가 있었음
-        //    실제론 pending 되고 곧 사라질 녀석이기 때문에, 얘를 뛰운 녀석을 찾아서 반환한다.
+        
         while let visibleView = visibleViewController, visibleView.isBeingDismissed,
             let presentingViewController = visibleView.presentingViewController {
             visibleViewController = presentingViewController

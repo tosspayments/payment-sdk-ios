@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02843C742BBD2FCD0011B3F6 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 02843C732BBD2FCD0011B3F6 /* PrivacyInfo.xcprivacy */; };
 		6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
@@ -149,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		02843C732BBD2FCD0011B3F6 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = ../PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TossPaymentExtension.swift"; sourceTree = "<group>"; };
 		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				6AB1E2EE2A77976700D49332 /* WidgetService.swift */,
 				6AB1E2EF2A77976700D49332 /* TossPaymentsService.swift */,
 				6AB1E2F02A77976700D49332 /* TossPaymentsEnvironment.swift */,
+				02843C732BBD2FCD0011B3F6 /* PrivacyInfo.xcprivacy */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02843C742BBD2FCD0011B3F6 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

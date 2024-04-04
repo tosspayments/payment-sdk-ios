@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import TossPayments
 
 public final class Environment {
     public enum Constant {
@@ -72,6 +73,7 @@ public final class Environment {
     
     static var stage: String = UserDefaults.standard.string(forKey: "TossPayments.Stage") ?? Constant.defaultStage {
         didSet {
+            TossPaymentsEnvironment.stage = stage
             UserDefaults.standard.set(stage, forKey: "TossPayments.Stage")
         }
     }

@@ -7,8 +7,6 @@
 
 import Foundation
 
-enum TossPaymentsEnvironment {
-    static var stage: String {
-        UserDefaults.standard.string(forKey: "TossPayments.Stage") ?? "v1"
-    }
+public enum TossPaymentsEnvironment {
+    public static var stage: String = "v1"
 }

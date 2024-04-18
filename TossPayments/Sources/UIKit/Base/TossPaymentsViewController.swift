@@ -44,6 +44,7 @@ final class TossPaymentsViewController: UIViewController {
         super.viewDidLoad()
         
         navigationController?.isNavigationBarHidden = true
+        self.presentationController?.delegate = self
         
         view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +63,20 @@ final class TossPaymentsViewController: UIViewController {
         DispatchQueue.main.async {
             self.webView.loadHTMLString(self.service.htmlString, baseURL: self.service.baseURL)
         }
+    }
+}
+
+extension TossPaymentsViewController: UIAdaptivePresentationControllerDelegate {
+    public func presentationControllerDidDismiss(
+      _ presentationController: UIPresentationController)
+    {
+        var components = URLComponents(string: WebConstants.failURL)
+        components?.queryItems = [
+            URLQueryItem(name: "code", value: "PAY_PROCESS_CANCELED"),
+            URLQueryItem(name: "message", value: "사용자가 결제를 취소하였습니다"),
+        ]
+        guard let failURL = components?.url else { return }
+        self.service.failURLHandler?(failURL)
     }
 }
 

@@ -67,6 +67,8 @@ final class TossPaymentsViewController: UIViewController {
 }
 
 extension TossPaymentsViewController: UIAdaptivePresentationControllerDelegate {
+    
+    @available(iOS 13.0, *)
     public func presentationControllerDidDismiss(
       _ presentationController: UIPresentationController)
     {

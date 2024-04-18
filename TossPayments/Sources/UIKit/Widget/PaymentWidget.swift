@@ -67,6 +67,7 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         }
         return url
     }
+    var orderId: String = ""
     
     // MARK: Public properties
     public weak var delegate: TossPaymentsDelegate?
@@ -198,6 +199,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     public func requestPayment(
         info: WidgetPaymentInfo
     ) {
+        self.orderId = info.orderId
+        
         var requestJSONObject = info.convertToPaymentInfo(amount: amount)
         requestJSONObject?["successUrl"] = WebConstants.successURL
         requestJSONObject?["failUrl"] = WebConstants.failURL

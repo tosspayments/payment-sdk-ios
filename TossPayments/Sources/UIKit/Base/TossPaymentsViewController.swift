@@ -76,6 +76,7 @@ extension TossPaymentsViewController: UIAdaptivePresentationControllerDelegate {
         components?.queryItems = [
             URLQueryItem(name: "code", value: "PAY_PROCESS_CANCELED"),
             URLQueryItem(name: "message", value: "사용자가 결제를 취소하였습니다"),
+            URLQueryItem(name: "orderId", value: self.service.orderId),
         ]
         guard let failURL = components?.url else { return }
         self.service.failURLHandler?(failURL)

@@ -16,7 +16,7 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
     
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
         guard let htmlString = message.body as? String, let widget = widget else { return }
-        let service = WidgetService(htmlString: htmlString, baseURL: widget.baseURL)
+        let service = WidgetService(htmlString: htmlString, baseURL: widget.baseURL, orderId: widget.orderId)
         let viewController = TossPaymentsViewController(service: service)
         service.successURLHandler = { url in
             viewController.dismiss(animated: true) {

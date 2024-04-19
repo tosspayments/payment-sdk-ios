@@ -12,6 +12,7 @@ import WebKit
 protocol PaymentServiceProtocol: WKNavigationDelegate {
     var htmlString: String { get }
     var baseURL: URL { get }
+    var orderId: String { get }
     var failURLHandler: ((URL) -> Void)? { get set }
     var successURLHandler: ((URL) -> Void)? { get set }
 }
@@ -29,10 +30,12 @@ class TossPaymentsService: NSObject, PaymentServiceProtocol {
         self.clientKey = clientKey
         self.paymentMethod = paymentMethod
         self.paymentInfo = paymentInfo
+        self.orderId = paymentInfo.orderId
     }
     
     var failURLHandler: ((URL) -> Void)?
-    var successURLHandler: ((URL) -> Void)? 
+    var successURLHandler: ((URL) -> Void)?
+    var orderId: String
     
     // 한번만 요청할 Javascript 요청 여부
     private var didEvaluateRequestPaymentJavascript: Bool = false

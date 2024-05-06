@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5AC0DA922BE8B4E00095E9B6 /* AlipayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0DA912BE8B4E00095E9B6 /* AlipayViewController.swift */; };
 		6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
@@ -149,6 +150,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		5AC0DA912BE8B4E00095E9B6 /* AlipayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlipayViewController.swift; sourceTree = "<group>"; };
 		6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TossPaymentExtension.swift"; sourceTree = "<group>"; };
 		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
@@ -277,6 +279,14 @@
 				6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		5AC0DA902BE8B4C20095E9B6 /* Alipay */ = {
+			isa = PBXGroup;
+			children = (
+				5AC0DA912BE8B4E00095E9B6 /* AlipayViewController.swift */,
+			);
+			path = Alipay;
 			sourceTree = "<group>";
 		};
 		6A8EE1082A7CA79600A9DD94 /* SwiftUI-Example */ = {
@@ -576,6 +586,7 @@
 		6AB1E3652A7799FC00D49332 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				5AC0DA902BE8B4C20095E9B6 /* Alipay */,
 				6AB1E3662A7799FC00D49332 /* Payments */,
 				6AB1E36C2A7799FC00D49332 /* Result */,
 				6AB1E36E2A7799FC00D49332 /* Logger */,
@@ -907,6 +918,7 @@
 				6AB1E3852A7799FC00D49332 /* Environment.swift in Sources */,
 				6AB1E37B2A7799FC00D49332 /* PaymentsViewController.swift in Sources */,
 				6AB1E3872A7799FC00D49332 /* TextField.swift in Sources */,
+				5AC0DA922BE8B4E00095E9B6 /* AlipayViewController.swift in Sources */,
 				6AB1E3802A7799FC00D49332 /* ResultViewController.swift in Sources */,
 				6AB1E3842A7799FC00D49332 /* RootViewController.swift in Sources */,
 				6AB1E3832A7799FC00D49332 /* PaymentWidgetViewController.swift in Sources */,

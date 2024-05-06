@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5AC0DA922BE8B4E00095E9B6 /* AlipayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0DA912BE8B4E00095E9B6 /* AlipayViewController.swift */; };
+		5AC0DA962BE8C4DA0095E9B6 /* ForeignEasyPayPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC0DA952BE8C4DA0095E9B6 /* ForeignEasyPayPaymentInfo.swift */; };
 		6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
@@ -151,6 +152,7 @@
 
 /* Begin PBXFileReference section */
 		5AC0DA912BE8B4E00095E9B6 /* AlipayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlipayViewController.swift; sourceTree = "<group>"; };
+		5AC0DA952BE8C4DA0095E9B6 /* ForeignEasyPayPaymentInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForeignEasyPayPaymentInfo.swift; sourceTree = "<group>"; };
 		6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TossPaymentExtension.swift"; sourceTree = "<group>"; };
 		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
@@ -524,6 +526,7 @@
 				6AB1E2EA2A77976700D49332 /* WebConstants.swift */,
 				6AB1E2EB2A77976700D49332 /* VirtualAccountPaymentInfo.swift */,
 				6AB1E2EC2A77976700D49332 /* DefaultPaymentInfo.swift */,
+				5AC0DA952BE8C4DA0095E9B6 /* ForeignEasyPayPaymentInfo.swift */,
 			);
 			path = PaymentInfo;
 			sourceTree = "<group>";
@@ -886,6 +889,7 @@
 				6AB1E3242A77976700D49332 /* PaymentInfo.swift in Sources */,
 				6AB129262AB8ADB7000B4485 /* WidgetPaymentMethod.swift in Sources */,
 				6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */,
+				5AC0DA962BE8C4DA0095E9B6 /* ForeignEasyPayPaymentInfo.swift in Sources */,
 				6AB1E3182A77976700D49332 /* PaymentMethod.swift in Sources */,
 				6AB1E3022A77976700D49332 /* MessageHandler.swift in Sources */,
 				6AB1E3272A77976700D49332 /* WebConstants.swift in Sources */,

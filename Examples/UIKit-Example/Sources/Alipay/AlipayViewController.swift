@@ -28,18 +28,55 @@ class AlipayViewController: ViewController {
         
         return textField
     }()
-    private lazy var 결제하기버튼 = Button()
+    private lazy var ALIPAY_버튼 = Button()
+    private lazy var ALIPAYHK_버튼 = Button()
+    private lazy var BILLEASE_버튼 = Button()
+    private lazy var BOOST_버튼 = Button()
+    private lazy var BPI_버튼 = Button()
+    private lazy var DANA_버튼 = Button()
+    private lazy var GCASH_버튼 = Button()
+    private lazy var RABBIT_LINE_PAY_버튼 = Button()
+    private lazy var TNG_EWALLET_버튼 = Button()
+    private lazy var TRUEMONEY_버튼 = Button()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         stackView.addArrangedSubview(클라이언트키화면)
         stackView.addArrangedSubview(금액금액화면)
-        stackView.addArrangedSubview(결제하기버튼)
         
-        결제하기버튼.title = "결제하기"
+        stackView.addArrangedSubview(ALIPAY_버튼)
+        stackView.addArrangedSubview(ALIPAYHK_버튼)
+        stackView.addArrangedSubview(BILLEASE_버튼)
+        stackView.addArrangedSubview(BOOST_버튼)
+        stackView.addArrangedSubview(BPI_버튼)
+        stackView.addArrangedSubview(DANA_버튼)
+        stackView.addArrangedSubview(GCASH_버튼)
+        stackView.addArrangedSubview(RABBIT_LINE_PAY_버튼)
+        stackView.addArrangedSubview(TNG_EWALLET_버튼)
+        stackView.addArrangedSubview(TRUEMONEY_버튼)
         
-        결제하기버튼.addTarget(self, action: #selector(requestTossPayment), for: .touchUpInside)
+        ALIPAY_버튼.title = "ALIPAY 결제하기"
+        ALIPAYHK_버튼.title = "ALIPAYHK 결제하기"
+        BILLEASE_버튼.title = "BILLEASE 결제하기"
+        BOOST_버튼.title = "BOOST 결제하기"
+        BPI_버튼.title = "BPI 결제하기"
+        DANA_버튼.title = "DANA 결제하기"
+        GCASH_버튼.title = "GCASH 결제하기"
+        RABBIT_LINE_PAY_버튼.title = "RABBIT_LINE_PAY 결제하기"
+        TNG_EWALLET_버튼.title = "TNG_EWALLET 결제하기"
+        TRUEMONEY_버튼.title = "TRUEMONEY 결제하기"
+        
+        ALIPAY_버튼.addTarget(self, action: #selector(ALIPAY_실행), for: .touchUpInside)
+        ALIPAYHK_버튼.addTarget(self, action: #selector(ALIPAYHK_실행), for: .touchUpInside)
+        BILLEASE_버튼.addTarget(self, action: #selector(BILLEASE_실행), for: .touchUpInside)
+        BOOST_버튼.addTarget(self, action: #selector(BOOST_실행), for: .touchUpInside)
+        BPI_버튼.addTarget(self, action: #selector(BPI_실행), for: .touchUpInside)
+        DANA_버튼.addTarget(self, action: #selector(DANA_실행), for: .touchUpInside)
+        GCASH_버튼.addTarget(self, action: #selector(GCASH_실행), for: .touchUpInside)
+        RABBIT_LINE_PAY_버튼.addTarget(self, action: #selector(RABBIT_LINE_PAY_실행), for: .touchUpInside)
+        TNG_EWALLET_버튼.addTarget(self, action: #selector(TNG_EWALLET_실행), for: .touchUpInside)
+        TRUEMONEY_버튼.addTarget(self, action: #selector(TRUEMONEY_실행), for: .touchUpInside)
     }
     
     @objc func textFieldDidChanged(_ sender: Any) {
@@ -55,7 +92,38 @@ class AlipayViewController: ViewController {
         }
     }
     
-    @objc func requestTossPayment() {
+    @objc func ALIPAY_실행() {
+      requestTossPayment(provider: "ALIPAY")
+    }
+    @objc func ALIPAYHK_실행() {
+      requestTossPayment(provider: "ALIPAYHK")
+    }
+    @objc func BILLEASE_실행() {
+      requestTossPayment(provider: "BILLEASE")
+    }
+    @objc func BOOST_실행() {
+      requestTossPayment(provider: "BOOST")
+    }
+    @objc func BPI_실행() {
+      requestTossPayment(provider: "BPI")
+    }
+    @objc func DANA_실행() {
+      requestTossPayment(provider: "DANA")
+    }
+    @objc func GCASH_실행() {
+      requestTossPayment(provider: "GCASH")
+    }
+    @objc func RABBIT_LINE_PAY_실행() {
+      requestTossPayment(provider: "RABBIT_LINE_PAY")
+    }
+    @objc func TNG_EWALLET_실행() {
+      requestTossPayment(provider: "TNG_EWALLET")
+    }
+    @objc func TRUEMONEY_실행() {
+      requestTossPayment(provider: "TRUEMONEY")
+    }
+    
+    func requestTossPayment(provider: String) {
         let tossPayments = TossPayments(clientKey: Environment.clientKey)
         tossPayments.delegate = self
         let orderId = randomString(length: 10)
@@ -64,7 +132,7 @@ class AlipayViewController: ViewController {
             amount: 결제금액,
             orderId: orderId,
             orderName: "토스 티셔츠 외 2건",
-            provider: "ALIPAY",
+            provider: provider,
             currency: "USD",
             country: "US",
             pendingUrl: "tosspaymentexample://pending",

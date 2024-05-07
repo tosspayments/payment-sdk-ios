@@ -131,11 +131,7 @@ extension TossPaymentsService {
         guard !(url.scheme?.hasPrefix("http") ?? false) else { return false }
         guard url.scheme != "about" else { return false }
         let app = UIApplication.shared
-        if app.canOpenURL(url) {
-            app.open(url)
-        } else {
-            self.handleUnInstalledApp(scheme: url.scheme)
-        }
+        app.open(url)
         return true
     }
     

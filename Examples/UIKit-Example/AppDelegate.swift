@@ -34,8 +34,43 @@ extension AppDelegate {
         options: [UIApplication.OpenURLOptionsKey: Any] = [:]
     ) -> Bool {
         Logger.debug("open URL : " + url.absoluteString)
+        var scheme = url.scheme
+        var host = url.host
+        var relativePath = url.relativePath
+        var path = url.path
+        var query = url.query
+        if url.scheme == "tosspaymentexample" {
+            if host == "pending" {
+                let title = "TossPayments 요청이 보류되었습니다."
+                let message = """
+                query: \(url.query)
+                """
+                showAlert(title: title, message: message)
+                return true
+            }
+        }
+
         return true
     }
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert)
+        alertController.addAction(
+            UIAlertAction(
+                title: "클립보드에 복사하기",
+                style: .destructive,
+                handler: { _ in
+                    UIPasteboard.general.string = message
+                }
+            )
+        )
+        self.window?.rootViewController?.dismiss(animated: true)
+        alertController.addAction(UIAlertAction(title: "확인", style: .default))
+        self.window?.rootViewController?.present(alertController, animated: true)
+    }
+
 }
 
 #endif

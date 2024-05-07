@@ -15,6 +15,7 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
     public let provider: String
     public let currency: String
     public let country: String
+    public let pendingUrl: String
     
     public var customerName: String?
     public var customerEmail: String?
@@ -27,6 +28,7 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
         provider: String,
         currency: String,
         country: String,
+        pendingUrl: String,
         customerName: String? = nil,
         customerEmail: String? = nil,
         taxFreeAmount: Double? = nil
@@ -37,6 +39,7 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
         self.provider = provider
         self.currency = currency
         self.country = country
+        self.pendingUrl = pendingUrl
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount

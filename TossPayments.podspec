@@ -14,4 +14,5 @@ Pod::Spec.new do |spec|
 
   spec.swift_version = '5.0'
   spec.source_files  = 'TossPayments/Sources/**/*.swift', 'TossPayments/Sources/**/*.{h,m}'
+  spec.vendored_frameworks = 'TossPayments/BinaryFramework/WidgetLogger.xcframework'
 end

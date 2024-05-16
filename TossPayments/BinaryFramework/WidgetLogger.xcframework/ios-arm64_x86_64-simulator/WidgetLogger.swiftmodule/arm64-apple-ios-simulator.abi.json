@@ -1,0 +1,100 @@
+{
+  "ABIRoot": {
+    "kind": "Root",
+    "name": "TopLevel",
+    "printedName": "TopLevel",
+    "children": [
+      {
+        "kind": "Import",
+        "name": "UIKit",
+        "printedName": "UIKit",
+        "declKind": "Import",
+        "moduleName": "WidgetLogger"
+      },
+      {
+        "kind": "Import",
+        "name": "WebKit",
+        "printedName": "WebKit",
+        "declKind": "Import",
+        "moduleName": "WidgetLogger"
+      },
+      {
+        "kind": "TypeDecl",
+        "name": "WidgetLogger",
+        "printedName": "WidgetLogger",
+        "children": [
+          {
+            "kind": "Function",
+            "name": "logError",
+            "printedName": "logError(error:stage:orderId:)",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "Void",
+                "printedName": "()"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "Error",
+                "printedName": "Swift.Error",
+                "usr": "s:s5ErrorP"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              },
+              {
+                "kind": "TypeNominal",
+                "name": "String",
+                "printedName": "Swift.String",
+                "usr": "s:SS"
+              }
+            ],
+            "declKind": "Func",
+            "usr": "s:12WidgetLoggerAAC8logError5error5stage7orderIdys0D0_p_S2StFZ",
+            "mangledName": "$s12WidgetLoggerAAC8logError5error5stage7orderIdys0D0_p_S2StFZ",
+            "moduleName": "WidgetLogger",
+            "static": true,
+            "declAttributes": [
+              "Final",
+              "AccessControl"
+            ],
+            "funcSelfKind": "NonMutating"
+          },
+          {
+            "kind": "Constructor",
+            "name": "init",
+            "printedName": "init()",
+            "children": [
+              {
+                "kind": "TypeNominal",
+                "name": "WidgetLogger",
+                "printedName": "WidgetLogger.WidgetLogger",
+                "usr": "s:12WidgetLoggerAAC"
+              }
+            ],
+            "declKind": "Constructor",
+            "usr": "s:12WidgetLoggerAACABycfc",
+            "mangledName": "$s12WidgetLoggerAACABycfc",
+            "moduleName": "WidgetLogger",
+            "implicit": true,
+            "init_kind": "Designated"
+          }
+        ],
+        "declKind": "Class",
+        "usr": "s:12WidgetLoggerAAC",
+        "mangledName": "$s12WidgetLoggerAAC",
+        "moduleName": "WidgetLogger",
+        "isOpen": true,
+        "declAttributes": [
+          "AccessControl"
+        ],
+        "hasMissingDesignatedInitializers": true
+      }
+    ],
+    "json_format_version": 8
+  },
+  "ConstValues": []
+}

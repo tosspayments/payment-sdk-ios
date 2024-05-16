@@ -8,6 +8,7 @@
 #if canImport(UIKit)
 import UIKit
 import WebKit
+import WidgetLogger
 
 class WidgetService: NSObject, PaymentServiceProtocol {
     let htmlString: String
@@ -29,10 +30,10 @@ class WidgetService: NSObject, PaymentServiceProtocol {
 
 extension WidgetService: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        handleError(error)
+        WidgetLogger.logError(error: error, stage: TossPaymentsEnvironment.stage, orderId: self.orderId)
     }
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        handleError(error)
+        WidgetLogger.logError(error: error, stage: TossPaymentsEnvironment.stage, orderId: self.orderId)
     }
     
     

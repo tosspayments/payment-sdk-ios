@@ -1,4 +1,4 @@
-// swift-tools-version:5.1
+// swift-tools-version:5.3
 import PackageDescription
 
 let package = Package(
@@ -16,8 +16,10 @@ let package = Package(
     targets: [
         .target(
             name: "TossPayments",
+            dependencies: ["WidgetLogger"],
             path: "TossPayments/Sources"
-        )
+        ),
+        .binaryTarget(name: "WidgetLogger", path: "Tosspayments/BinaryFramework/WidgetLogger.xcframework")
     ],
     swiftLanguageVersions: [.v5]
 )

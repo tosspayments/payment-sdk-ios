@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		025BF4612BF630BA00DA75BE /* TossPayments in Frameworks */ = {isa = PBXBuildFile; productRef = 025BF4602BF630BA00DA75BE /* TossPayments */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
 		6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */; };
@@ -31,16 +32,6 @@
 		6AB1E3882A7799FC00D49332 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E37A2A7799FC00D49332 /* Button.swift */; };
 		6ACD03AC2A778F9B00B6DAD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACD03AB2A778F9B00B6DAD1 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		6AB1E3332A77990C00D49332 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6ACD03052A778F0A00B6DAD1;
-			remoteInfo = TossPayments;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		6A8EE1202A7CC66F00A9DD94 /* Embed Frameworks */ = {
@@ -107,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025BF4612BF630BA00DA75BE /* TossPayments in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,9 +291,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				6AB1E3342A77990C00D49332 /* PBXTargetDependency */,
 			);
 			name = "UIKit-Example";
+			packageProductDependencies = (
+				025BF4602BF630BA00DA75BE /* TossPayments */,
+			);
 			productName = "UIKit-Example";
 			productReference = 6ACD03A92A778F9A00B6DAD1 /* UIKit-Example.app */;
 			productType = "com.apple.product-type.application";
@@ -332,6 +326,9 @@
 				en,
 			);
 			mainGroup = D0145A4E835EE896265431B4;
+			packageReferences = (
+				025BF45F2BF630BA00DA75BE /* XCLocalSwiftPackageReference ".." */,
+			);
 			productRefGroup = 2E84ED8F29EF63DC8EE12764 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -398,13 +395,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		6AB1E3342A77990C00D49332 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			targetProxy = 6AB1E3332A77990C00D49332 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		6AB1E3472A77993B00D49332 /* LaunchScreen.storyboard */ = {
@@ -713,6 +703,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		025BF45F2BF630BA00DA75BE /* XCLocalSwiftPackageReference ".." */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ..;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		025BF4602BF630BA00DA75BE /* TossPayments */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TossPayments;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E719D065FEA419CD729FCD6A /* Project object */;
 }

@@ -7,77 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */; };
 		6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */; };
 		6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */; };
 		6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */; };
 		6A8EE1112A7CA79700A9DD94 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */; };
-		6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */; };
-		6A8EE1192A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */; };
-		6A8EE11B2A7CC3AE00A9DD94 /* AgreementWidgetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */; };
-		6A8EE11C2A7CC66E00A9DD94 /* TossPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; };
-		6A8EE11D2A7CC66E00A9DD94 /* TossPayments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6A8EE1222A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */; };
-		6AB129262AB8ADB7000B4485 /* WidgetPaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */; };
-		6AB1E2F62A77976700D49332 /* BrowserPopupHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */; };
-		6AB1E2F72A77976700D49332 /* BrowserPopupWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */; };
-		6AB1E2F82A77976700D49332 /* URLComponent+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */; };
-		6AB1E2F92A77976700D49332 /* UIWindow+TossPaymentExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2AD2A77976700D49332 /* UIWindow+TossPaymentExtension.swift */; };
-		6AB1E2FA2A77976700D49332 /* TossPayments.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B02A77976700D49332 /* TossPayments.swift */; };
-		6AB1E2FB2A77976700D49332 /* PaymentMethodWidget+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B22A77976700D49332 /* PaymentMethodWidget+Extensions.swift */; };
-		6AB1E2FC2A77976700D49332 /* CanUpdateHeight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B42A77976700D49332 /* CanUpdateHeight.swift */; };
-		6AB1E2FD2A77976700D49332 /* PaymentWidgetComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B52A77976700D49332 /* PaymentWidgetComponent.swift */; };
-		6AB1E2FE2A77976700D49332 /* AgreementWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B72A77976700D49332 /* AgreementWidget.swift */; };
-		6AB1E2FF2A77976700D49332 /* PaymentMethodWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B82A77976700D49332 /* PaymentMethodWidget.swift */; };
-		6AB1E3002A77976700D49332 /* PaymentWidget+WebSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2B92A77976700D49332 /* PaymentWidget+WebSources.swift */; };
-		6AB1E3012A77976700D49332 /* PaymentWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2BA2A77976700D49332 /* PaymentWidget.swift */; };
-		6AB1E3022A77976700D49332 /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2BC2A77976700D49332 /* MessageHandler.swift */; };
-		6AB1E3032A77976700D49332 /* WidgetMessageProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2BD2A77976700D49332 /* WidgetMessageProtocol.swift */; };
-		6AB1E3042A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2BE2A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift */; };
-		6AB1E3052A77976700D49332 /* WidgetStatusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2BF2A77976700D49332 /* WidgetStatusMessage.swift */; };
-		6AB1E3062A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C02A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift */; };
-		6AB1E3072A77976700D49332 /* CustomRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C12A77976700D49332 /* CustomRequestMessage.swift */; };
-		6AB1E3082A77976700D49332 /* UpdateHeightMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C22A77976700D49332 /* UpdateHeightMessage.swift */; };
-		6AB1E3092A77976700D49332 /* UpdateAgreementStatusMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C32A77976700D49332 /* UpdateAgreementStatusMessage.swift */; };
-		6AB1E30A2A77976700D49332 /* ScriptName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C52A77976700D49332 /* ScriptName.swift */; };
-		6AB1E30B2A77976700D49332 /* RequestHTMLMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */; };
-		6AB1E30C2A77976700D49332 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C72A77976700D49332 /* ErrorHandler.swift */; };
-		6AB1E30D2A77976700D49332 /* SuccessHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C82A77976700D49332 /* SuccessHandler.swift */; };
-		6AB1E30E2A77976700D49332 /* RequestPaymentsMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */; };
-		6AB1E30F2A77976700D49332 /* UpdateHeightMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */; };
-		6AB1E3102A77976700D49332 /* MessageScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */; };
-		6AB1E3112A77976700D49332 /* BrandPay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CD2A77976700D49332 /* BrandPay.swift */; };
-		6AB1E3122A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CF2A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift */; };
-		6AB1E3132A77976700D49332 /* TossPaymentsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D02A77976700D49332 /* TossPaymentsDelegate.swift */; };
-		6AB1E3142A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D12A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift */; };
-		6AB1E3152A77976700D49332 /* TossPaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D22A77976700D49332 /* TossPaymentsViewController.swift */; };
-		6AB1E3162A77976700D49332 /* AppSchemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D42A77976700D49332 /* AppSchemeManager.swift */; };
-		6AB1E3172A77976700D49332 /* AgreementStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D62A77976700D49332 /* AgreementStatus.swift */; };
-		6AB1E3182A77976700D49332 /* PaymentMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D82A77976700D49332 /* PaymentMethod.swift */; };
-		6AB1E3192A77976700D49332 /* GiftCertificate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2D92A77976700D49332 /* GiftCertificate.swift */; };
-		6AB1E31A2A77976700D49332 /* TossPaymentsResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2DA2A77976700D49332 /* TossPaymentsResult.swift */; };
-		6AB1E31B2A77976700D49332 /* DefaultWidgetPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2DC2A77976700D49332 /* DefaultWidgetPaymentInfo.swift */; };
-		6AB1E31C2A77976700D49332 /* WidgetPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2DD2A77976700D49332 /* WidgetPaymentInfo.swift */; };
-		6AB1E31D2A77976700D49332 /* EscrowProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */; };
-		6AB1E31E2A77976700D49332 /* CashReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E02A77976700D49332 /* CashReceipt.swift */; };
-		6AB1E31F2A77976700D49332 /* CarrierCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E12A77976700D49332 /* CarrierCode.swift */; };
-		6AB1E3202A77976700D49332 /* WidgetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E22A77976700D49332 /* WidgetStatus.swift */; };
-		6AB1E3212A77976700D49332 /* CustomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E32A77976700D49332 /* CustomRequest.swift */; };
-		6AB1E3222A77976700D49332 /* GiftCertificatePaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E52A77976700D49332 /* GiftCertificatePaymentInfo.swift */; };
-		6AB1E3232A77976700D49332 /* MobilePhonePaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E62A77976700D49332 /* MobilePhonePaymentInfo.swift */; };
-		6AB1E3242A77976700D49332 /* PaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E72A77976700D49332 /* PaymentInfo.swift */; };
-		6AB1E3252A77976700D49332 /* TransferPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E82A77976700D49332 /* TransferPaymentInfo.swift */; };
-		6AB1E3262A77976700D49332 /* CardPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E92A77976700D49332 /* CardPaymentInfo.swift */; };
-		6AB1E3272A77976700D49332 /* WebConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2EA2A77976700D49332 /* WebConstants.swift */; };
-		6AB1E3282A77976700D49332 /* VirtualAccountPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2EB2A77976700D49332 /* VirtualAccountPaymentInfo.swift */; };
-		6AB1E3292A77976700D49332 /* DefaultPaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2EC2A77976700D49332 /* DefaultPaymentInfo.swift */; };
-		6AB1E32A2A77976700D49332 /* WidgetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2EE2A77976700D49332 /* WidgetService.swift */; };
-		6AB1E32B2A77976700D49332 /* TossPaymentsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2EF2A77976700D49332 /* TossPaymentsService.swift */; };
-		6AB1E32C2A77976700D49332 /* TossPaymentsEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2F02A77976700D49332 /* TossPaymentsEnvironment.swift */; };
-		6AB1E32D2A77976700D49332 /* TossPaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2F32A77976700D49332 /* TossPaymentsView.swift */; };
-		6AB1E32E2A77976700D49332 /* TossPaymentsWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2F52A77976700D49332 /* TossPaymentsWebView.swift */; };
-		6AB1E3312A77990C00D49332 /* TossPayments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; };
-		6AB1E3322A77990C00D49332 /* TossPayments.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6AB1E35E2A77993B00D49332 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1E3462A77993B00D49332 /* Assets.xcassets */; };
 		6AB1E35F2A77993B00D49332 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1E3472A77993B00D49332 /* LaunchScreen.storyboard */; };
 		6AB1E3602A77993B00D49332 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6AB1E3492A77993B00D49332 /* Main.storyboard */; };
@@ -96,24 +30,9 @@
 		6AB1E3872A7799FC00D49332 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E3792A7799FC00D49332 /* TextField.swift */; };
 		6AB1E3882A7799FC00D49332 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E37A2A7799FC00D49332 /* Button.swift */; };
 		6ACD03AC2A778F9B00B6DAD1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACD03AB2A778F9B00B6DAD1 /* AppDelegate.swift */; };
-		6AFE43212AC12A05002CAE67 /* ChangePaymentMethodMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		6A8EE11E2A7CC66E00A9DD94 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6ACD03052A778F0A00B6DAD1;
-			remoteInfo = TossPayments;
-		};
-		6AB1E32F2A77982500D49332 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 6ACD03052A778F0A00B6DAD1;
-			remoteInfo = TossPayments;
-		};
 		6AB1E3332A77990C00D49332 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E719D065FEA419CD729FCD6A /* Project object */;
@@ -130,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6A8EE11D2A7CC66E00A9DD94 /* TossPayments.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,7 +59,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				6AB1E3322A77990C00D49332 /* TossPayments.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,74 +66,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+TossPaymentExtension.swift"; sourceTree = "<group>"; };
 		6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A8EE1092A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_ExampleApp.swift; sourceTree = "<group>"; };
 		6A8EE10B2A7CA79600A9DD94 /* TossPaymentsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentView.swift; sourceTree = "<group>"; };
 		6A8EE10D2A7CA79700A9DD94 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentWidgetView.swift; sourceTree = "<group>"; };
-		6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodWidgetView.swift; sourceTree = "<group>"; };
-		6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementWidgetView.swift; sourceTree = "<group>"; };
 		6A8EE1212A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TossPaymentsContentViewModel.swift; sourceTree = "<group>"; };
-		6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetPaymentMethod.swift; sourceTree = "<group>"; };
-		6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupHandler.swift; sourceTree = "<group>"; };
-		6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowserPopupWindowController.swift; sourceTree = "<group>"; };
-		6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "URLComponent+TossPaymentExtension.swift"; sourceTree = "<group>"; };
-		6AB1E2AD2A77976700D49332 /* UIWindow+TossPaymentExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+TossPaymentExtension.swift"; sourceTree = "<group>"; };
-		6AB1E2B02A77976700D49332 /* TossPayments.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPayments.swift; sourceTree = "<group>"; };
-		6AB1E2B22A77976700D49332 /* PaymentMethodWidget+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaymentMethodWidget+Extensions.swift"; sourceTree = "<group>"; };
-		6AB1E2B42A77976700D49332 /* CanUpdateHeight.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CanUpdateHeight.swift; sourceTree = "<group>"; };
-		6AB1E2B52A77976700D49332 /* PaymentWidgetComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentWidgetComponent.swift; sourceTree = "<group>"; };
-		6AB1E2B72A77976700D49332 /* AgreementWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementWidget.swift; sourceTree = "<group>"; };
-		6AB1E2B82A77976700D49332 /* PaymentMethodWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethodWidget.swift; sourceTree = "<group>"; };
-		6AB1E2B92A77976700D49332 /* PaymentWidget+WebSources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PaymentWidget+WebSources.swift"; sourceTree = "<group>"; };
-		6AB1E2BA2A77976700D49332 /* PaymentWidget.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentWidget.swift; sourceTree = "<group>"; };
-		6AB1E2BC2A77976700D49332 /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
-		6AB1E2BD2A77976700D49332 /* WidgetMessageProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetMessageProtocol.swift; sourceTree = "<group>"; };
-		6AB1E2BE2A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaymentMethodUnselectedMessage.swift; sourceTree = "<group>"; };
-		6AB1E2BF2A77976700D49332 /* WidgetStatusMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetStatusMessage.swift; sourceTree = "<group>"; };
-		6AB1E2C02A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPaymentMethodSelectedMessage.swift; sourceTree = "<group>"; };
-		6AB1E2C12A77976700D49332 /* CustomRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRequestMessage.swift; sourceTree = "<group>"; };
-		6AB1E2C22A77976700D49332 /* UpdateHeightMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHeightMessage.swift; sourceTree = "<group>"; };
-		6AB1E2C32A77976700D49332 /* UpdateAgreementStatusMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateAgreementStatusMessage.swift; sourceTree = "<group>"; };
-		6AB1E2C52A77976700D49332 /* ScriptName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScriptName.swift; sourceTree = "<group>"; };
-		6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHTMLMessageHandler.swift; sourceTree = "<group>"; };
-		6AB1E2C72A77976700D49332 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
-		6AB1E2C82A77976700D49332 /* SuccessHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessHandler.swift; sourceTree = "<group>"; };
-		6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPaymentsMessageHandler.swift; sourceTree = "<group>"; };
-		6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHeightMessageHandler.swift; sourceTree = "<group>"; };
-		6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageScriptHandler.swift; sourceTree = "<group>"; };
-		6AB1E2CD2A77976700D49332 /* BrandPay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrandPay.swift; sourceTree = "<group>"; };
-		6AB1E2CF2A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TossPaymentsViewController+WKUIDelegate.swift"; sourceTree = "<group>"; };
-		6AB1E2D02A77976700D49332 /* TossPaymentsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsDelegate.swift; sourceTree = "<group>"; };
-		6AB1E2D12A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsWidgetUIDelegate.swift; sourceTree = "<group>"; };
-		6AB1E2D22A77976700D49332 /* TossPaymentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsViewController.swift; sourceTree = "<group>"; };
-		6AB1E2D42A77976700D49332 /* AppSchemeManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSchemeManager.swift; sourceTree = "<group>"; };
-		6AB1E2D62A77976700D49332 /* AgreementStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AgreementStatus.swift; sourceTree = "<group>"; };
-		6AB1E2D82A77976700D49332 /* PaymentMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentMethod.swift; sourceTree = "<group>"; };
-		6AB1E2D92A77976700D49332 /* GiftCertificate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCertificate.swift; sourceTree = "<group>"; };
-		6AB1E2DA2A77976700D49332 /* TossPaymentsResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsResult.swift; sourceTree = "<group>"; };
-		6AB1E2DC2A77976700D49332 /* DefaultWidgetPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultWidgetPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2DD2A77976700D49332 /* WidgetPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscrowProducts.swift; sourceTree = "<group>"; };
-		6AB1E2E02A77976700D49332 /* CashReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashReceipt.swift; sourceTree = "<group>"; };
-		6AB1E2E12A77976700D49332 /* CarrierCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierCode.swift; sourceTree = "<group>"; };
-		6AB1E2E22A77976700D49332 /* WidgetStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetStatus.swift; sourceTree = "<group>"; };
-		6AB1E2E32A77976700D49332 /* CustomRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRequest.swift; sourceTree = "<group>"; };
-		6AB1E2E52A77976700D49332 /* GiftCertificatePaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCertificatePaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2E62A77976700D49332 /* MobilePhonePaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePhonePaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2E72A77976700D49332 /* PaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2E82A77976700D49332 /* TransferPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransferPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2E92A77976700D49332 /* CardPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2EA2A77976700D49332 /* WebConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebConstants.swift; sourceTree = "<group>"; };
-		6AB1E2EB2A77976700D49332 /* VirtualAccountPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VirtualAccountPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2EC2A77976700D49332 /* DefaultPaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultPaymentInfo.swift; sourceTree = "<group>"; };
-		6AB1E2EE2A77976700D49332 /* WidgetService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetService.swift; sourceTree = "<group>"; };
-		6AB1E2EF2A77976700D49332 /* TossPaymentsService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsService.swift; sourceTree = "<group>"; };
-		6AB1E2F02A77976700D49332 /* TossPaymentsEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsEnvironment.swift; sourceTree = "<group>"; };
-		6AB1E2F32A77976700D49332 /* TossPaymentsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsView.swift; sourceTree = "<group>"; };
-		6AB1E2F52A77976700D49332 /* TossPaymentsWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TossPaymentsWebView.swift; sourceTree = "<group>"; };
 		6AB1E3462A77993B00D49332 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6AB1E3482A77993B00D49332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6AB1E34A2A77993B00D49332 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -235,23 +90,13 @@
 		6AB1E3782A7799FC00D49332 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6AB1E3792A7799FC00D49332 /* TextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
 		6AB1E37A2A7799FC00D49332 /* Button.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
-		6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TossPayments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACD03A92A778F9A00B6DAD1 /* UIKit-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "UIKit-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6ACD03AB2A778F9B00B6DAD1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6ACD03BD2A778FFF00B6DAD1 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePaymentMethodMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		6A8EE1042A7CA79600A9DD94 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6A8EE11C2A7CC66E00A9DD94 /* TossPayments.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6ACD03032A778F0A00B6DAD1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,7 +107,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6AB1E3312A77990C00D49332 /* TossPayments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,7 +116,6 @@
 		2E84ED8F29EF63DC8EE12764 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */,
 				6ACD03A92A778F9A00B6DAD1 /* UIKit-Example.app */,
 				6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */,
 			);
@@ -297,261 +140,6 @@
 				6A8EE1102A7CA79700A9DD94 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		6A8EE1152A7CA80500A9DD94 /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				6A8EE1162A7CA81800A9DD94 /* PaymentWidgetView.swift */,
-				6A8EE1182A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift */,
-				6A8EE11A2A7CC3AE00A9DD94 /* AgreementWidgetView.swift */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
-		6AB1E2A62A77976700D49332 /* TossPayments */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2A72A77976700D49332 /* Sources */,
-			);
-			name = TossPayments;
-			path = ../TossPayments;
-			sourceTree = "<group>";
-		};
-		6AB1E2A72A77976700D49332 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2A82A77976700D49332 /* BrowserPopupWindow */,
-				6AB1E2AB2A77976700D49332 /* Util */,
-				6AB1E2AE2A77976700D49332 /* UIKit */,
-				6AB1E2D32A77976700D49332 /* AppSchemeManager */,
-				6AB1E2D52A77976700D49332 /* Model */,
-				6AB1E2ED2A77976700D49332 /* Service */,
-				6AB1E2F12A77976700D49332 /* SwiftUI */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		6AB1E2A82A77976700D49332 /* BrowserPopupWindow */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2A92A77976700D49332 /* BrowserPopupHandler.swift */,
-				6AB1E2AA2A77976700D49332 /* BrowserPopupWindowController.swift */,
-			);
-			path = BrowserPopupWindow;
-			sourceTree = "<group>";
-		};
-		6AB1E2AB2A77976700D49332 /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2AC2A77976700D49332 /* URLComponent+TossPaymentExtension.swift */,
-				6AB1E2AD2A77976700D49332 /* UIWindow+TossPaymentExtension.swift */,
-				6A075CCF2B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift */,
-			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		6AB1E2AE2A77976700D49332 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2AF2A77976700D49332 /* TossPayments */,
-				6AB1E2B12A77976700D49332 /* Widget */,
-				6AB1E2BB2A77976700D49332 /* Message */,
-				6AB1E2C42A77976700D49332 /* ScriptHandler */,
-				6AB1E2CC2A77976700D49332 /* BrandPay */,
-				6AB1E2CE2A77976700D49332 /* Base */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		6AB1E2AF2A77976700D49332 /* TossPayments */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2B02A77976700D49332 /* TossPayments.swift */,
-			);
-			path = TossPayments;
-			sourceTree = "<group>";
-		};
-		6AB1E2B12A77976700D49332 /* Widget */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2B22A77976700D49332 /* PaymentMethodWidget+Extensions.swift */,
-				6AB1E2B32A77976700D49332 /* Protocol */,
-				6AB1E2B62A77976700D49332 /* Model */,
-				6AB1E2B92A77976700D49332 /* PaymentWidget+WebSources.swift */,
-				6AB1E2BA2A77976700D49332 /* PaymentWidget.swift */,
-			);
-			path = Widget;
-			sourceTree = "<group>";
-		};
-		6AB1E2B32A77976700D49332 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2B42A77976700D49332 /* CanUpdateHeight.swift */,
-				6AB1E2B52A77976700D49332 /* PaymentWidgetComponent.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		6AB1E2B62A77976700D49332 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2B72A77976700D49332 /* AgreementWidget.swift */,
-				6AB1E2B82A77976700D49332 /* PaymentMethodWidget.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6AB1E2BB2A77976700D49332 /* Message */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2BC2A77976700D49332 /* MessageHandler.swift */,
-				6AB1E2BD2A77976700D49332 /* WidgetMessageProtocol.swift */,
-				6AB1E2BE2A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift */,
-				6AB1E2BF2A77976700D49332 /* WidgetStatusMessage.swift */,
-				6AB1E2C02A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift */,
-				6AFE43202AC12A05002CAE67 /* ChangePaymentMethodMessage.swift */,
-				6AB1E2C12A77976700D49332 /* CustomRequestMessage.swift */,
-				6AB1E2C22A77976700D49332 /* UpdateHeightMessage.swift */,
-				6AB1E2C32A77976700D49332 /* UpdateAgreementStatusMessage.swift */,
-			);
-			path = Message;
-			sourceTree = "<group>";
-		};
-		6AB1E2C42A77976700D49332 /* ScriptHandler */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2C52A77976700D49332 /* ScriptName.swift */,
-				6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */,
-				6AB1E2C72A77976700D49332 /* ErrorHandler.swift */,
-				6AB1E2C82A77976700D49332 /* SuccessHandler.swift */,
-				6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */,
-				6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */,
-				6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */,
-			);
-			path = ScriptHandler;
-			sourceTree = "<group>";
-		};
-		6AB1E2CC2A77976700D49332 /* BrandPay */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2CD2A77976700D49332 /* BrandPay.swift */,
-			);
-			path = BrandPay;
-			sourceTree = "<group>";
-		};
-		6AB1E2CE2A77976700D49332 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2CF2A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift */,
-				6AB1E2D02A77976700D49332 /* TossPaymentsDelegate.swift */,
-				6AB1E2D12A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift */,
-				6AB1E2D22A77976700D49332 /* TossPaymentsViewController.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		6AB1E2D32A77976700D49332 /* AppSchemeManager */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2D42A77976700D49332 /* AppSchemeManager.swift */,
-			);
-			path = AppSchemeManager;
-			sourceTree = "<group>";
-		};
-		6AB1E2D52A77976700D49332 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2D62A77976700D49332 /* AgreementStatus.swift */,
-				6AB1E2D72A77976700D49332 /* PaymentMethod */,
-				6AB1E2DA2A77976700D49332 /* TossPaymentsResult.swift */,
-				6AB1E2DB2A77976700D49332 /* WidgetPaymentInfo */,
-				6AB1E2DE2A77976700D49332 /* Etc */,
-				6AB1E2E22A77976700D49332 /* WidgetStatus.swift */,
-				6AB1E2E32A77976700D49332 /* CustomRequest.swift */,
-				6AB1E2E42A77976700D49332 /* PaymentInfo */,
-				6AB129252AB8ADB7000B4485 /* WidgetPaymentMethod.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		6AB1E2D72A77976700D49332 /* PaymentMethod */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2D82A77976700D49332 /* PaymentMethod.swift */,
-				6AB1E2D92A77976700D49332 /* GiftCertificate.swift */,
-			);
-			path = PaymentMethod;
-			sourceTree = "<group>";
-		};
-		6AB1E2DB2A77976700D49332 /* WidgetPaymentInfo */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2DC2A77976700D49332 /* DefaultWidgetPaymentInfo.swift */,
-				6AB1E2DD2A77976700D49332 /* WidgetPaymentInfo.swift */,
-			);
-			path = WidgetPaymentInfo;
-			sourceTree = "<group>";
-		};
-		6AB1E2DE2A77976700D49332 /* Etc */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */,
-				6AB1E2E02A77976700D49332 /* CashReceipt.swift */,
-				6AB1E2E12A77976700D49332 /* CarrierCode.swift */,
-			);
-			path = Etc;
-			sourceTree = "<group>";
-		};
-		6AB1E2E42A77976700D49332 /* PaymentInfo */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2E52A77976700D49332 /* GiftCertificatePaymentInfo.swift */,
-				6AB1E2E62A77976700D49332 /* MobilePhonePaymentInfo.swift */,
-				6AB1E2E72A77976700D49332 /* PaymentInfo.swift */,
-				6AB1E2E82A77976700D49332 /* TransferPaymentInfo.swift */,
-				6AB1E2E92A77976700D49332 /* CardPaymentInfo.swift */,
-				6AB1E2EA2A77976700D49332 /* WebConstants.swift */,
-				6AB1E2EB2A77976700D49332 /* VirtualAccountPaymentInfo.swift */,
-				6AB1E2EC2A77976700D49332 /* DefaultPaymentInfo.swift */,
-			);
-			path = PaymentInfo;
-			sourceTree = "<group>";
-		};
-		6AB1E2ED2A77976700D49332 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2EE2A77976700D49332 /* WidgetService.swift */,
-				6AB1E2EF2A77976700D49332 /* TossPaymentsService.swift */,
-				6AB1E2F02A77976700D49332 /* TossPaymentsEnvironment.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		6AB1E2F12A77976700D49332 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				6A8EE1152A7CA80500A9DD94 /* Widget */,
-				6AB1E2F22A77976700D49332 /* TossPayments */,
-			);
-			path = SwiftUI;
-			sourceTree = "<group>";
-		};
-		6AB1E2F22A77976700D49332 /* TossPayments */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2F32A77976700D49332 /* TossPaymentsView.swift */,
-				6AB1E2F42A77976700D49332 /* WebView */,
-			);
-			path = TossPayments;
-			sourceTree = "<group>";
-		};
-		6AB1E2F42A77976700D49332 /* WebView */ = {
-			isa = PBXGroup;
-			children = (
-				6AB1E2F52A77976700D49332 /* TossPaymentsWebView.swift */,
-			);
-			path = WebView;
 			sourceTree = "<group>";
 		};
 		6AB1E3452A77993B00D49332 /* Resources */ = {
@@ -671,7 +259,6 @@
 		D0145A4E835EE896265431B4 = {
 			isa = PBXGroup;
 			children = (
-				6AB1E2A62A77976700D49332 /* TossPayments */,
 				6ACD03AA2A778F9A00B6DAD1 /* UIKit-Example */,
 				6A8EE1082A7CA79600A9DD94 /* SwiftUI-Example */,
 				87F8BE6CD708A1BD538D9513 /* Frameworks */,
@@ -680,16 +267,6 @@
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
-
-/* Begin PBXHeadersBuildPhase section */
-		6ACD03012A778F0A00B6DAD1 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		6A8EE1062A7CA79600A9DD94 /* SwiftUI-Example */ = {
@@ -704,30 +281,11 @@
 			buildRules = (
 			);
 			dependencies = (
-				6A8EE11F2A7CC66E00A9DD94 /* PBXTargetDependency */,
 			);
 			name = "SwiftUI-Example";
 			productName = "SwiftUI-Example";
 			productReference = 6A8EE1072A7CA79600A9DD94 /* SwiftUI-Example.app */;
 			productType = "com.apple.product-type.application";
-		};
-		6ACD03052A778F0A00B6DAD1 /* TossPayments */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 6ACD03172A778F0C00B6DAD1 /* Build configuration list for PBXNativeTarget "TossPayments" */;
-			buildPhases = (
-				6ACD03012A778F0A00B6DAD1 /* Headers */,
-				6ACD03022A778F0A00B6DAD1 /* Sources */,
-				6ACD03032A778F0A00B6DAD1 /* Frameworks */,
-				6ACD03042A778F0A00B6DAD1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = TossPayments;
-			productName = TossPayments;
-			productReference = 6ACD03062A778F0A00B6DAD1 /* TossPayments.framework */;
-			productType = "com.apple.product-type.framework";
 		};
 		6ACD03A82A778F9A00B6DAD1 /* UIKit-Example */ = {
 			isa = PBXNativeTarget;
@@ -741,7 +299,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				6AB1E3302A77982500D49332 /* PBXTargetDependency */,
 				6AB1E3342A77990C00D49332 /* PBXTargetDependency */,
 			);
 			name = "UIKit-Example";
@@ -759,9 +316,6 @@
 				ORGANIZATIONNAME = "TossPayments, Inc";
 				TargetAttributes = {
 					6A8EE1062A7CA79600A9DD94 = {
-						CreatedOnToolsVersion = 14.3.1;
-					};
-					6ACD03052A778F0A00B6DAD1 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
 					6ACD03A82A778F9A00B6DAD1 = {
@@ -782,7 +336,6 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				6ACD03052A778F0A00B6DAD1 /* TossPayments */,
 				6ACD03A82A778F9A00B6DAD1 /* UIKit-Example */,
 				6A8EE1062A7CA79600A9DD94 /* SwiftUI-Example */,
 			);
@@ -796,13 +349,6 @@
 			files = (
 				6A8EE1112A7CA79700A9DD94 /* Preview Assets.xcassets in Resources */,
 				6A8EE10E2A7CA79700A9DD94 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6ACD03042A778F0A00B6DAD1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -826,76 +372,6 @@
 				6A8EE10C2A7CA79600A9DD94 /* TossPaymentsContentView.swift in Sources */,
 				6A8EE1222A7CC9D300A9DD94 /* TossPaymentsContentViewModel.swift in Sources */,
 				6A8EE10A2A7CA79600A9DD94 /* SwiftUI_ExampleApp.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		6ACD03022A778F0A00B6DAD1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6AB1E3012A77976700D49332 /* PaymentWidget.swift in Sources */,
-				6AB1E3162A77976700D49332 /* AppSchemeManager.swift in Sources */,
-				6AB1E3092A77976700D49332 /* UpdateAgreementStatusMessage.swift in Sources */,
-				6AB1E31C2A77976700D49332 /* WidgetPaymentInfo.swift in Sources */,
-				6AB1E31E2A77976700D49332 /* CashReceipt.swift in Sources */,
-				6AB1E3132A77976700D49332 /* TossPaymentsDelegate.swift in Sources */,
-				6AB1E30F2A77976700D49332 /* UpdateHeightMessageHandler.swift in Sources */,
-				6A8EE11B2A7CC3AE00A9DD94 /* AgreementWidgetView.swift in Sources */,
-				6AB1E3202A77976700D49332 /* WidgetStatus.swift in Sources */,
-				6AB1E3082A77976700D49332 /* UpdateHeightMessage.swift in Sources */,
-				6AB1E32B2A77976700D49332 /* TossPaymentsService.swift in Sources */,
-				6AB1E3232A77976700D49332 /* MobilePhonePaymentInfo.swift in Sources */,
-				6AB1E32C2A77976700D49332 /* TossPaymentsEnvironment.swift in Sources */,
-				6AB1E3062A77976700D49332 /* CustomPaymentMethodSelectedMessage.swift in Sources */,
-				6AB1E3052A77976700D49332 /* WidgetStatusMessage.swift in Sources */,
-				6AB1E3112A77976700D49332 /* BrandPay.swift in Sources */,
-				6AB1E3262A77976700D49332 /* CardPaymentInfo.swift in Sources */,
-				6AB1E3152A77976700D49332 /* TossPaymentsViewController.swift in Sources */,
-				6AB1E3142A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift in Sources */,
-				6AB1E30A2A77976700D49332 /* ScriptName.swift in Sources */,
-				6AB1E30D2A77976700D49332 /* SuccessHandler.swift in Sources */,
-				6AB1E3292A77976700D49332 /* DefaultPaymentInfo.swift in Sources */,
-				6AB1E2FC2A77976700D49332 /* CanUpdateHeight.swift in Sources */,
-				6AB1E2FF2A77976700D49332 /* PaymentMethodWidget.swift in Sources */,
-				6AB1E3252A77976700D49332 /* TransferPaymentInfo.swift in Sources */,
-				6AB1E2F62A77976700D49332 /* BrowserPopupHandler.swift in Sources */,
-				6AB1E3172A77976700D49332 /* AgreementStatus.swift in Sources */,
-				6AB1E31F2A77976700D49332 /* CarrierCode.swift in Sources */,
-				6AB1E32A2A77976700D49332 /* WidgetService.swift in Sources */,
-				6AB1E3072A77976700D49332 /* CustomRequestMessage.swift in Sources */,
-				6AB1E3282A77976700D49332 /* VirtualAccountPaymentInfo.swift in Sources */,
-				6AB1E30C2A77976700D49332 /* ErrorHandler.swift in Sources */,
-				6AB1E2FE2A77976700D49332 /* AgreementWidget.swift in Sources */,
-				6AB1E3032A77976700D49332 /* WidgetMessageProtocol.swift in Sources */,
-				6AB1E31D2A77976700D49332 /* EscrowProducts.swift in Sources */,
-				6AB1E2F82A77976700D49332 /* URLComponent+TossPaymentExtension.swift in Sources */,
-				6AB1E2F72A77976700D49332 /* BrowserPopupWindowController.swift in Sources */,
-				6AB1E2FD2A77976700D49332 /* PaymentWidgetComponent.swift in Sources */,
-				6AB1E3222A77976700D49332 /* GiftCertificatePaymentInfo.swift in Sources */,
-				6AB1E3242A77976700D49332 /* PaymentInfo.swift in Sources */,
-				6AB129262AB8ADB7000B4485 /* WidgetPaymentMethod.swift in Sources */,
-				6A8EE1172A7CA81900A9DD94 /* PaymentWidgetView.swift in Sources */,
-				6AB1E3182A77976700D49332 /* PaymentMethod.swift in Sources */,
-				6AB1E3022A77976700D49332 /* MessageHandler.swift in Sources */,
-				6AB1E3272A77976700D49332 /* WebConstants.swift in Sources */,
-				6AB1E31B2A77976700D49332 /* DefaultWidgetPaymentInfo.swift in Sources */,
-				6AFE43212AC12A05002CAE67 /* ChangePaymentMethodMessage.swift in Sources */,
-				6AB1E2FB2A77976700D49332 /* PaymentMethodWidget+Extensions.swift in Sources */,
-				6AB1E32E2A77976700D49332 /* TossPaymentsWebView.swift in Sources */,
-				6A075CD02B612EEB00CBA7BE /* UIView+TossPaymentExtension.swift in Sources */,
-				6AB1E3122A77976700D49332 /* TossPaymentsViewController+WKUIDelegate.swift in Sources */,
-				6AB1E31A2A77976700D49332 /* TossPaymentsResult.swift in Sources */,
-				6AB1E30B2A77976700D49332 /* RequestHTMLMessageHandler.swift in Sources */,
-				6AB1E3042A77976700D49332 /* CustomPaymentMethodUnselectedMessage.swift in Sources */,
-				6AB1E30E2A77976700D49332 /* RequestPaymentsMessageHandler.swift in Sources */,
-				6AB1E3212A77976700D49332 /* CustomRequest.swift in Sources */,
-				6AB1E2F92A77976700D49332 /* UIWindow+TossPaymentExtension.swift in Sources */,
-				6AB1E2FA2A77976700D49332 /* TossPayments.swift in Sources */,
-				6AB1E3192A77976700D49332 /* GiftCertificate.swift in Sources */,
-				6AB1E3102A77976700D49332 /* MessageScriptHandler.swift in Sources */,
-				6AB1E32D2A77976700D49332 /* TossPaymentsView.swift in Sources */,
-				6AB1E3002A77976700D49332 /* PaymentWidget+WebSources.swift in Sources */,
-				6A8EE1192A7CC3A100A9DD94 /* PaymentMethodWidgetView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -924,19 +400,8 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		6A8EE11F2A7CC66E00A9DD94 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6ACD03052A778F0A00B6DAD1 /* TossPayments */;
-			targetProxy = 6A8EE11E2A7CC66E00A9DD94 /* PBXContainerItemProxy */;
-		};
-		6AB1E3302A77982500D49332 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 6ACD03052A778F0A00B6DAD1 /* TossPayments */;
-			targetProxy = 6AB1E32F2A77982500D49332 /* PBXContainerItemProxy */;
-		};
 		6AB1E3342A77990C00D49332 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 6ACD03052A778F0A00B6DAD1 /* TossPayments */;
 			targetProxy = 6AB1E3332A77990C00D49332 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1089,85 +554,6 @@
 			};
 			name = Release;
 		};
-		6ACD03182A778F0C00B6DAD1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = NXA4356DUW;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 TossPayments, Inc. All rights reserved.";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1.25;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.TossPayments;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		6ACD03192A778F0C00B6DAD1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = NXA4356DUW;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				ENABLE_MODULE_VERIFIER = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2023 TossPayments, Inc. All rights reserved.";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 0.1.25;
-				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
-				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
-				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.tosspayments.TossPayments;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		6ACD03BB2A778F9C00B6DAD1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1304,15 +690,6 @@
 			buildConfigurations = (
 				6A8EE1132A7CA79700A9DD94 /* Debug */,
 				6A8EE1142A7CA79700A9DD94 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		6ACD03172A778F0C00B6DAD1 /* Build configuration list for PBXNativeTarget "TossPayments" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				6ACD03182A778F0C00B6DAD1 /* Debug */,
-				6ACD03192A778F0C00B6DAD1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

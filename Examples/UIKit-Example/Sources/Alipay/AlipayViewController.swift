@@ -36,7 +36,7 @@ class AlipayViewController: ViewController {
     private lazy var DANA_버튼 = Button()
     private lazy var GCASH_버튼 = Button()
     private lazy var RABBIT_LINE_PAY_버튼 = Button()
-    private lazy var TNG_EWALLET_버튼 = Button()
+    private lazy var TOUCHNGO_버튼 = Button()
     private lazy var TRUEMONEY_버튼 = Button()
     
     override func viewDidLoad() {
@@ -53,7 +53,7 @@ class AlipayViewController: ViewController {
         stackView.addArrangedSubview(DANA_버튼)
         stackView.addArrangedSubview(GCASH_버튼)
         stackView.addArrangedSubview(RABBIT_LINE_PAY_버튼)
-        stackView.addArrangedSubview(TNG_EWALLET_버튼)
+        stackView.addArrangedSubview(TOUCHNGO_버튼)
         stackView.addArrangedSubview(TRUEMONEY_버튼)
         
         ALIPAY_버튼.title = "ALIPAY 결제하기"
@@ -64,7 +64,7 @@ class AlipayViewController: ViewController {
         DANA_버튼.title = "DANA 결제하기"
         GCASH_버튼.title = "GCASH 결제하기"
         RABBIT_LINE_PAY_버튼.title = "RABBIT_LINE_PAY 결제하기"
-        TNG_EWALLET_버튼.title = "TNG_EWALLET 결제하기"
+        TOUCHNGO_버튼.title = "TOUCHNGO 결제하기"
         TRUEMONEY_버튼.title = "TRUEMONEY 결제하기"
         
         ALIPAY_버튼.addTarget(self, action: #selector(ALIPAY_실행), for: .touchUpInside)
@@ -75,7 +75,7 @@ class AlipayViewController: ViewController {
         DANA_버튼.addTarget(self, action: #selector(DANA_실행), for: .touchUpInside)
         GCASH_버튼.addTarget(self, action: #selector(GCASH_실행), for: .touchUpInside)
         RABBIT_LINE_PAY_버튼.addTarget(self, action: #selector(RABBIT_LINE_PAY_실행), for: .touchUpInside)
-        TNG_EWALLET_버튼.addTarget(self, action: #selector(TNG_EWALLET_실행), for: .touchUpInside)
+        TOUCHNGO_버튼.addTarget(self, action: #selector(TOUCHNGO_실행), for: .touchUpInside)
         TRUEMONEY_버튼.addTarget(self, action: #selector(TRUEMONEY_실행), for: .touchUpInside)
     }
     
@@ -116,8 +116,8 @@ class AlipayViewController: ViewController {
     @objc func RABBIT_LINE_PAY_실행() {
       requestTossPayment(provider: "RABBIT_LINE_PAY")
     }
-    @objc func TNG_EWALLET_실행() {
-      requestTossPayment(provider: "TNG_EWALLET")
+    @objc func TOUCHNGO_실행() {
+      requestTossPayment(provider: "TOUCHNGO")
     }
     @objc func TRUEMONEY_실행() {
       requestTossPayment(provider: "TRUEMONEY")

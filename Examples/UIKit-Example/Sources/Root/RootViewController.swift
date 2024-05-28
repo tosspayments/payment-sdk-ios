@@ -76,6 +76,7 @@ final class RootViewController: ViewController {
     private lazy var 일반결제버튼 = Button()
     private lazy var 위젯버튼 = Button()
     private lazy var 오버레이로그화면버튼 = Button()
+    private lazy var 알리페이 = Button()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,16 +92,19 @@ final class RootViewController: ViewController {
         stackView.addArrangedSubview(일반결제버튼)
         stackView.addArrangedSubview(위젯버튼)
         stackView.addArrangedSubview(오버레이로그화면버튼)
+        stackView.addArrangedSubview(알리페이)
         
         테스트키리셋.title = "리셋"
         일반결제버튼.title = "일반결제 테스트"
         위젯버튼.title = "위젯 테스트"
         오버레이로그화면버튼.title = "로그 토글"
+        알리페이.title = "알리페이"
         
         테스트키리셋.addTarget(self, action: #selector(resetClientKey), for: .touchUpInside)
         일반결제버튼.addTarget(self, action: #selector(일반결제실행), for: .touchUpInside)
         위젯버튼.addTarget(self, action: #selector(위젯실행), for: .touchUpInside)
         오버레이로그화면버튼.addTarget(self, action: #selector(오버레이로그화면토글), for: .touchUpInside)
+        알리페이.addTarget(self, action: #selector(알리페이실행), for: .touchUpInside)
     }
     
     // swiftlint:disable:next identifier_name
@@ -111,6 +115,10 @@ final class RootViewController: ViewController {
     // swiftlint:disable:next identifier_name
     @objc func 위젯실행() {
         navigationController?.pushViewController(PaymentWidgetViewController(), animated: true)
+    }
+    
+    @objc func 알리페이실행() {
+        navigationController?.pushViewController(AlipayViewController(), animated: true)
     }
     
     // swiftlint:disable:next identifier_name

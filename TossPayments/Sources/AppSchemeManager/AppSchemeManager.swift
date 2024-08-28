@@ -58,8 +58,6 @@ enum AppSchemeManager: CaseIterable {
     case hyundaicardappcardid
     /// 페이나우
     case lguthepayxpay
-    /// Liiv 국민
-    case liivbank
     /// 리브 next
     case newliiv
     /// 토스
@@ -120,8 +118,6 @@ enum AppSchemeManager: CaseIterable {
             return "com.wooricard.wcard"
         case .lguthepayxpay:
             return "lguthepay-xpay"
-        case .liivbank:
-            return "liivbank"
         case .newliiv:
             return "newliiv"
         case .supertoss:
@@ -186,8 +182,6 @@ enum AppSchemeManager: CaseIterable {
             return "id1499598869"
         case .lguthepayxpay:
             return "id760098906"
-        case .liivbank:
-            return "id1126232922"
         case .supertoss:
             return "id839333328"
         case .newsmartpib:

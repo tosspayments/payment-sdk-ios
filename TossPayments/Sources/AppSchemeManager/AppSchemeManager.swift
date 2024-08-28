@@ -60,6 +60,8 @@ enum AppSchemeManager: CaseIterable {
     case lguthepayxpay
     /// Liiv 국민
     case liivbank
+    /// 리브 next
+    case newliiv
     /// 토스
     case supertoss
     /// 우리WON뱅킹
@@ -120,6 +122,8 @@ enum AppSchemeManager: CaseIterable {
             return "lguthepay-xpay"
         case .liivbank:
             return "liivbank"
+        case .newliiv:
+            return "newliiv"
         case .supertoss:
             return "supertoss"
         case .newsmartpib:
@@ -144,6 +148,8 @@ enum AppSchemeManager: CaseIterable {
             return "id695436326"
         case .kbbank:
             return "id373742138"
+        case .newliiv:
+            return "id1573528126"
         case .samsung:
             return "id535125356"
         case .lottemobile:

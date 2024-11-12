@@ -23,6 +23,7 @@ public struct CardPaymentInfo: PaymentInfo {
     public let easyPay: String?
     public let discountCode: String?
     public let appScheme: String?
+    public let currency: String?
     
     public let customerName: String?
     public let customerEmail: String?
@@ -56,6 +57,7 @@ public struct CardPaymentInfo: PaymentInfo {
         easyPay: String? = nil,
         discountCode: String? = nil,
         appScheme: String? = nil,
+        currency: String? = nil,
         customerName: String? = nil,
         customerEmail: String? = nil,
         taxFreeAmount: Double? = nil
@@ -74,6 +76,7 @@ public struct CardPaymentInfo: PaymentInfo {
         self.easyPay = easyPay
         self.discountCode = discountCode
         self.appScheme = appScheme
+        self.currency = currency
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount

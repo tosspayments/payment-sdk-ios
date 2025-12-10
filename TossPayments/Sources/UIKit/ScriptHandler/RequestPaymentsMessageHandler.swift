@@ -24,6 +24,18 @@ final class RequestPaymentsMessageHandler: NSObject, WKScriptMessageHandler {
             }
         }
         service.failURLHandler = { url in
+            guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+                viewController.dismiss(animated: true) {
+                    self.widget?.handleFailURL(url)
+                }
+                return
+            }
+
+            // NOTE(@JooYang): iOS 토스페이 웹에서 간혹 발생하는 code=102 에러(프레임 로드 중단됨)를 무시합니다.
+            if components.query(for: "errorCode") == "102" {
+                return
+            }
+
             viewController.dismiss(animated: true) {
                 self.widget?.handleFailURL(url)
             }

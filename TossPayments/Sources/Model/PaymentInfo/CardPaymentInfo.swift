@@ -28,6 +28,7 @@ public struct CardPaymentInfo: PaymentInfo {
     public let customerName: String?
     public let customerEmail: String?
     public let taxFreeAmount: Double?
+    public let subOrders: [SubOrder]?
     
     public struct Plan: Codable {
         public let company: String
@@ -60,7 +61,8 @@ public struct CardPaymentInfo: PaymentInfo {
         currency: String? = nil,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Double? = nil
+        taxFreeAmount: Double? = nil,
+        subOrders: [SubOrder]? = nil
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -80,5 +82,6 @@ public struct CardPaymentInfo: PaymentInfo {
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
+        self.subOrders = subOrders
     }
 }

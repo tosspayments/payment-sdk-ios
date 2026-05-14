@@ -25,6 +25,7 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
     public let customerEmail: String?
     public let taxFreeAmount: Double?
     public let cultureExpense: Bool
+    public let subOrders: [SubOrder]?
     
     public init(
         amount: Double,
@@ -41,7 +42,8 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         customerName: String?,
         customerEmail: String?,
         taxFreeAmount: Double,
-        cultureExpense: Bool
+        cultureExpense: Bool,
+        subOrders: [SubOrder]? = nil
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -58,5 +60,6 @@ public struct VirtualAccountPaymentInfo: PaymentInfo {
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
         self.cultureExpense = cultureExpense
+        self.subOrders = subOrders
     }
 }

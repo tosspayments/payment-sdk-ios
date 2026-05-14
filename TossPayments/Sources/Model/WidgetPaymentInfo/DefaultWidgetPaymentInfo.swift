@@ -28,6 +28,7 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
     public let escrowProducts: [String]?
     public let mobileCarrier: String?
     public let useInternationalCardOnly: Bool?
+    public let subOrders: [SubOrder]?
         
     public init(
         orderId: String,
@@ -43,7 +44,8 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
         useEscrow: Bool? = nil,
         escrowProducts: [String]? = nil,
         mobileCarrier: String? = nil,
-        useInternationalCardOnly: Bool? = nil
+        useInternationalCardOnly: Bool? = nil,
+        subOrders: [SubOrder]? = nil
     ) {
         self.orderId = orderId
         self.orderName = orderName
@@ -59,5 +61,6 @@ public struct DefaultWidgetPaymentInfo: WidgetPaymentInfo {
         self.escrowProducts = escrowProducts
         self.mobileCarrier = mobileCarrier
         self.useInternationalCardOnly = useInternationalCardOnly
+        self.subOrders = subOrders
     }
 }

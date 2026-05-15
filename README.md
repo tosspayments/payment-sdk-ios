@@ -49,13 +49,6 @@ let subOrder = SubOrder(
     orderName: "하위 주문"
 )
 
-let paymentInfo = DefaultPaymentInfo(
-    amount: 1000,
-    orderId: UUID().uuidString,
-    orderName: "토스페이먼츠 세트",
-    subOrders: [subOrder]
-)
-
 let widgetPaymentInfo = DefaultWidgetPaymentInfo(
     orderId: UUID().uuidString,
     orderName: "토스페이먼츠 세트",

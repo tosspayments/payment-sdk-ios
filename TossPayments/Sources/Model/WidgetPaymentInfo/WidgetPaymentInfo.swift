@@ -16,6 +16,11 @@ public protocol WidgetPaymentInfo: Codable {
     var customerName: String? { get }
     var customerEmail: String? { get }
     var taxFreeAmount: Double? { get }
+    var subOrders: [SubOrder]? { get }
+}
+
+public extension WidgetPaymentInfo {
+    var subOrders: [SubOrder]? { nil }
 }
 
 extension WidgetPaymentInfo {

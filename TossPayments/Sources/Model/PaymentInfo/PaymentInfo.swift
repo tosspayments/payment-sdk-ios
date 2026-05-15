@@ -17,13 +17,16 @@ public protocol PaymentInfo: Codable {
     var customerName: String? { get }
     var customerEmail: String? { get }
     var taxFreeAmount: Double? { get }
+    var subOrders: [SubOrder]? { get }
 }
 
 public extension PaymentInfo {
+    var subOrders: [SubOrder]? { nil }
+
     var orderedInfo: String {
         let orderdInfoKey = Set<String>([
             "amount", "orderId", "orderName",
-            "customerName", "customerEmail", "taxFreeAmount"
+            "customerName", "customerEmail", "taxFreeAmount", "subOrders"
         ])
         let unorderedJsonObject = self.jsonObject?.filter({ !orderdInfoKey.contains($0.0) })
         let unorderedInfoString: String = unorderedJsonObject?.compactMap({ (key, value) in
@@ -35,8 +38,33 @@ public extension PaymentInfo {
         orderName: \(orderName)
         customerName: \(customerName ?? "없음")
         customerEmail: \(customerEmail ?? "없음")
-        taxFreeAmount: \(taxFreeAmount ?? 0)\n
+        taxFreeAmount: \(taxFreeAmount ?? 0)
+        \(subOrdersInfo)\n
         """ + unorderedInfoString
+    }
+
+    private var subOrdersInfo: String {
+        guard let subOrders = subOrders, !subOrders.isEmpty else {
+            return "subOrders: 없음"
+        }
+
+        let subOrdersString = subOrders.map { subOrder in
+            """
+              {
+                merchantBusinessNumber: \(subOrder.merchantBusinessNumber)
+                merchantName: \(subOrder.merchantName)
+                merchantAddress: {
+                  country: \(subOrder.merchantAddress.country)
+                  postalCode: \(subOrder.merchantAddress.postalCode)
+                  address: \(subOrder.merchantAddress.address)
+                  detailAddress: \(subOrder.merchantAddress.detailAddress ?? "없음")
+                }
+                orderName: \(subOrder.orderName)
+              }
+            """
+        }.joined(separator: ",\n")
+
+        return "subOrders: [\n\(subOrdersString)\n]"
     }
 }
 

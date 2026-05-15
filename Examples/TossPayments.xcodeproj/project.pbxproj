@@ -63,6 +63,7 @@
 		6AB1E31D2A77976700D49332 /* EscrowProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */; };
 		6AB1E31E2A77976700D49332 /* CashReceipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E02A77976700D49332 /* CashReceipt.swift */; };
 		6AB1E31F2A77976700D49332 /* CarrierCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E12A77976700D49332 /* CarrierCode.swift */; };
+		49E80D8A6560494E8F9C5159 /* SubOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47A20FA8F96C4E908991C151 /* SubOrder.swift */; };
 		6AB1E3202A77976700D49332 /* WidgetStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E22A77976700D49332 /* WidgetStatus.swift */; };
 		6AB1E3212A77976700D49332 /* CustomRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E32A77976700D49332 /* CustomRequest.swift */; };
 		6AB1E3222A77976700D49332 /* GiftCertificatePaymentInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2E52A77976700D49332 /* GiftCertificatePaymentInfo.swift */; };
@@ -206,6 +207,7 @@
 		6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EscrowProducts.swift; sourceTree = "<group>"; };
 		6AB1E2E02A77976700D49332 /* CashReceipt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CashReceipt.swift; sourceTree = "<group>"; };
 		6AB1E2E12A77976700D49332 /* CarrierCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarrierCode.swift; sourceTree = "<group>"; };
+		47A20FA8F96C4E908991C151 /* SubOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SubOrder.swift; sourceTree = "<group>"; };
 		6AB1E2E22A77976700D49332 /* WidgetStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WidgetStatus.swift; sourceTree = "<group>"; };
 		6AB1E2E32A77976700D49332 /* CustomRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomRequest.swift; sourceTree = "<group>"; };
 		6AB1E2E52A77976700D49332 /* GiftCertificatePaymentInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GiftCertificatePaymentInfo.swift; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				6AB1E2DF2A77976700D49332 /* EscrowProducts.swift */,
 				6AB1E2E02A77976700D49332 /* CashReceipt.swift */,
 				6AB1E2E12A77976700D49332 /* CarrierCode.swift */,
+				47A20FA8F96C4E908991C151 /* SubOrder.swift */,
 			);
 			path = Etc;
 			sourceTree = "<group>";
@@ -875,6 +878,7 @@
 				6AB1E2F62A77976700D49332 /* BrowserPopupHandler.swift in Sources */,
 				6AB1E3172A77976700D49332 /* AgreementStatus.swift in Sources */,
 				6AB1E31F2A77976700D49332 /* CarrierCode.swift in Sources */,
+				49E80D8A6560494E8F9C5159 /* SubOrder.swift in Sources */,
 				6AB1E32A2A77976700D49332 /* WidgetService.swift in Sources */,
 				6AB1E3072A77976700D49332 /* CustomRequestMessage.swift in Sources */,
 				6AB1E3282A77976700D49332 /* VirtualAccountPaymentInfo.swift in Sources */,

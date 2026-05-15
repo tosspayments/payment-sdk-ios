@@ -20,6 +20,7 @@ public struct TransferPaymentInfo: PaymentInfo {
     public let customerEmail: String?
     public let taxFreeAmount: Double?
     public let cultureExpense: Bool?
+    public let subOrders: [SubOrder]?
     
     public init(
         amount: Double,
@@ -31,7 +32,8 @@ public struct TransferPaymentInfo: PaymentInfo {
         customerName: String? = nil,
         customerEmail: String? = nil,
         taxFreeAmount: Double? = nil,
-        cultureExpense: Bool? = nil
+        cultureExpense: Bool? = nil,
+        subOrders: [SubOrder]? = nil
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -43,5 +45,6 @@ public struct TransferPaymentInfo: PaymentInfo {
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
         self.cultureExpense = cultureExpense
+        self.subOrders = subOrders
     }
 }

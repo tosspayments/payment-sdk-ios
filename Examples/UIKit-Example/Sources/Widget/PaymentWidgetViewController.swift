@@ -25,6 +25,13 @@ public final class PaymentWidgetViewController: ViewController {
     private lazy var amountInputField = TextField()
     private lazy var orderIdInputField = TextField()
     private lazy var orderNameInputField = TextField()
+    private lazy var subOrderMerchantBusinessNumberInputField = TextField()
+    private lazy var subOrderMerchantNameInputField = TextField()
+    private lazy var subOrderMerchantCountryInputField = TextField()
+    private lazy var subOrderMerchantPostalCodeInputField = TextField()
+    private lazy var subOrderMerchantAddressInputField = TextField()
+    private lazy var subOrderMerchantDetailAddressInputField = TextField()
+    private lazy var subOrderNameInputField = TextField()
     
     private lazy var widget: PaymentWidget = PaymentWidget(
         clientKey: Environment.clientKey,
@@ -72,6 +79,13 @@ public final class PaymentWidgetViewController: ViewController {
         stackView.addArrangedSubview(amountInputField)
         stackView.addArrangedSubview(orderIdInputField)
         stackView.addArrangedSubview(orderNameInputField)
+        stackView.addArrangedSubview(subOrderMerchantBusinessNumberInputField)
+        stackView.addArrangedSubview(subOrderMerchantNameInputField)
+        stackView.addArrangedSubview(subOrderMerchantCountryInputField)
+        stackView.addArrangedSubview(subOrderMerchantPostalCodeInputField)
+        stackView.addArrangedSubview(subOrderMerchantAddressInputField)
+        stackView.addArrangedSubview(subOrderMerchantDetailAddressInputField)
+        stackView.addArrangedSubview(subOrderNameInputField)
         stackView.addArrangedSubview(paymentMethodWidget)
         stackView.addArrangedSubview(빈화면)
         stackView.addArrangedSubview(agreementWidget)
@@ -82,9 +96,25 @@ public final class PaymentWidgetViewController: ViewController {
         orderIdInputField.text = UUID().uuidString
         orderNameInputField.title = "orderName"
         orderNameInputField.text = "토스페이먼츠 세트"
+        subOrderMerchantBusinessNumberInputField.title = "subOrders[0].merchantBusinessNumber"
+        subOrderMerchantBusinessNumberInputField.text = "1234567890"
+        subOrderMerchantNameInputField.title = "subOrders[0].merchantName"
+        subOrderMerchantNameInputField.text = "토스 상점"
+        subOrderMerchantCountryInputField.title = "subOrders[0].merchantAddress.country"
+        subOrderMerchantCountryInputField.text = "KR"
+        subOrderMerchantPostalCodeInputField.title = "subOrders[0].merchantAddress.postalCode"
+        subOrderMerchantPostalCodeInputField.text = "06133"
+        subOrderMerchantAddressInputField.title = "subOrders[0].merchantAddress.address"
+        subOrderMerchantAddressInputField.text = "서울특별시 강남구 테헤란로"
+        subOrderMerchantDetailAddressInputField.title = "subOrders[0].merchantAddress.detailAddress"
+        subOrderMerchantDetailAddressInputField.text = "10층"
+        subOrderNameInputField.title = "subOrders[0].orderName"
+        subOrderNameInputField.text = "하위 주문"
         
         amountInputField.textField.addTarget(self, action: #selector(textFieldDidChanged(_:)), for: .editingChanged)
         amountInputField.textField.keyboardType = .numberPad
+        subOrderMerchantBusinessNumberInputField.textField.keyboardType = .numberPad
+        subOrderMerchantPostalCodeInputField.textField.keyboardType = .numberPad
         
         widget.delegate = self
         widget.paymentMethodWidget?.widgetUIDelegate = self
@@ -105,9 +135,38 @@ public final class PaymentWidgetViewController: ViewController {
             info: DefaultWidgetPaymentInfo(
                 orderId: orderIdInputField.textField.text ?? UUID().uuidString,
                 orderName: orderNameInputField.textField.text ?? "테스트 결제",
-                appScheme: Environment.Constant.appScheme
+                appScheme: Environment.Constant.appScheme,
+                subOrders: [makeSubOrder()]
             )
         )
+    }
+
+    private func makeSubOrder() -> SubOrder {
+        SubOrder(
+            merchantBusinessNumber: textValue(subOrderMerchantBusinessNumberInputField, default: "1234567890"),
+            merchantName: textValue(subOrderMerchantNameInputField, default: "토스 상점"),
+            merchantAddress: SubOrder.MerchantAddress(
+                country: textValue(subOrderMerchantCountryInputField, default: "KR"),
+                postalCode: textValue(subOrderMerchantPostalCodeInputField, default: "06133"),
+                address: textValue(subOrderMerchantAddressInputField, default: "서울특별시 강남구 테헤란로"),
+                detailAddress: optionalTextValue(subOrderMerchantDetailAddressInputField)
+            ),
+            orderName: textValue(subOrderNameInputField, default: "하위 주문")
+        )
+    }
+
+    private func textValue(_ textField: TextField, default defaultValue: String) -> String {
+        guard let text = textField.textField.text, !text.isEmpty else {
+            return defaultValue
+        }
+        return text
+    }
+
+    private func optionalTextValue(_ textField: TextField) -> String? {
+        guard let text = textField.textField.text, !text.isEmpty else {
+            return nil
+        }
+        return text
     }
 }
 

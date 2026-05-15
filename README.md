@@ -32,6 +32,30 @@ pod 'TossPayments'
 * [결제창 연동하기](https://docs.tosspayments.com/guides/payment/integration): 결제창에서 고객이 결제수단을 선택하고, 결제 정보를 입력해서 결제를 완료합니다. 
 * [결제위젯 연동하기](https://docs.tosspayments.com/guides/payment-widget/integration): 토스페이먼츠에서 수많은 상점을 분석하여 만든 최적의 주문서 UI입니다.
 
+### 하위 주문 정보 전달하기
+
+하위 상점별 주문 정보가 필요하면 `subOrders`에 `SubOrder` 배열을 전달하세요.
+
+```swift
+let subOrder = SubOrder(
+    merchantBusinessNumber: "1234567890",
+    merchantName: "토스 상점",
+    merchantAddress: SubOrder.MerchantAddress(
+        country: "KR",
+        postalCode: "06133",
+        address: "서울특별시 강남구 테헤란로",
+        detailAddress: "10층"
+    ),
+    orderName: "하위 주문"
+)
+
+let widgetPaymentInfo = DefaultWidgetPaymentInfo(
+    orderId: UUID().uuidString,
+    orderName: "토스페이먼츠 세트",
+    subOrders: [subOrder]
+)
+```
+
 ### 샘플 프로젝트
 
 1. `payment-sdk-ios` 리포지토리를 클론하세요.

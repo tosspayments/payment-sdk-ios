@@ -20,6 +20,7 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
     public var customerName: String?
     public var customerEmail: String?
     public var taxFreeAmount: Double?
+    public var subOrders: [SubOrder]?
 
     public init(
         amount: Double,
@@ -31,7 +32,8 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
         pendingUrl: String,
         customerName: String? = nil,
         customerEmail: String? = nil,
-        taxFreeAmount: Double? = nil
+        taxFreeAmount: Double? = nil,
+        subOrders: [SubOrder]? = nil
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -43,5 +45,6 @@ public struct ForeignEasyPayPaymentInfo: PaymentInfo {
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
+        self.subOrders = subOrders
     }
 }

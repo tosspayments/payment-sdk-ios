@@ -15,6 +15,7 @@ public struct GiftCertificatePaymentInfo: PaymentInfo {
     public let customerName: String?
     public let customerEmail: String?
     public let taxFreeAmount: Double?
+    public let subOrders: [SubOrder]?
     
     public init(
         amount: Double,
@@ -22,7 +23,8 @@ public struct GiftCertificatePaymentInfo: PaymentInfo {
         orderName: String,
         customerName: String?,
         customerEmail: String?,
-        taxFreeAmount: Double?
+        taxFreeAmount: Double?,
+        subOrders: [SubOrder]? = nil
     ) {
         self.amount = amount
         self.orderId = orderId
@@ -30,5 +32,6 @@ public struct GiftCertificatePaymentInfo: PaymentInfo {
         self.customerName = customerName
         self.customerEmail = customerEmail
         self.taxFreeAmount = taxFreeAmount
+        self.subOrders = subOrders
     }
 }

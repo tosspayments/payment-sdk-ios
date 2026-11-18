@@ -18,6 +18,8 @@
 
 프로젝트 폴더에 있는 Podfile에 아래와 같이 토스페이먼츠 iOS SDK를 추가하세요. Podfile을 저장하고 `pod install` 커맨드를 실행하세요.
 
+> CocoaPods trunk 가 2026-12-02 부터 읽기 전용이라 CocoaPods 로는 0.1.36 까지만 제공합니다. 이후 버전은 Swift Package Manager(SPM) 로 설치하세요. ([CocoaPods 공지](https://blog.cocoapods.org/CocoaPods-Specs-Repo/))
+
 ```
 pod 'TossPayments'
 ```

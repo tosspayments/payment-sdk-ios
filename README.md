@@ -25,7 +25,7 @@ pod 'TossPayments'
 ```
 
 ### Swift Package Manager(SPM)로 설치하기
-[토스페이먼츠 개발자 센터](https://docs.tosspayments.com/reference/widget-ios#swift-package-managerspm로-설치하기)
+[토스페이먼츠 개발자 센터](https://docs.tosspayments.com/sdk/v2/widget-ios#swift-package-managerspm로-설치하기)
 
 ## 시작하기
 

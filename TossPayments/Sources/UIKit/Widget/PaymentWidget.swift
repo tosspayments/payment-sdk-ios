@@ -62,7 +62,8 @@ public final class PaymentWidget: NSObject, HandleURLResult {
     }
     var baseURL: URL {
         guard let urlString = options?.brandpay?.redirectURL,
-              let url = URL(string: urlString) else {
+              let url = URL(string: urlString),
+              !BridgeOrigin(url: url).isOpaque else {
             return URL(string: "https://tosspayments.com")!
         }
         return url
@@ -105,25 +106,30 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         
         paymentMethodWidget.configuration.userContentController.add(
             RequestPaymentsMessageHandler(self),
-            name: ScriptName.requestPayments.rawValue
+            name: ScriptName.requestPayments.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             ErrorHandler({ [weak self] fail in
                 self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
             }),
-            name: ScriptName.error.rawValue
+            name: ScriptName.error.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
-            name: ScriptName.updateHeight.rawValue
+            name: ScriptName.updateHeight.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             RequestHTMLMessageHandler(self),
-            name: ScriptName.requestHTML.rawValue
+            name: ScriptName.requestHTML.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             MessageScriptHandler(self),
-            name: ScriptName.message.rawValue
+            name: ScriptName.message.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
         
@@ -144,25 +150,30 @@ public final class PaymentWidget: NSObject, HandleURLResult {
         
         paymentMethodWidget.configuration.userContentController.add(
             RequestPaymentsMessageHandler(self),
-            name: ScriptName.requestPayments.rawValue
+            name: ScriptName.requestPayments.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             ErrorHandler({ [weak self] fail in
                 self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("paymentMethodWidget", fail: fail)
             }),
-            name: ScriptName.error.rawValue
+            name: ScriptName.error.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
-            name: ScriptName.updateHeight.rawValue
+            name: ScriptName.updateHeight.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             RequestHTMLMessageHandler(self),
-            name: ScriptName.requestHTML.rawValue
+            name: ScriptName.requestHTML.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.configuration.userContentController.add(
             MessageScriptHandler(self),
-            name: ScriptName.message.rawValue
+            name: ScriptName.message.rawValue,
+            allowedOrigin: baseURL
         )
         paymentMethodWidget.loadHTMLString(htmlString, baseURL: baseURL)
         
@@ -177,15 +188,18 @@ public final class PaymentWidget: NSObject, HandleURLResult {
             ErrorHandler({ [weak self] fail in
                 self?.paymentMethodWidget?.widgetStatusDelegate?.didReceiveFail("agreement", fail: fail)
             }),
-            name: ScriptName.error.rawValue
+            name: ScriptName.error.rawValue,
+            allowedOrigin: baseURL
         )
         agreementWidget.configuration.userContentController.add(
             UpdateHeightMessageHandler(),
-            name: ScriptName.updateHeight.rawValue
+            name: ScriptName.updateHeight.rawValue,
+            allowedOrigin: baseURL
         )
         agreementWidget.configuration.userContentController.add(
             MessageScriptHandler(self),
-            name: ScriptName.message.rawValue
+            name: ScriptName.message.rawValue,
+            allowedOrigin: baseURL
         )
         agreementWidget.loadHTMLString(htmlString, baseURL: baseURL)
         self.agreementWidget = agreementWidget

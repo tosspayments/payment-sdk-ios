@@ -13,8 +13,8 @@ import WebKit
 final class TossPaymentsViewController: UIViewController {
     lazy var webView: WKWebView = {
         let configuration = WKWebViewConfiguration()
-        configuration.userContentController.add(SuccessHandler(self), name: ScriptName.success.rawValue)
-        configuration.userContentController.add(ErrorHandler(error), name: ScriptName.error.rawValue)
+        configuration.userContentController.add(SuccessHandler(self), name: ScriptName.success.rawValue, allowedOrigin: service.baseURL)
+        configuration.userContentController.add(ErrorHandler(error), name: ScriptName.error.rawValue, allowedOrigin: service.baseURL)
         let webView = WKWebView(frame: .zero, configuration: configuration)
         return webView
     }()

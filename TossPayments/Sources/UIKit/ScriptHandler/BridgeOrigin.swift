@@ -1,9 +1,9 @@
 import Foundation
 
 struct BridgeOrigin: Equatable {
-    let scheme: String
-    let host: String
-    let port: Int
+    private let scheme: String
+    private let host: String
+    private let port: Int
 
     init(url: URL) {
         self.init(scheme: url.scheme ?? "", host: url.host ?? "", port: url.port ?? 0)

@@ -45,6 +45,8 @@
 		6AB1E30B2A77976700D49332 /* RequestHTMLMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */; };
 		6AB1E30C2A77976700D49332 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C72A77976700D49332 /* ErrorHandler.swift */; };
 		6AB1E30D2A77976700D49332 /* SuccessHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C82A77976700D49332 /* SuccessHandler.swift */; };
+		54479D19E7232EA14E0DDEC5 /* BridgeOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A4A80DA197484C15890072B /* BridgeOrigin.swift */; };
+		D9C1CC00F948897CA4D0B559 /* OriginCheckedScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E22BD39DEE59BDA8929EFCE /* OriginCheckedScriptHandler.swift */; };
 		6AB1E30E2A77976700D49332 /* RequestPaymentsMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */; };
 		6AB1E30F2A77976700D49332 /* UpdateHeightMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */; };
 		6AB1E3102A77976700D49332 /* MessageScriptHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */; };
@@ -189,6 +191,8 @@
 		6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHTMLMessageHandler.swift; sourceTree = "<group>"; };
 		6AB1E2C72A77976700D49332 /* ErrorHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		6AB1E2C82A77976700D49332 /* SuccessHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuccessHandler.swift; sourceTree = "<group>"; };
+		0A4A80DA197484C15890072B /* BridgeOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgeOrigin.swift; sourceTree = "<group>"; };
+		1E22BD39DEE59BDA8929EFCE /* OriginCheckedScriptHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginCheckedScriptHandler.swift; sourceTree = "<group>"; };
 		6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestPaymentsMessageHandler.swift; sourceTree = "<group>"; };
 		6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateHeightMessageHandler.swift; sourceTree = "<group>"; };
 		6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageScriptHandler.swift; sourceTree = "<group>"; };
@@ -439,6 +443,8 @@
 				6AB1E2C62A77976700D49332 /* RequestHTMLMessageHandler.swift */,
 				6AB1E2C72A77976700D49332 /* ErrorHandler.swift */,
 				6AB1E2C82A77976700D49332 /* SuccessHandler.swift */,
+				0A4A80DA197484C15890072B /* BridgeOrigin.swift */,
+				1E22BD39DEE59BDA8929EFCE /* OriginCheckedScriptHandler.swift */,
 				6AB1E2C92A77976700D49332 /* RequestPaymentsMessageHandler.swift */,
 				6AB1E2CA2A77976700D49332 /* UpdateHeightMessageHandler.swift */,
 				6AB1E2CB2A77976700D49332 /* MessageScriptHandler.swift */,
@@ -871,6 +877,8 @@
 				6AB1E3142A77976700D49332 /* TossPaymentsWidgetUIDelegate.swift in Sources */,
 				6AB1E30A2A77976700D49332 /* ScriptName.swift in Sources */,
 				6AB1E30D2A77976700D49332 /* SuccessHandler.swift in Sources */,
+				54479D19E7232EA14E0DDEC5 /* BridgeOrigin.swift in Sources */,
+				D9C1CC00F948897CA4D0B559 /* OriginCheckedScriptHandler.swift in Sources */,
 				6AB1E3292A77976700D49332 /* DefaultPaymentInfo.swift in Sources */,
 				6AB1E2FC2A77976700D49332 /* CanUpdateHeight.swift in Sources */,
 				6AB1E2FF2A77976700D49332 /* PaymentMethodWidget.swift in Sources */,
